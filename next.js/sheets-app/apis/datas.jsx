@@ -3,8 +3,8 @@ var upload = '/upload',
 show = "/show",
 transport='/transport'
 
-//อัพโหลดไฟลexcel
-exports.Upfile = (user, date, transport_comp, excel) => {
+//อัพโหลดไฟลexcel waiting
+exports.Upfile = (user, transport_comp, excel) => {
   return  fetch(url + upload, {
         method: "POST",
         headers: {
@@ -13,7 +13,6 @@ exports.Upfile = (user, date, transport_comp, excel) => {
         },
         body: JSON.stringify({
             user: user,
-            date: date,
             transport_comp: transport_comp,
             excel: excel
         })
@@ -22,6 +21,23 @@ exports.Upfile = (user, date, transport_comp, excel) => {
             return res
         })
 }
+exports.Payback = (user, transport_comp, excel) => {
+    return  fetch(url + upload, {
+          method: "POST",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              user: user,
+              transport_comp: transport_comp,
+              excel: excel
+          })
+      }).then(res => res.json())
+          .then(res => {
+              return res
+          })
+  }
 
 //show
 exports.Show=()=>{
