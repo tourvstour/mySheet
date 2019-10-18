@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const { exsql, insert, transport } = require('../nodeApi/apis/insertCod')
+const { insert } = require('../nodeApi/apis/insertCod')
+const { transport } = require('../nodeApi/apis/dataList')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

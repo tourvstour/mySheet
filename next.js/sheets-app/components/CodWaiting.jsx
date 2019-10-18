@@ -113,7 +113,7 @@ class CodWaiting extends Component {
     return (
       <div>
         <Card>
-          <input type="file" id="file" onChange={this.importExcel} />
+          <input type="file" id="file" on={this.importExcel} />
           <br />
           <Select
             style={{ width: 200 }}
