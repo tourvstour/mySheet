@@ -4,13 +4,13 @@ var pool = new Pool({
         user: "postgres",
         host: "127.0.0.1",
         database: "sheet",
-        password: '1234',
+        password: '123456',
         port: "5432"
     })
 
-pool.connect()
-exports.transport = () => {
 
+exports.transport = () => {
+    pool.connect()
     var sqlTransport = `
     SELECT transport_company_number,
     transport_company_name

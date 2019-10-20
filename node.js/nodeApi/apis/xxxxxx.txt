@@ -1,0 +1,32 @@
+let sqlPaybackIn = `
+            INSERT INTO cod_pay_back (
+                user_profile_number,
+                user_store_number,
+                transport_company_number,
+                cod_pay_back_track_number,
+                cod_pay_back_sent_amount,
+                cod_pay_back_customer_name,
+                cod_pay_back_customer_address,
+                cod_pay_back_customer_phone,
+                cod_pay_back_zipcode,
+                cod_pay_back_date_transport,
+                cod_pay_back_active,
+                d_update
+            )
+            VALUES
+                (
+                    '${user_member}',
+                    '${user_member}',
+                    '${transport_company}',
+                    '${number}',
+                    '${price}',
+                    '${customer}',
+                    '${address}',
+                    '${phone}',
+                    '${post}',
+                    '${dates}',
+                    '1',
+                    now()
+                )
+            `
+            pool.query(sqlInsert)

@@ -1,13 +1,9 @@
 {
   "devFiles": [
-    "static/development/dll/dll_f5e771ca4390fecd21bd.js",
-    "static/development/dll/dll_f5e771ca4390fecd21bd.js.map"
+    "static/development/dll/dll_cfc9dfa0f79f9c029a87.js",
+    "static/development/dll/dll_cfc9dfa0f79f9c029a87.js.map"
   ],
   "pages": {
-    "/": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
@@ -22,8 +18,10 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/dataBoardFront": [
       "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
       "static/runtime/main.js"
     ]
   }

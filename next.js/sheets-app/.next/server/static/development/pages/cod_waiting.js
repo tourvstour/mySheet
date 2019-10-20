@@ -104,8 +104,10 @@ var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/jso
 
 var url = 'http://localhost:2000';
 var upload = '/upload',
+    payback = "/payback",
     show = "/show",
-    transport = '/transport'; //อัพโหลดไฟลexcel waiting
+    transport = '/transport',
+    board = '/board'; //อัพโหลดไฟลexcel waiting
 
 exports.Upfile = (user, transport_comp, excel) => {
   return fetch(url + upload, {
@@ -125,7 +127,7 @@ exports.Upfile = (user, transport_comp, excel) => {
 };
 
 exports.Payback = (user, transport_comp, excel) => {
-  return fetch(url + upload, {
+  return fetch(url + payback, {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -146,11 +148,28 @@ exports.Show = () => {
   return fetch(url + show, {
     method: "POST"
   });
-};
+}; //`บริษัทขนส่ง
+
 
 exports.TranSport = () => {
   return fetch(url + transport, {
     method: "POST"
+  }).then(res => res.json()).then(res => {
+    return res;
+  });
+}; //borads
+
+
+exports.OrderResult = user => {
+  return fetch(url + board, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: _JSON$stringify({
+      user: user
+    })
   }).then(res => res.json()).then(res => {
     return res;
   });
@@ -192,7 +211,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\components\\CodWaiting.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CodWaiting.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
@@ -312,28 +331,28 @@ class CodWaiting extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 115
       },
       __self: this
     }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 116
       },
       __self: this
     }, __jsx("input", {
       type: "file",
       id: "file",
-      on: this.importExcel,
+      onChange: this.importExcel,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116
+        lineNumber: 117
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 118
       },
       __self: this
     }), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -343,7 +362,7 @@ class CodWaiting extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       onChange: this.TranSportSelect,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 119
       },
       __self: this
     }, this.state.tranSportList.map((data, index) => __jsx(Option, {
@@ -351,19 +370,19 @@ class CodWaiting extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       value: data.transport_company_number,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 124
       },
       __self: this
     }, data.transport_company_name))), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126
+        lineNumber: 127
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127
+        lineNumber: 128
       },
       __self: this
     }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -371,13 +390,13 @@ class CodWaiting extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       dataSource: this.state.file,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 129
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 130
       },
       __self: this
     }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -385,7 +404,7 @@ class CodWaiting extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       onClick: this.Upload,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 131
       },
       __self: this
     }, "upload")));
@@ -410,7 +429,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\components\\nav.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -560,7 +579,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CodWaiting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CodWaiting */ "./components/CodWaiting.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\pages\\cod_waiting.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\cod_waiting.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -603,7 +622,7 @@ const cod_waiting = () => __jsx("div", {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Web\next.js\sheets-app\pages\cod_waiting.jsx */"./pages/cod_waiting.jsx");
+module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\cod_waiting.jsx */"./pages/cod_waiting.jsx");
 
 
 /***/ }),

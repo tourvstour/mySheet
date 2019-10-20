@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
-import { Upfile, TranSport } from '../apis/datas'
+import { Payback, TranSport } from '../apis/datas'
 import { Button, DatePicker, Select, Card, Table } from 'antd'
 import 'antd/dist/antd.css';
 
@@ -91,11 +91,10 @@ class CodPayBack extends Component {
   Upload = () => {
     let excel = this.state.file,
       user = '1234',
-      date = this.state.dateSelect.toString(),
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Upfile(user, date, transport_comp, excel)
+        var a = Payback(user,  transport_comp, excel)
         resolve(a)
       }).then(res => {
         console.log(res)

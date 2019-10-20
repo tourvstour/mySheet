@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const { insert } = require('../nodeApi/apis/insertCod')
+const { insert, Payback } = require('../nodeApi/apis/insertDB')
 const { transport } = require('../nodeApi/apis/dataList')
+const { OrderWaiting } = require('../nodeApi/apis/dataBoard')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -16,10 +17,14 @@ app.post('/show', async (req, res) => {
     var data = await exsql()
     res.json(data)
 })
-
+//waiting
 app.post('/upload', async (req, res) => {
     var ObjectReturn = await insert(req)
     res.json(ObjectReturn)
+})
+//payback
+app.post('/payback', async (req, res) => {
+    var Object = await Payback(req)
 })
 //บริษัทขนส่ง
 app.post('/transport', async (req, res) => {
@@ -28,7 +33,10 @@ app.post('/transport', async (req, res) => {
     res.json(ObjectReturn)
 })
 
-
+app.post('/board', async (req, res) => {
+    var boradReturn = await OrderWaiting(req)
+    res.json(boradReturn)
+})
 app.listen(2000, () => {
     console.log("start server api")
 })

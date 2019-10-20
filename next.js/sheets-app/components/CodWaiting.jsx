@@ -54,6 +54,7 @@ class CodWaiting extends Component {
       })
     })
   }
+
   importExcel = () => {
     const input = document.getElementById('file')
     let result = []
@@ -113,7 +114,7 @@ class CodWaiting extends Component {
     return (
       <div>
         <Card>
-          <input type="file" id="file" on={this.importExcel} />
+          <input type="file" id="file" onChange={this.importExcel} />
           <br />
           <Select
             style={{ width: 200 }}

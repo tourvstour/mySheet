@@ -11,8 +11,10 @@ var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/jso
 
 var url = 'http://localhost:2000';
 var upload = '/upload',
+    payback = "/payback",
     show = "/show",
-    transport = '/transport'; //อัพโหลดไฟลexcel waiting
+    transport = '/transport',
+    board = '/board'; //อัพโหลดไฟลexcel waiting
 
 exports.Upfile = function (user, transport_comp, excel) {
   return fetch(url + upload, {
@@ -34,7 +36,7 @@ exports.Upfile = function (user, transport_comp, excel) {
 };
 
 exports.Payback = function (user, transport_comp, excel) {
-  return fetch(url + upload, {
+  return fetch(url + payback, {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -57,11 +59,30 @@ exports.Show = function () {
   return fetch(url + show, {
     method: "POST"
   });
-};
+}; //`บริษัทขนส่ง
+
 
 exports.TranSport = function () {
   return fetch(url + transport, {
     method: "POST"
+  }).then(function (res) {
+    return res.json();
+  }).then(function (res) {
+    return res;
+  });
+}; //borads
+
+
+exports.OrderResult = function (user) {
+  return fetch(url + board, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: _JSON$stringify({
+      user: user
+    })
   }).then(function (res) {
     return res.json();
   }).then(function (res) {
@@ -116,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\components\\CodWaiting.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CodWaiting.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement;
 
 
@@ -250,28 +271,28 @@ function (_Component) {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 115
         },
         __self: this
       }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 116
         },
         __self: this
       }, __jsx("input", {
         type: "file",
         id: "file",
-        on: this.importExcel,
+        onChange: this.importExcel,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 117
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 118
         },
         __self: this
       }), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -281,7 +302,7 @@ function (_Component) {
         onChange: this.TranSportSelect,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 119
         },
         __self: this
       }, this.state.tranSportList.map(function (data, index) {
@@ -290,20 +311,20 @@ function (_Component) {
           value: data.transport_company_number,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 124
           },
           __self: this
         }, data.transport_company_name);
       })), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 127
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 128
         },
         __self: this
       }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -311,13 +332,13 @@ function (_Component) {
         dataSource: this.state.file,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 129
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 130
         },
         __self: this
       }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -325,7 +346,7 @@ function (_Component) {
         onClick: this.Upload,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 131
         },
         __self: this
       }, "upload")));
@@ -364,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\components\\nav.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
@@ -51213,10 +51234,10 @@ a:!(!b.characterData&&!b.characterDataOldValue)},d=this.i,f=0;f<d.length;f++)d[f
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=F%3A%5CWeb%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx!./":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=F%3A%5CWeb%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx!./":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx ***!
+  \********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -51545,12 +51566,12 @@ function simpleEnd(buf) {
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_7d8396d151b5f12cd955 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/object-assign/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_7d8396d151b5f12cd955 */ "dll-reference dll_7d8396d151b5f12cd955"))("./node_modules/object-assign/index.js");
 
 /***/ }),
 
@@ -58858,12 +58879,12 @@ process.umask = function() { return 0; };
 
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!*********************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_7d8396d151b5f12cd955 ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/prop-types/checkPropTypes.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_7d8396d151b5f12cd955 */ "dll-reference dll_7d8396d151b5f12cd955"))("./node_modules/prop-types/checkPropTypes.js");
 
 /***/ }),
 
@@ -59498,12 +59519,12 @@ if (true) {
 
 /***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
 /*!*******************************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_7d8396d151b5f12cd955 ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_7d8396d151b5f12cd955 */ "dll-reference dll_7d8396d151b5f12cd955"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -76522,12 +76543,12 @@ exports.default = _default;
 
 /***/ "./node_modules/react-dom/index.js":
 /*!***********************************************************************************************!*\
-  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_7d8396d151b5f12cd955 ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/react-dom/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_7d8396d151b5f12cd955 */ "dll-reference dll_7d8396d151b5f12cd955"))("./node_modules/react-dom/index.js");
 
 /***/ }),
 
@@ -76970,12 +76991,12 @@ function polyfill(Component) {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_b35e09dc2ca94ac6d9c1 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_7d8396d151b5f12cd955 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_b35e09dc2ca94ac6d9c1 */ "dll-reference dll_b35e09dc2ca94ac6d9c1"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_7d8396d151b5f12cd955 */ "dll-reference dll_7d8396d151b5f12cd955"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -90626,7 +90647,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CodWaiting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CodWaiting */ "./components/CodWaiting.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "F:\\Web\\next.js\\sheets-app\\pages\\cod_waiting.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\cod_waiting.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -90665,13 +90686,13 @@ var cod_waiting = function cod_waiting() {
 /***/ }),
 
 /***/ 2:
-/*!***************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fcod_waiting&absolutePagePath=F%3A%5CWeb%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx ***!
-  \***************************************************************************************************************************************/
+/*!************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fcod_waiting&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx ***!
+  \************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcod_waiting&absolutePagePath=F%3A%5CWeb%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=F%3A%5CWeb%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcod_waiting&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_waiting&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_waiting.jsx!./");
 
 
 /***/ }),
@@ -90698,14 +90719,14 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcod_wa
 
 /***/ }),
 
-/***/ "dll-reference dll_b35e09dc2ca94ac6d9c1":
+/***/ "dll-reference dll_7d8396d151b5f12cd955":
 /*!*******************************************!*\
-  !*** external "dll_b35e09dc2ca94ac6d9c1" ***!
+  !*** external "dll_7d8396d151b5f12cd955" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_b35e09dc2ca94ac6d9c1;
+module.exports = dll_7d8396d151b5f12cd955;
 
 /***/ })
 
