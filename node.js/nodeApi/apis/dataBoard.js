@@ -1,80 +1,189 @@
 const Pool = require('pg').Pool
 
 var pool = new Pool({
-    user: "postgres",
-    host: "127.0.0.1",
-    database: "sheet",
-    password: '123456',
-    port: "5432"
+	user: "postgres",
+	host: "127.0.0.1",
+	database: "sheet",
+	password: '123456',
+	port: "5432"
 })
+pool.connect()
 
-exports.OrderWaiting = (req, res) => {
-    pool.connect()
-    let userId = req.body.user
-    let sqlOrder = `
-    with user_number(users) as (values('${userId}'))
-SELECT
-2 as ids,
-'รอตรวจสอบ' as report,
-	count (cod_waiting_list.cod_waiting_list_id) as countOrder,
-	sum (cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC) as sumMoney
-FROM
-	cod_waiting_list
-WHERE
-	cod_waiting_list_active = '1'
-AND user_profile_number = (select users from user_number )::NUMERIC
-AND cod_waiting_list_track_number NOT IN (
+//รายการทั้งหมด
+exports.AllOrder = (req, res) => {
+	let userId = req.body.user,
+		allOrder = `
 	SELECT
-		cod_pay_back_track_number
+	cod_waiting_list.cod_waiting_list_id,
+	cod_waiting_list.user_profile_number,
+	cod_waiting_list.user_store_number,
+	cod_waiting_list.transport_company_number,
+	cod_waiting_list.cod_waiting_list_track_number as number,
+	cod_waiting_list.cod_waiting_list_sent_amount as price,
+	cod_waiting_list.cod_waiting_list_customer_name as customer,
+	cod_waiting_list.cod_waiting_list_customer_address as address,
+	cod_waiting_list.cod_waiting_list_zipcode post,
+	cod_waiting_list.cod_waiting_list_customer_phone as phone,
+	cod_waiting_list.cod_waiting_list_date_transport as dates
 	FROM
-		cod_pay_back
+		cod_waiting_list
 	WHERE
-		cod_pay_back.cod_pay_back_active = '1'
-	AND user_profile_number = (select users from user_number )::NUMERIC
-)
-
-union
-
-SELECT
-3 as ids,
-'ได้รับเงินแล้ว' as report,
-	count (cod_waiting_list.cod_waiting_list_id) as countOrder,
-	sum (cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC) as sumMoney
-FROM
-	cod_waiting_list
-WHERE
-	cod_waiting_list_active = '1'
-AND user_profile_number = (select users from user_number )::NUMERIC
-AND cod_waiting_list_track_number IN (
+		cod_waiting_list_active = '1'
+	AND user_store_number = '${userId}'
+	and user_profile_number='${userId}'
+	`
+	return pool.query(allOrder)
+		.then(res => {
+			return res.rows
+		})
+		.catch(err => {
+			throw err
+		})
+}
+//รายการรอรับเงิน
+exports.WaitingMonney = (req, res) => {
+	let userId = req.body.user,
+		waitingMonney = `
 	SELECT
-		cod_pay_back_track_number
+		cod_waiting_list.cod_waiting_list_id,
+		cod_waiting_list.user_profile_number,
+		cod_waiting_list.user_store_number,
+		cod_waiting_list.transport_company_number,
+		cod_waiting_list.cod_waiting_list_track_number as number,
+		cod_waiting_list.cod_waiting_list_sent_amount as price,
+		cod_waiting_list.cod_waiting_list_customer_name as customer,
+		cod_waiting_list.cod_waiting_list_customer_address as address,
+		cod_waiting_list.cod_waiting_list_zipcode as post,
+		cod_waiting_list.cod_waiting_list_customer_phone as phone,
+		cod_waiting_list.cod_waiting_list_date_transport as dates
 	FROM
-		cod_pay_back
+		cod_waiting_list
 	WHERE
-		cod_pay_back.cod_pay_back_active = '1'
-	AND user_profile_number = (select users from user_number )::NUMERIC
-)
+		cod_waiting_list_active = '1'
+	AND user_store_number = '${userId}'
+	AND user_profile_number = '${userId}'
+	AND cod_waiting_list.cod_waiting_list_track_number NOT IN (
+		SELECT
+			cod_pay_back.cod_pay_back_track_number
+		FROM
+			cod_pay_back
+		WHERE
+			cod_pay_back.cod_pay_back_active = '1'
+		AND cod_pay_back.user_profile_number ='${userId}'
+		and cod_pay_back.user_store_number ='${userId}'
+	)
+	`
+	return pool.query(waitingMonney)
+		.then(res => {
+			return res.rows
+		})
+		.catch(err => {
+			throw err
+		})
+}
+//รายการรับเงินเต็มจำนวนแล้ว
+exports.PayBackMonney = (req, res) => {
+	let userId = req.body.user,
+		payBack = `
+	SELECT
+	cod_pay_back.cod_pay_back_id,
+	cod_pay_back.user_profile_number,
+	cod_pay_back.transport_company_number,
+	cod_pay_back.cod_pay_back_track_number as number,
+	cod_pay_back.cod_pay_back_sent_amount as price,
+	cod_pay_back.cod_pay_back_customer_name as customer,
+	cod_pay_back.cod_pay_back_customer_address as address,
+	cod_pay_back.cod_pay_back_zipcode as post,
+	cod_pay_back.cod_pay_back_customer_phone as phone,
+	cod_pay_back.cod_pay_back_date_transport as dates
+	FROM  cod_waiting_list
+		INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
+	WHERE
+			cod_waiting_list_active = '1'
+		AND cod_waiting_list.user_store_number = '1234'
+		AND cod_waiting_list.user_profile_number = '1234'
+		AND cod_pay_back.user_profile_number = '1234'
+		AND cod_pay_back.user_store_number = '1234'
+		AND cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC = cod_pay_back.cod_pay_back_sent_amount::NUMERIC
+	
+		`
+	return pool.query(payBack)
+		.then(res => {
+			return res.rows
+		})
+		.catch(err => {
+			throw err
+		})
+}
+//รายรับเกิน
+exports.ExcessAmount = (req, res) => {
+	let userId = req.body.user,
+		ExcessAmount = `
+		SELECT
+			cod_waiting_list.user_profile_number,
+		cod_waiting_list.cod_waiting_list_track_number as number,
+		cod_waiting_list.cod_waiting_list_sent_amount as total_price,
+		cod_pay_back.cod_pay_back_sent_amount as pay_price,
+		cod_pay_back.cod_pay_back_customer_name as customer,
+		cod_pay_back.cod_pay_back_customer_address as address,
+		cod_pay_back.cod_pay_back_zipcode as post,
+		cod_pay_back.cod_pay_back_customer_phone as phone,
+		cod_pay_back.cod_pay_back_date_transport as dates,
+		cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as received_total,
+		'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดเกิน '||cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as price
+		FROM
+			cod_waiting_list
+		INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
 
-union
+		where 
+		cod_waiting_list.cod_waiting_list_active ='1'
+		and cod_pay_back.cod_pay_back_active ='1'
+		and cod_waiting_list.user_profile_number = '${userId}'
+		and cod_waiting_list.user_store_number ='${userId}'
+		and cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC < cod_pay_back.cod_pay_back_sent_amount::numeric
+	`
+	return pool.query(ExcessAmount)
+		.then(res => {
+			return res.rows
+		})
+		.catch(err => {
+			throw err
+		})
+}
 
-SELECT
-1 as ids,
-'ออเดอร์ทั้งหมด' as report,
-	count (cod_waiting_list.cod_waiting_list_id) as countOrder,
-	sum (cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC) as sumMoney
-FROM
-	cod_waiting_list
-WHERE
-	cod_waiting_list_active = '1'
-AND user_profile_number =(select users from user_number )::NUMERIC
+//รายรับขาด
+exports.AbsentAmount = (req, res) => {
 
-order by ids asc
-    `
-    return pool.query(sqlOrder)
-        .then(res => {
-            return res.rows
-        })
-        .catch(err => {
-            throw err
-        })
+	let userId = req.body.user,
+		AbsentAmount = `
+	SELECT
+	cod_waiting_list.user_profile_number,
+	cod_waiting_list.cod_waiting_list_track_number as number,
+	cod_waiting_list.cod_waiting_list_sent_amount as total_price,
+	cod_pay_back.cod_pay_back_sent_amount as pay_price,
+	cod_pay_back.cod_pay_back_customer_name as customer,
+	cod_pay_back.cod_pay_back_customer_address as address,
+	cod_pay_back.cod_pay_back_zipcode as post,
+	cod_pay_back.cod_pay_back_customer_phone as phone,
+	cod_pay_back.cod_pay_back_date_transport as dates,
+	cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC - cod_pay_back.cod_pay_back_sent_amount::NUMERIC as received_total,
+	'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดขาด '||cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as price
+	FROM
+		cod_waiting_list
+	INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
+
+	where 
+	cod_waiting_list.cod_waiting_list_active ='1'
+	and cod_pay_back.cod_pay_back_active ='1'
+	and cod_waiting_list.user_profile_number = '${userId}'
+	and cod_waiting_list.user_store_number ='${userId}'
+	and cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC > cod_pay_back.cod_pay_back_sent_amount::numeric
+	`
+	return pool.query(AbsentAmount)
+		.then(res => {
+			return res.rows
+		})
+		.catch(err => {
+			throw err
+		})
 }

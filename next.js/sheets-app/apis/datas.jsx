@@ -3,7 +3,11 @@ var upload = '/upload',
     payback = "/payback",
     show = "/show",
     transport = '/transport',
-    board = '/board'
+    allOrder = '/allorder',
+    waitingOrder = '/waitingOrder',
+    payBackOrder = '/payBackOrder',
+    absent = '/absent',
+    excess = '/excess'
 
 //อัพโหลดไฟลexcel waiting
 exports.Upfile = (user, transport_comp, excel) => {
@@ -23,6 +27,7 @@ exports.Upfile = (user, transport_comp, excel) => {
             return res
         })
 }
+//อัพโหลดไฟลexcel payback
 exports.Payback = (user, transport_comp, excel) => {
     return fetch(url + payback, {
         method: "POST",
@@ -41,12 +46,6 @@ exports.Payback = (user, transport_comp, excel) => {
         })
 }
 
-//show
-exports.Show = () => {
-    return fetch(url + show, {
-        method: "POST"
-    })
-}
 //`บริษัทขนส่ง
 exports.TranSport = () => {
     return fetch(url + transport, {
@@ -58,16 +57,81 @@ exports.TranSport = () => {
         })
 }
 
-//borads
-exports.OrderResult = (user) => {
-    return fetch(url + board, {
+
+//Reports 
+exports.AllOrders = (user) => {
+    return fetch(url + allOrder, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body:JSON.stringify({
-            user:user
+        body: JSON.stringify({
+            user: user
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+exports.WaitingOrders = (user) => {
+    return fetch(url + waitingOrder, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+exports.PayBackOrders = (user) => {
+    return fetch(url + payBackOrder, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+exports.Excess = (user) => {
+    return fetch(url + excess, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+exports.Absent = (user) => {
+    return fetch(url + absent, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user
         })
     })
         .then(res => res.json())
