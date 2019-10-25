@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
 	user: "postgres",
-	host: "127.0.0.1",
+	host: "192.168.59.222",
 	database: "sheet",
 	password: '123456',
 	port: "5432"
@@ -19,7 +19,7 @@ exports.AllOrder = (req, res) => {
 	cod_waiting_list.user_store_number,
 	cod_waiting_list.transport_company_number,
 	cod_waiting_list.cod_waiting_list_track_number as number,
-	cod_waiting_list.cod_waiting_list_sent_amount as price,
+	TO_NUMBER(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') as price,
 	cod_waiting_list.cod_waiting_list_customer_name as customer,
 	cod_waiting_list.cod_waiting_list_customer_address as address,
 	cod_waiting_list.cod_waiting_list_zipcode post,
@@ -50,7 +50,7 @@ exports.WaitingMonney = (req, res) => {
 		cod_waiting_list.user_store_number,
 		cod_waiting_list.transport_company_number,
 		cod_waiting_list.cod_waiting_list_track_number as number,
-		cod_waiting_list.cod_waiting_list_sent_amount as price,
+		TO_NUMBER(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') as price,
 		cod_waiting_list.cod_waiting_list_customer_name as customer,
 		cod_waiting_list.cod_waiting_list_customer_address as address,
 		cod_waiting_list.cod_waiting_list_zipcode as post,
@@ -90,7 +90,7 @@ exports.PayBackMonney = (req, res) => {
 	cod_pay_back.user_profile_number,
 	cod_pay_back.transport_company_number,
 	cod_pay_back.cod_pay_back_track_number as number,
-	cod_pay_back.cod_pay_back_sent_amount as price,
+	to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99') as price,
 	cod_pay_back.cod_pay_back_customer_name as customer,
 	cod_pay_back.cod_pay_back_customer_address as address,
 	cod_pay_back.cod_pay_back_zipcode as post,
@@ -104,7 +104,7 @@ exports.PayBackMonney = (req, res) => {
 		AND cod_waiting_list.user_profile_number = '1234'
 		AND cod_pay_back.user_profile_number = '1234'
 		AND cod_pay_back.user_store_number = '1234'
-		AND cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC = cod_pay_back.cod_pay_back_sent_amount::NUMERIC
+		AND to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') = to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	
 		`
 	return pool.query(payBack)
@@ -129,8 +129,8 @@ exports.ExcessAmount = (req, res) => {
 		cod_pay_back.cod_pay_back_zipcode as post,
 		cod_pay_back.cod_pay_back_customer_phone as phone,
 		cod_pay_back.cod_pay_back_date_transport as dates,
-		cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as received_total,
-		'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดเกิน '||cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as price
+		to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99') - to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') as received_total,
+		'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดเกิน '||to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99') - to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') as price
 		FROM
 			cod_waiting_list
 		INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
@@ -140,7 +140,7 @@ exports.ExcessAmount = (req, res) => {
 		and cod_pay_back.cod_pay_back_active ='1'
 		and cod_waiting_list.user_profile_number = '${userId}'
 		and cod_waiting_list.user_store_number ='${userId}'
-		and cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC < cod_pay_back.cod_pay_back_sent_amount::numeric
+		and to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') < to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	`
 	return pool.query(ExcessAmount)
 		.then(res => {
@@ -166,8 +166,8 @@ exports.AbsentAmount = (req, res) => {
 	cod_pay_back.cod_pay_back_zipcode as post,
 	cod_pay_back.cod_pay_back_customer_phone as phone,
 	cod_pay_back.cod_pay_back_date_transport as dates,
-	cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC - cod_pay_back.cod_pay_back_sent_amount::NUMERIC as received_total,
-	'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดขาด '||cod_pay_back.cod_pay_back_sent_amount::NUMERIC - cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC as price
+	to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') - to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99') as received_total,
+	'ราคา '||cod_waiting_list.cod_waiting_list_sent_amount||' ยอดรับ '||cod_pay_back.cod_pay_back_sent_amount||' ยอดขาด '||to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99') - to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') as price
 	FROM
 		cod_waiting_list
 	INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
@@ -177,7 +177,7 @@ exports.AbsentAmount = (req, res) => {
 	and cod_pay_back.cod_pay_back_active ='1'
 	and cod_waiting_list.user_profile_number = '${userId}'
 	and cod_waiting_list.user_store_number ='${userId}'
-	and cod_waiting_list.cod_waiting_list_sent_amount::NUMERIC > cod_pay_back.cod_pay_back_sent_amount::numeric
+	and to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') > to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	`
 	return pool.query(AbsentAmount)
 		.then(res => {

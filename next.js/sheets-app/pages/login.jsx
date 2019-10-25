@@ -1,9 +1,9 @@
-import React,{Component} from 'react'
-import C_login from '../components/C_login'
+import React, { Component } from 'react'
+import Login from '../components/Comp_login'
 
-const logins=()=>(
+const logins = () => (
     <div>
-        <C_login/>
+        <Login />
     </div>
 )
 export default logins

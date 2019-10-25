@@ -33,8 +33,7 @@ const columns = [{
   title: 'เบอร์ติดต่อ',
   dataIndex: 'phone',
   key: 'phone',
-},
-]
+}]
 class CodPayBack extends Component {
   constructor() {
     super()
@@ -63,7 +62,7 @@ class CodPayBack extends Component {
         res.forEach(arr => {
           let arr0 = new Date(arr[0]).toLocaleDateString(),
             arr1 = arr[1],
-            arr2 = arr[2],
+            arr2 = arr[2].toLocaleString('en-US', { minimumFractionDigits: 2 }),
             arr3 = arr[3],
             arr4 = arr[4],
             arr5 = arr[5],
@@ -94,7 +93,7 @@ class CodPayBack extends Component {
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Payback(user,  transport_comp, excel)
+        var a = Payback(user, transport_comp, excel)
         resolve(a)
       }).then(res => {
         console.log(res)

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { AllOrders, WaitingOrders, PayBackOrders, Excess, Absent } from '../apis/datas'
 import 'antd/dist/antd.css'
-import { Card, Table } from 'antd'
+import { Card, Table, Row, Col } from 'antd'
+import { Bar } from 'react-chartjs-2'
 
 class databoard extends Component {
 
@@ -164,38 +165,79 @@ class databoard extends Component {
     }
     render() {
         return (
-            <div>
-                <Card onClick={() => this.Cards("alloder")} hoverable>
-                    <h3>{this.state.AllOdersMonney} บาท</h3>
-                    <h4>รายการทั้งหมด</h4>
-                    <h4>{this.state.AllOdersRow} ออเดอร์</h4>
-                </Card>
-                <Card onClick={() => this.Cards("waiting")} hoverable>
-                    <h3>{this.state.WaitingMonney} บาท</h3>
-                    <h4>รายการรอตรวจสอบ</h4>
-                    <h4>{this.state.WaitingRow} ออเดอร์</h4>
-                </Card>
-                <Card onClick={() => this.Cards("payback")} hoverable>
-                    <h3>{this.state.PayBackMonney} บาท</h3>
-                    <h4>ได้รับเงินครบถ้วนแล้ว</h4>
-                    <h4>{this.state.PayBackRow} ออเดอร์</h4>
-                </Card>
-                <Card onClick={() => this.Cards("excess")} hoverable>
-                    <h3>{this.state.ExcessMonney} บาท</h3>
-                    <h4>ได้รับเงินเกิน</h4>
-                    <h4>{this.state.ExcessRow} ออเดอร์</h4>
-                </Card>
-                <Card onClick={() => this.Cards("absent")} hoverable>
-                    <h3>{this.state.AbsentMonney} บาท</h3>
-                    <h4>ได้รับเงินคืนไม่ครบ</h4>
-                    <h4>{this.state.AbsentRow} ออเดอร์</h4>
-                </Card>
+            <Col lg={{ span: "20", offset: "2" }}>
+                <Row gutter={16}>
+                    <Col lg={{ span: 8 }}>
+                        <Card onClick={() => this.Cards("alloder")} hoverable >
+                            <h3>{this.state.AllOdersMonney} บาท</h3>
+                            <h4>รายการทั้งหมด</h4>
+                            <h4>{this.state.AllOdersRow} ออเดอร์</h4>
+                        </Card>
+                    </Col>
+                    <Col lg={{ span: 8 }}>
+                        <Card onClick={() => this.Cards("waiting")} hoverable>
+                            <h3>{this.state.WaitingMonney} บาท</h3>
+                            <h4>รายการรอตรวจสอบ</h4>
+                            <h4>{this.state.WaitingRow} ออเดอร์</h4>
+                        </Card>
+                    </Col>
+                    <Col lg={{ span: 8 }}>
+                        <Card onClick={() => this.Cards("payback")} hoverable>
+                            <h3>{this.state.PayBackMonney} บาท</h3>
+                            <h4>ได้รับเงินครบถ้วนแล้ว</h4>
+                            <h4>{this.state.PayBackRow} ออเดอร์</h4>
+                        </Card>
+                    </Col>
+                </Row>
+                <br />
+                <Row gutter={16}>
+                    <Col lg={{ span: 12 }}>
+                        <Card onClick={() => this.Cards("excess")} hoverable>
+                            <h3>{this.state.ExcessMonney} บาท</h3>
+                            <h4>ได้รับเงินเกิน</h4>
+                            <h4>{this.state.ExcessRow} ออเดอร์</h4>
+                        </Card>
+                    </Col>
+                    <Col lg={{ span: 12 }}>
+                        <Card onClick={() => this.Cards("absent")} hoverable>
+                            <h3>{this.state.AbsentMonney} บาท</h3>
+                            <h4>ได้รับเงินคืนไม่ครบ</h4>
+                            <h4>{this.state.AbsentRow} ออเดอร์</h4>
+                        </Card>
+                    </Col>
+                </Row>
+                <br />
+                <Bar data={
+                    {
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: 'Waiting',
+                            data: [12, 19, 3, 5, 2, 3],
+                        }, {
+                            label: 'PayBack',
+                            data: [11, 12, 8, 7, 8, 4],
+
+                        }],
+                        options: {
+                            scales: {
+                                yAxisID: [{
+                                    id: 'a',
+                                    type: 'linear',
+                                    position: 'left'
+                                }, {
+                                    id: 'b',
+                                    type: 'linear',
+                                    position: 'right'
+                                }]
+                            }
+                        }
+                    }
+                } />
                 <Table columns={columns} dataSource={this.state.dataTable} />
-            </div >
+            </Col >
         )
     }
 }
-
 
 export default databoard
 const columns = [{
@@ -226,5 +268,4 @@ const columns = [{
     title: 'เบอร์ติดต่อ',
     dataIndex: 'phone',
     key: 'phone',
-},
-]
+}]

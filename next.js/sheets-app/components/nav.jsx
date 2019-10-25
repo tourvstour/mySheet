@@ -7,13 +7,7 @@ class Navbars extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <select onChange={this.selects}>
-          <option value=""></option>
-            <option value="/cod_waiting">waiting</option>
-            <option value="/cod_payback">payback</option>
-          </select>
-        </nav>
+
       </div>
     )
   }

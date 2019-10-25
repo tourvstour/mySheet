@@ -1,4 +1,4 @@
-var url = 'http://localhost:2000'
+var url = 'http://192.168.59.25:2000'
 var upload = '/upload',
     payback = "/payback",
     show = "/show",
@@ -135,6 +135,26 @@ exports.Absent = (user) => {
         })
     })
         .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+
+//Login
+exports.Login = (user, pass) => {
+    let userName = user,
+        passWord = pass
+    return fetch(url + DOMSettableTokenList, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            'Content-Type': "application/json",
+        },
+        body: JSON.stringify({
+            user: userName,
+            pass: passWord
+        })
+    }).then(res => res.json())
         .then(res => {
             return res
         })

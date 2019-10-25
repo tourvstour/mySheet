@@ -2,12 +2,11 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
     user: "postgres",
-    host: "127.0.0.1",
+    host: "192.168.59.222",
     database: "sheet",
     password: '123456',
     port: "5432"
 })
-
 
 //insert waiting
 exports.insert = (req, res) => {
@@ -135,7 +134,7 @@ exports.Payback = (req, res) => {
                 let row = res.rowCount
                 if (row > 0) {
                     console.log("update")
-                    let sql_pay_update=`UPDATE cod_pay_back 
+                    let sql_pay_update = `UPDATE cod_pay_back 
                     SET cod_pay_back_sent_amount = '${price}',
                     cod_pay_back_customer_name= '${customer}',
                     cod_pay_back_customer_address = '${address}',
@@ -147,12 +146,12 @@ exports.Payback = (req, res) => {
                     and user_profile_number ='${user_member}'
                     and user_store_number = '${user_member}' `
                     pool.query(sql_pay_update)
-                    .then(res=>{
-                        res
-                    })
-                    .catch(err=>{
-                        throw err
-                    })
+                        .then(res => {
+                            res
+                        })
+                        .catch(err => {
+                            throw err
+                        })
                 }
                 else if (row < 1) {
                     console.log("insert")

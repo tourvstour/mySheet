@@ -61,9 +61,10 @@ class CodWaiting extends Component {
     readXlsxFile(input.files[0], {})
       .then(res => {
         res.forEach(arr => {
-          let arr0 = new Date(arr[0]).toLocaleDateString(),
+          let arr0 = new Date(
+            arr[0]).toLocaleDateString(),
             arr1 = arr[1],
-            arr2 = arr[2],
+            arr2 = arr[2].toLocaleString('en-US', { minimumFractionDigits: 2 }),
             arr3 = arr[3],
             arr4 = arr[4],
             arr5 = arr[5],
@@ -94,7 +95,7 @@ class CodWaiting extends Component {
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Upfile(user,transport_comp, excel)
+        var a = Upfile(user, transport_comp, excel)
         resolve(a)
       }).then(res => {
         console.log(res)
