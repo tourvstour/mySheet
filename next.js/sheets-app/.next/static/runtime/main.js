@@ -4818,7 +4818,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "I:\\jobs\\next.js\\sheets-app\\.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "D:\\react\\webs\\next.js\\sheets-app\\.next");
       return error;
     }
   };

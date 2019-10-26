@@ -14,10 +14,8 @@ class C_login extends Component {
         cookies.set('password', password, { expires: dateExpires })
     }
 
-    Logout = () => {
-        const { cookies } = this.props
-        cookies.remove('user')
-        cookies.remove('password')
+    Regiter=()=>{
+        window.location.href="regiter"
     }
     render() {
         return (
@@ -30,7 +28,7 @@ class C_login extends Component {
                     <br />
                     <br />
                     <Button onClick={this.Login}>LOGIN</Button>
-                    <Button onClick={this.Logout}>Logout</Button>
+                    <Button onClick={this.Regiter}>Regiter</Button>
                 </Card>
             </div>
         )

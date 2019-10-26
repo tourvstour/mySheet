@@ -1,7 +1,7 @@
 var url = 'http://192.168.59.25:2000'
 var upload = '/upload',
     payback = "/payback",
-    show = "/show",
+    regiter = "/regiter",
     transport = '/transport',
     allOrder = '/allorder',
     waitingOrder = '/waitingOrder',
@@ -139,7 +139,22 @@ exports.Absent = (user) => {
             return res
         })
 }
-
+//Regit
+exports.Regit = (dataRegit) => {
+    return fetch(url + regiter, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            'Content-Type': "application/json",
+        },
+        body:JSON.stringify({
+            dataRegit:dataRegit
+        })
+    }).then(res=>res.json())
+    .then(res=>{
+        return res
+    })
+}
 //Login
 exports.Login = (user, pass) => {
     let userName = user,

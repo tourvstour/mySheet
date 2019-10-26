@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\Comp_login.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\Comp_login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement;
 
 
@@ -145,12 +145,8 @@ class C_login extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "Logout", () => {
-      const {
-        cookies
-      } = this.props;
-      cookies.remove('user');
-      cookies.remove('password');
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "Regiter", () => {
+      window.location.href = "regiter";
     });
   }
 
@@ -158,7 +154,7 @@ class C_login extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 22
       },
       __self: this
     }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -168,17 +164,31 @@ class C_login extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       title: "LOGIN",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 23
       },
       __self: this
     }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
       id: "user",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 24
       },
       __self: this
     }), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    }), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }), __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      id: "password",
+      type: "password",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 27
@@ -190,41 +200,27 @@ class C_login extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
         lineNumber: 28
       },
       __self: this
-    }), __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      id: "password",
-      type: "password",
+    }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29
-      },
-      __self: this
-    }), __jsx("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
-    }), __jsx("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 31
       },
       __self: this
     }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
       onClick: this.Login,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 30
       },
       __self: this
     }, "LOGIN"), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      onClick: this.Logout,
+      onClick: this.Regiter,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 31
       },
       __self: this
-    }, "Logout")));
+    }, "Regiter")));
   }
 
 }
@@ -297,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Comp_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Comp_login */ "./components/Comp_login.jsx");
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\login.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -320,14 +316,14 @@ const logins = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*******************************!*\
   !*** multi ./pages/login.jsx ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! I:\jobs\next.js\sheets-app\pages\login.jsx */"./pages/login.jsx");
+module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\login.jsx */"./pages/login.jsx");
 
 
 /***/ }),

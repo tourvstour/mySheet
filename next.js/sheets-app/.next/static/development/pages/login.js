@@ -37,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\Comp_login.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\Comp_login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement;
 
 
@@ -75,10 +75,8 @@ function (_Component) {
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "Logout", function () {
-      var cookies = _this.props.cookies;
-      cookies.remove('user');
-      cookies.remove('password');
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "Regiter", function () {
+      window.location.href = "regiter";
     });
 
     return _this;
@@ -90,7 +88,7 @@ function (_Component) {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 22
         },
         __self: this
       }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -100,17 +98,31 @@ function (_Component) {
         title: "LOGIN",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 23
         },
         __self: this
       }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
         id: "user",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 24
         },
         __self: this
       }), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      }), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }), __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        id: "password",
+        type: "password",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 27
@@ -122,41 +134,27 @@ function (_Component) {
           lineNumber: 28
         },
         __self: this
-      }), __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        id: "password",
-        type: "password",
+      }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29
-        },
-        __self: this
-      }), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30
-        },
-        __self: this
-      }), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 31
         },
         __self: this
       }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
         onClick: this.Login,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 30
         },
         __self: this
       }, "LOGIN"), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        onClick: this.Logout,
+        onClick: this.Regiter,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 31
         },
         __self: this
-      }, "Logout")));
+      }, "Regiter")));
     }
   }]);
 
@@ -29850,10 +29848,10 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx!./":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx!./":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx ***!
+  \********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37572,7 +37570,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Comp_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Comp_login */ "./components/Comp_login.jsx");
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\login.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -37597,14 +37595,14 @@ var logins = function logins() {
 
 /***/ }),
 
-/***/ 0:
-/*!****************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx ***!
-  \****************************************************************************************************************************/
+/***/ 3:
+/*!************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Clogin.jsx!./");
 
 
 /***/ }),
@@ -37620,5 +37618,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[3,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=login.js.map

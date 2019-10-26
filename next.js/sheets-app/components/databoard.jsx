@@ -216,7 +216,10 @@ class databoard extends Component {
                         }, {
                             label: 'PayBack',
                             data: [11, 12, 8, 7, 8, 4],
-
+                        },
+                        {
+                            label: 'PayBack',
+                            data: [11, 12, 8, 7, 8, 4],
                         }],
                         options: {
                             scales: {

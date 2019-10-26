@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
     user: "postgres",
-    host: "192.168.59.222",
+    host: "127.0.0.1",
     database: "sheet",
     password: '123456',
     port: "5432"
@@ -10,7 +10,6 @@ var pool = new Pool({
 
 pool.connect()
 exports.transport = () => {
-
     var sqlTransport = `
     SELECT transport_company_number,
     transport_company_name
