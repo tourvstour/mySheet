@@ -7,7 +7,7 @@ class Comp_regit extends Component {
     constructor() {
         super()
         this.state = {
-            button: <Button onClick={this.Check}>ตรวจสอบ</Button>,
+            buttonDis: true,
             dateRegiter: [],
 
             emailHelp: '',
@@ -26,28 +26,41 @@ class Comp_regit extends Component {
             confirm_password = document.getElementById('confirm'),
             store = document.getElementById('store'),
             phone = document.getElementById('phone')
-
-
         if (email.value.includes('@') === false) {
             this.setState({
                 emailHelp: "รูปแบบemailไม่ถูกต้อง",
-                emailStatus: 'error'
+                emailStatus: 'error',
+                buttonDis: true,
             })
         }
         else if (password.value === "") {
+            this.setState({
+                passHelp: 'ระบุpassw',
+                passStatus: 'error',
+                buttonDis: true
+            })
 
-        } else {
-            let dateRegiter = [{
+        }
+        else if (password.value !== confirm_password.value) {
+            this.setState({
+                buttonDis: true
+            })
+        }
+        else {
+            let dateRegiter = {
                 "email": email.value,
                 "passWord": password.value,
                 "confirmPassword": confirm_password.value,
                 "store": store.value,
                 "phone": phone.value
-            }]
-
+            }
             this.setState({
-                dateRegiter: dateRegiter,
-                button: <Button onClick={this.Regit}>Regiter</Button>
+                buttonDis: false,
+                emailHelp: '',
+                emailStatus: '',
+                passHelp: '',
+                passStatus: '',
+                dateRegiter: dateRegiter
             })
         }
     }
@@ -65,7 +78,7 @@ class Comp_regit extends Component {
         return (
             <div>
                 <Card>
-                    <Form layout="vertical" >
+                    <Form layout="vertical" onChange={this.Check}>
                         <Form.Item label={"E-mail"} validateStatus={this.state.emailStatus} help={this.state.emailHelp}>
                             <Input type={"email"} id={'email'} />
                         </Form.Item>
@@ -82,7 +95,7 @@ class Comp_regit extends Component {
                             <Input id={"phone"} />
                         </Form.Item>
                         <Form.Item>
-                            {this.state.button}
+                            <Button onClick={this.Regit} disabled={this.state.buttonDis}>Regiter</Button>
                         </Form.Item>
                     </Form>
 

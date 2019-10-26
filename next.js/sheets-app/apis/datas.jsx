@@ -1,4 +1,4 @@
-var url = 'http://192.168.59.25:2000'
+var url = 'http://127.0.0.1:2000'
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -150,7 +150,8 @@ exports.Regit = (dataRegit) => {
         body:JSON.stringify({
             dataRegit:dataRegit
         })
-    }).then(res=>res.json())
+    })
+    .then(res=>res.json())
     .then(res=>{
         return res
     })

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -102,7 +102,7 @@ module.exports =
 
 var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 
-var url = 'http://192.168.59.25:2000';
+var url = 'http://127.0.0.1:2000';
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -281,14 +281,14 @@ exports.Login = (user, pass) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/card */ "antd/lib/card");
 /* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_card__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var antd_lib_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/form */ "antd/lib/form");
-/* harmony import */ var antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_form__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/input */ "antd/lib/input");
-/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
-/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
+/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var antd_lib_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/form */ "antd/lib/form");
+/* harmony import */ var antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_form__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/input */ "antd/lib/input");
+/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
@@ -304,7 +304,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\Comp_regiter.jsx";
+var _jsxFileName = "D:\\projext\\next.js\\sheets-app\\components\\Comp_regiter.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
@@ -325,26 +325,34 @@ class Comp_regit extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       if (email.value.includes('@') === false) {
         this.setState({
           emailHelp: "รูปแบบemailไม่ถูกต้อง",
-          emailStatus: 'error'
+          emailStatus: 'error',
+          buttonDis: true
         });
-      } else if (password.value === "") {} else {
-        let dateRegiter = [{
+      } else if (password.value === "") {
+        this.setState({
+          passHelp: 'ระบุpassw',
+          passStatus: 'error',
+          buttonDis: true
+        });
+      } else if (password.value !== confirm_password.value) {
+        this.setState({
+          buttonDis: true
+        });
+      } else {
+        let dateRegiter = {
           "email": email.value,
           "passWord": password.value,
           "confirmPassword": confirm_password.value,
           "store": store.value,
           "phone": phone.value
-        }];
+        };
         this.setState({
-          dateRegiter: dateRegiter,
-          button: __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_4___default.a, {
-            onClick: this.Regit,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 50
-            },
-            __self: this
-          }, "Regiter")
+          buttonDis: false,
+          emailHelp: '',
+          emailStatus: '',
+          passHelp: '',
+          passStatus: '',
+          dateRegiter: dateRegiter
         });
       }
     });
@@ -352,7 +360,7 @@ class Comp_regit extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(this, "Regit", () => {
       console.log(this.state.dateRegiter);
       let dataRegit = this.state.dateRegiter;
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, reject) => {
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, reject) => {
         let objectReturn = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_8__["Regit"])(dataRegit);
         resolve(objectReturn);
       }).then(res => {
@@ -361,14 +369,7 @@ class Comp_regit extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
     });
 
     this.state = {
-      button: __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_4___default.a, {
-        onClick: this.Check,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        },
-        __self: this
-      }, "\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A"),
+      buttonDis: true,
       dateRegiter: [],
       emailHelp: '',
       emailStatus: '',
@@ -383,110 +384,119 @@ class Comp_regit extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66
+        lineNumber: 79
       },
       __self: this
     }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67
+        lineNumber: 80
       },
       __self: this
-    }, __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    }, __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a, {
       layout: "vertical",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 68
-      },
-      __self: this
-    }, __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
-      label: "E-mail",
-      validateStatus: this.state.emailStatus,
-      help: this.state.emailHelp,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69
-      },
-      __self: this
-    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      type: "email",
-      id: 'email',
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 70
-      },
-      __self: this
-    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
-      label: "Password",
-      validateStatus: this.state.passStatus,
-      help: this.state.passHelp,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 72
-      },
-      __self: this
-    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a.Password, {
-      id: "password",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 73
-      },
-      __self: this
-    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
-      label: "Confirm Password",
-      validateStatus: this.state.confStatus,
-      help: this.state.confHelp,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 75
-      },
-      __self: this
-    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a.Password, {
-      id: "confirm",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 76
-      },
-      __self: this
-    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
-      label: "ชื่อร้านค้า",
-      validateStatus: this.state.storeStatus,
-      help: this.state.storeHelp,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 78
-      },
-      __self: this
-    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      id: "store",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 79
-      },
-      __self: this
-    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
-      label: "เบอร์โทร",
-      validateStatus: this.state.phoneStatus,
-      help: this.state.phoneHelp,
+      onChange: this.Check,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 81
       },
       __self: this
-    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      id: "phone",
+    }, __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      label: "E-mail",
+      validateStatus: this.state.emailStatus,
+      help: this.state.emailHelp,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 82
       },
       __self: this
-    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_1___default.a.Item, {
+    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      type: "email",
+      id: 'email',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 83
       },
       __self: this
-    }, this.state.button))));
+    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      label: "Password",
+      validateStatus: this.state.passStatus,
+      help: this.state.passHelp,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 85
+      },
+      __self: this
+    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default.a.Password, {
+      id: "password",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 86
+      },
+      __self: this
+    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      label: "Confirm Password",
+      validateStatus: this.state.confStatus,
+      help: this.state.confHelp,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 88
+      },
+      __self: this
+    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default.a.Password, {
+      id: "confirm",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 89
+      },
+      __self: this
+    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      label: "ชื่อร้านค้า",
+      validateStatus: this.state.storeStatus,
+      help: this.state.storeHelp,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 91
+      },
+      __self: this
+    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      id: "store",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 92
+      },
+      __self: this
+    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      label: "เบอร์โทร",
+      validateStatus: this.state.phoneStatus,
+      help: this.state.phoneHelp,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 94
+      },
+      __self: this
+    }, __jsx(antd_lib_input__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      id: "phone",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 95
+      },
+      __self: this
+    })), __jsx(antd_lib_form__WEBPACK_IMPORTED_MODULE_2___default.a.Item, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 97
+      },
+      __self: this
+    }, __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      onClick: this.Regit,
+      disabled: this.state.buttonDis,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 98
+      },
+      __self: this
+    }, "Regiter")))));
   }
 
 }
@@ -581,7 +591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Comp_regiter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Comp_regiter */ "./components/Comp_regiter.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\regiter.jsx";
+var _jsxFileName = "D:\\projext\\next.js\\sheets-app\\pages\\regiter.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -598,14 +608,14 @@ const regiter = () => __jsx(_components_Comp_regiter__WEBPACK_IMPORTED_MODULE_1_
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!*********************************!*\
   !*** multi ./pages/regiter.jsx ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\regiter.jsx */"./pages/regiter.jsx");
+module.exports = __webpack_require__(/*! D:\projext\next.js\sheets-app\pages\regiter.jsx */"./pages/regiter.jsx");
 
 
 /***/ }),
