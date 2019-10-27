@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Payback, TranSport } from '../apis/datas'
 import { Button, DatePicker, Select, Card, Table } from 'antd'
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.css'
+import CheckLogin from '../components/CheckLogin'
+import { withCookies } from 'react-cookie'
 
 const { Option } = Select
 const columns = [{
@@ -88,12 +90,14 @@ class CodPayBack extends Component {
   }
 
   Upload = () => {
-    let excel = this.state.file,
-      user = '1234',
+    const { cookies } = this.props
+    let user = cookies.get('userNumber'),
+      store = cookies.get('storeNumber'),
+      excel = this.state.file,
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Payback(user, transport_comp, excel)
+        var a = Payback(user, transport_comp, excel,store)
         resolve(a)
       }).then(res => {
         console.log(res)
@@ -112,6 +116,7 @@ class CodPayBack extends Component {
   render() {
     return (
       <div>
+        <CheckLogin />
         <Card>
           <input type="file" id="file" onChange={this.importExcel} />
           <br />
@@ -134,4 +139,4 @@ class CodPayBack extends Component {
   }
 }
 
-export default CodPayBack
+export default withCookies(CodPayBack)

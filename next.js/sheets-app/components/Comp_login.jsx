@@ -12,6 +12,7 @@ class C_login extends Component {
             password = document.getElementById('password').value
         cookies.set('user', user, { expires: dateExpires });
         cookies.set('password', password, { expires: dateExpires })
+        window.location.href="/databoardfront"
     }
 
     Regiter=()=>{

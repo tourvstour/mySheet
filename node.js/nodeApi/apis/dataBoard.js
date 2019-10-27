@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
 	user: "postgres",
-	host: "192.168.20.78",
+	host: "localhost",
 	database: "sheet",
 	password: '123456',
 	port: "5432"
@@ -11,7 +11,8 @@ pool.connect()
 
 //รายการทั้งหมด
 exports.AllOrder = (req, res) => {
-	let userId = req.body.user,
+	let userNumber = req.body.user.toString(),
+		storeNumber = req.body.store.toString(),
 		allOrder = `
 	SELECT
 	cod_waiting_list.cod_waiting_list_id,
@@ -29,8 +30,8 @@ exports.AllOrder = (req, res) => {
 		cod_waiting_list
 	WHERE
 		cod_waiting_list_active = '1'
-	AND user_store_number = '${userId}'
-	and user_profile_number='${userId}'
+	AND user_store_number = '${storeNumber}'
+	and user_profile_number='${userNumber}'
 	`
 	return pool.query(allOrder)
 		.then(res => {
@@ -42,7 +43,8 @@ exports.AllOrder = (req, res) => {
 }
 //รายการรอรับเงิน
 exports.WaitingMonney = (req, res) => {
-	let userId = req.body.user,
+	let userNumber = req.body.user.toString(),
+		storeNumber = req.body.store.toString(),
 		waitingMonney = `
 	SELECT
 		cod_waiting_list.cod_waiting_list_id,
@@ -60,8 +62,8 @@ exports.WaitingMonney = (req, res) => {
 		cod_waiting_list
 	WHERE
 		cod_waiting_list_active = '1'
-	AND user_store_number = '${userId}'
-	AND user_profile_number = '${userId}'
+	AND user_store_number = '${storeNumber}'
+	AND user_profile_number = '${userNumber}'
 	AND cod_waiting_list.cod_waiting_list_track_number NOT IN (
 		SELECT
 			cod_pay_back.cod_pay_back_track_number
@@ -69,8 +71,8 @@ exports.WaitingMonney = (req, res) => {
 			cod_pay_back
 		WHERE
 			cod_pay_back.cod_pay_back_active = '1'
-		AND cod_pay_back.user_profile_number ='${userId}'
-		and cod_pay_back.user_store_number ='${userId}'
+		AND cod_pay_back.user_profile_number ='${userNumber}'
+		and cod_pay_back.user_store_number ='${storeNumber}'
 	)
 	`
 	return pool.query(waitingMonney)
@@ -83,7 +85,8 @@ exports.WaitingMonney = (req, res) => {
 }
 //รายการรับเงินเต็มจำนวนแล้ว
 exports.PayBackMonney = (req, res) => {
-	let userId = req.body.user,
+	let userNumber = req.body.user.toString(),
+		storeNumber = req.body.store.toString(),
 		payBack = `
 	SELECT
 	cod_pay_back.cod_pay_back_id,
@@ -100,10 +103,10 @@ exports.PayBackMonney = (req, res) => {
 		INNER JOIN cod_pay_back ON cod_waiting_list.cod_waiting_list_track_number = cod_pay_back.cod_pay_back_track_number
 	WHERE
 			cod_waiting_list_active = '1'
-		AND cod_waiting_list.user_store_number = '1234'
-		AND cod_waiting_list.user_profile_number = '1234'
-		AND cod_pay_back.user_profile_number = '1234'
-		AND cod_pay_back.user_store_number = '1234'
+		AND cod_waiting_list.user_store_number = '${storeNumber}'
+		AND cod_waiting_list.user_profile_number = '${userNumber}'
+		AND cod_pay_back.user_profile_number = '${userNumber}'
+		AND cod_pay_back.user_store_number = '${storeNumber}'
 		AND to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') = to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	
 		`
@@ -117,7 +120,8 @@ exports.PayBackMonney = (req, res) => {
 }
 //รายรับเกิน
 exports.ExcessAmount = (req, res) => {
-	let userId = req.body.user,
+	let userNumber = req.body.user.toString(),
+		storeNumber = req.body.store.toString(),
 		ExcessAmount = `
 		SELECT
 			cod_waiting_list.user_profile_number,
@@ -138,8 +142,8 @@ exports.ExcessAmount = (req, res) => {
 		where 
 		cod_waiting_list.cod_waiting_list_active ='1'
 		and cod_pay_back.cod_pay_back_active ='1'
-		and cod_waiting_list.user_profile_number = '${userId}'
-		and cod_waiting_list.user_store_number ='${userId}'
+		and cod_waiting_list.user_profile_number = '${userNumber}'
+		and cod_waiting_list.user_store_number ='${storeNumber}'
 		and to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') < to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	`
 	return pool.query(ExcessAmount)
@@ -154,7 +158,8 @@ exports.ExcessAmount = (req, res) => {
 //รายรับขาด
 exports.AbsentAmount = (req, res) => {
 
-	let userId = req.body.user,
+	let userNumber = req.body.user.toString(),
+		storeNumber=req.body.store.toString(),
 		AbsentAmount = `
 	SELECT
 	cod_waiting_list.user_profile_number,
@@ -175,8 +180,8 @@ exports.AbsentAmount = (req, res) => {
 	where 
 	cod_waiting_list.cod_waiting_list_active ='1'
 	and cod_pay_back.cod_pay_back_active ='1'
-	and cod_waiting_list.user_profile_number = '${userId}'
-	and cod_waiting_list.user_store_number ='${userId}'
+	and cod_waiting_list.user_profile_number = '${userNumber}'
+	and cod_waiting_list.user_store_number ='${storeNumber}'
 	and to_number(cod_waiting_list.cod_waiting_list_sent_amount,'l999999D99') > to_number(cod_pay_back.cod_pay_back_sent_amount,'l999999D99')
 	`
 	return pool.query(AbsentAmount)

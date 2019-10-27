@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Input, Button, Card, Form, InputNumber } from 'antd'
 import 'antd/dist/antd.css'
 import { Regit } from '../apis/datas'
-import { rejects } from 'assert'
 class Comp_regit extends Component {
     constructor() {
         super()

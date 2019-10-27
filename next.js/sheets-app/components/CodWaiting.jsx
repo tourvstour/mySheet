@@ -3,6 +3,8 @@ import readXlsxFile from 'read-excel-file'
 import { Upfile, TranSport } from '../apis/datas'
 import { Button, DatePicker, Select, Card, Table } from 'antd'
 import 'antd/dist/antd.css';
+import CheckLogin from '../components/CheckLogin'
+import { withCookies } from 'react-cookie'
 
 const { Option } = Select
 const columns = [{
@@ -90,12 +92,14 @@ class CodWaiting extends Component {
   }
 
   Upload = () => {
-    let excel = this.state.file,
-      user = '1234',
+    const { cookies } = this.props
+    let user = cookies.get('userNumber'),
+      store = cookies.get('storeNumber'),
+      excel = this.state.file,
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Upfile(user, transport_comp, excel)
+        var a = Upfile(user, transport_comp, excel, store)
         resolve(a)
       }).then(res => {
         console.log(res)
@@ -114,6 +118,7 @@ class CodWaiting extends Component {
   render() {
     return (
       <div>
+        <CheckLogin />
         <Card>
           <input type="file" id="file" onChange={this.importExcel} />
           <br />
@@ -136,4 +141,4 @@ class CodWaiting extends Component {
   }
 }
 
-export default CodWaiting
+export default withCookies(CodWaiting)

@@ -3,7 +3,8 @@ import { AllOrders, WaitingOrders, PayBackOrders, Excess, Absent } from '../apis
 import 'antd/dist/antd.css'
 import { Card, Table, Row, Col } from 'antd'
 import { Bar } from 'react-chartjs-2'
-
+import CheckLogin from '../components/CheckLogin'
+import { withCookies } from 'react-cookie'
 class databoard extends Component {
 
     constructor() {
@@ -34,99 +35,106 @@ class databoard extends Component {
         }
     }
     componentDidMount() {
-        var user = this.state.user.toString()
 
-        new Promise((resolve, reject) => {
-            let orders = AllOrders(user)
-            resolve(orders)
-        })
-            .then(res => {
-                let AllOdersRow = res.length
-                let totalMonney = null
-                res.forEach(v => {
-                    totalMonney = +totalMonney + +v.price
-                    return totalMonney
-                })
-                this.setState({
-                    AllOdersData: res,
-                    AllOdersRow: AllOdersRow,
-                    AllOdersMonney: totalMonney,
-                })
-            })
+        try {
+            const { cookies } = this.props
+            let user = cookies.get('userNumber').toString(),
+                store = cookies.get('storeNumber').toString()
 
-        new Promise((resolve, reject) => {
-            let waitingOrder = WaitingOrders(user)
-            resolve(waitingOrder)
-        })
-            .then(res => {
-                let WaitingRow = res.length
-                let totalMonney = null
-                res.forEach(v => {
-                    totalMonney = +totalMonney + +v.price
-                })
-                this.setState({
-                    WaitingData: res,
-                    WaitingRow: WaitingRow,
-                    WaitingMonney: totalMonney,
-                })
+            new Promise((resolve, reject) => {
+                let orders = AllOrders(user, store)
+                resolve(orders)
             })
+                .then(res => {
+                    let AllOdersRow = res.length
+                    let totalMonney = null
+                    res.forEach(v => {
+                        totalMonney = +totalMonney + +v.price
+                        return totalMonney
+                    })
+                    this.setState({
+                        AllOdersData: res,
+                        AllOdersRow: AllOdersRow,
+                        AllOdersMonney: totalMonney,
+                    })
+                })
 
-        new Promise((resolve, reject) => {
-            let paybackorder = PayBackOrders(user)
-            resolve(paybackorder)
-        })
-            .then(res => {
-                let PayBackRow = res.length
-                let totalMonney = null
-                res.forEach(v => {
-                    totalMonney = +totalMonney + +v.price
-                })
-                this.setState({
-                    PayBackData: res,
-                    PayBackRow: PayBackRow,
-                    PayBackMonney: totalMonney,
-                })
+            new Promise((resolve, reject) => {
+                let waitingOrder = WaitingOrders(user, store)
+                resolve(waitingOrder)
             })
+                .then(res => {
+                    let WaitingRow = res.length
+                    let totalMonney = null
+                    res.forEach(v => {
+                        totalMonney = +totalMonney + +v.price
+                    })
+                    this.setState({
+                        WaitingData: res,
+                        WaitingRow: WaitingRow,
+                        WaitingMonney: totalMonney,
+                    })
+                })
 
-        new Promise((resolve, reject) => {
-            let excess = Excess(user)
-            resolve(excess)
-        })
-            .then(res => {
-                let ExcessRow = res.length
-                let totalMonney = null
-                res.forEach(v => {
-                    totalMonney = +totalMonney + +v.received_total
-                    return totalMonney
-                })
-                this.setState({
-                    ExcessData: res,
-                    ExcessRow: ExcessRow,
-                    ExcessMonney: totalMonney
-                })
+            new Promise((resolve, reject) => {
+                let paybackorder = PayBackOrders(user, store)
+                resolve(paybackorder)
             })
-        //
-        new Promise((resolve, rejects) => {
-            let absent = Absent(user)
-            resolve(absent)
-        })
-            .then(res => {
-                let AbsentRow = res.length
-                let totalMonney = null
-                res.forEach(v => {
-                    totalMonney = +totalMonney + +v.received_total
-                    return totalMonney
+                .then(res => {
+                    let PayBackRow = res.length
+                    let totalMonney = null
+                    res.forEach(v => {
+                        totalMonney = +totalMonney + +v.price
+                    })
+                    this.setState({
+                        PayBackData: res,
+                        PayBackRow: PayBackRow,
+                        PayBackMonney: totalMonney,
+                    })
                 })
-                this.setState({
-                    AbsentData: res,
-                    AbsentRow: AbsentRow,
-                    AbsentMonney: totalMonney
-                })
+
+            new Promise((resolve, reject) => {
+                let excess = Excess(user, store)
+                resolve(excess)
             })
+                .then(res => {
+                    let ExcessRow = res.length
+                    let totalMonney = null
+                    res.forEach(v => {
+                        totalMonney = +totalMonney + +v.received_total
+                        return totalMonney
+                    })
+                    this.setState({
+                        ExcessData: res,
+                        ExcessRow: ExcessRow,
+                        ExcessMonney: totalMonney
+                    })
+                })
+            //
+            new Promise((resolve, rejects) => {
+                let absent = Absent(user, store)
+                resolve(absent)
+            })
+                .then(res => {
+                    let AbsentRow = res.length
+                    let totalMonney = null
+                    res.forEach(v => {
+                        totalMonney = +totalMonney + +v.received_total
+                        return totalMonney
+                    })
+                    this.setState({
+                        AbsentData: res,
+                        AbsentRow: AbsentRow,
+                        AbsentMonney: totalMonney
+                    })
+                })
+        } catch (error) {
+
+        }
     }
 
     Cards = (e) => {
-        console.log(e.toString())
+        //console.log(e.toString())
         var valueCard = e.toString()
         switch (valueCard) {
             case "alloder":
@@ -165,7 +173,9 @@ class databoard extends Component {
     }
     render() {
         return (
+
             <Col lg={{ span: "20", offset: "2" }}>
+                <CheckLogin />
                 <Row gutter={16}>
                     <Col lg={{ span: 8 }}>
                         <Card onClick={() => this.Cards("alloder")} hoverable >
@@ -242,7 +252,7 @@ class databoard extends Component {
     }
 }
 
-export default databoard
+export default withCookies(databoard)
 const columns = [{
     title: 'วันที่',
     dataIndex: 'dates',

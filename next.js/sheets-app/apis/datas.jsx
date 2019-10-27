@@ -7,10 +7,11 @@ var upload = '/upload',
     waitingOrder = '/waitingOrder',
     payBackOrder = '/payBackOrder',
     absent = '/absent',
-    excess = '/excess'
+    excess = '/excess',
+    login = '/login'
 
 //อัพโหลดไฟลexcel waiting
-exports.Upfile = (user, transport_comp, excel) => {
+exports.Upfile = (user, transport_comp, excel, store) => {
     return fetch(url + upload, {
         method: "POST",
         headers: {
@@ -20,7 +21,8 @@ exports.Upfile = (user, transport_comp, excel) => {
         body: JSON.stringify({
             user: user,
             transport_comp: transport_comp,
-            excel: excel
+            excel: excel,
+            store: store
         })
     }).then(res => res.json())
         .then(res => {
@@ -28,7 +30,7 @@ exports.Upfile = (user, transport_comp, excel) => {
         })
 }
 //อัพโหลดไฟลexcel payback
-exports.Payback = (user, transport_comp, excel) => {
+exports.Payback = (user, transport_comp, excel, store) => {
     return fetch(url + payback, {
         method: "POST",
         headers: {
@@ -38,7 +40,8 @@ exports.Payback = (user, transport_comp, excel) => {
         body: JSON.stringify({
             user: user,
             transport_comp: transport_comp,
-            excel: excel
+            excel: excel,
+            store: store
         })
     }).then(res => res.json())
         .then(res => {
@@ -59,7 +62,7 @@ exports.TranSport = () => {
 
 
 //Reports 
-exports.AllOrders = (user) => {
+exports.AllOrders = (user, store) => {
     return fetch(url + allOrder, {
         method: "POST",
         headers: {
@@ -67,7 +70,8 @@ exports.AllOrders = (user) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user
+            user: user,
+            store: store
         })
     })
         .then(res => res.json())
@@ -75,7 +79,7 @@ exports.AllOrders = (user) => {
             return res
         })
 }
-exports.WaitingOrders = (user) => {
+exports.WaitingOrders = (user, store) => {
     return fetch(url + waitingOrder, {
         method: "POST",
         headers: {
@@ -83,7 +87,8 @@ exports.WaitingOrders = (user) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user
+            user: user,
+            store: store
         })
     })
         .then(res => res.json())
@@ -91,7 +96,7 @@ exports.WaitingOrders = (user) => {
             return res
         })
 }
-exports.PayBackOrders = (user) => {
+exports.PayBackOrders = (user, store) => {
     return fetch(url + payBackOrder, {
         method: "POST",
         headers: {
@@ -99,7 +104,8 @@ exports.PayBackOrders = (user) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user
+            user: user,
+            store: store
         })
     })
         .then(res => res.json())
@@ -107,7 +113,7 @@ exports.PayBackOrders = (user) => {
             return res
         })
 }
-exports.Excess = (user) => {
+exports.Excess = (user, store) => {
     return fetch(url + excess, {
         method: "POST",
         headers: {
@@ -115,7 +121,8 @@ exports.Excess = (user) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user
+            user: user,
+            store: store
         })
     })
         .then(res => res.json())
@@ -123,7 +130,7 @@ exports.Excess = (user) => {
             return res
         })
 }
-exports.Absent = (user) => {
+exports.Absent = (user, store) => {
     return fetch(url + absent, {
         method: "POST",
         headers: {
@@ -131,7 +138,8 @@ exports.Absent = (user) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user
+            user: user,
+            store: store
         })
     })
         .then(res => res.json())
@@ -147,20 +155,20 @@ exports.Regit = (dataRegit) => {
             "Accept": "application/json",
             'Content-Type': "application/json",
         },
-        body:JSON.stringify({
-            dataRegit:dataRegit
+        body: JSON.stringify({
+            dataRegit: dataRegit
         })
     })
-    .then(res=>res.json())
-    .then(res=>{
-        return res
-    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
 }
 //Login
 exports.Login = (user, pass) => {
     let userName = user,
         passWord = pass
-    return fetch(url + DOMSettableTokenList, {
+    return fetch(url + login, {
         method: "POST",
         headers: {
             "Accept": "application/json",

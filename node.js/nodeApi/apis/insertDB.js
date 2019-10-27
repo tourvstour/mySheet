@@ -2,7 +2,7 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
     user: "postgres",
-    host: "192.168.20.78",
+    host: "localhost",
     database: "sheet",
     password: '123456',
     port: "5432"
@@ -15,6 +15,7 @@ exports.insert = (req, res) => {
     var dataInput = req.body.excel
     var userInput = req.body
     var user_member = userInput.user,
+        store_number = userInput.store,
         transport_company = userInput.transport_comp
 
     dataInput.forEach(e => {
@@ -31,7 +32,7 @@ exports.insert = (req, res) => {
         transport_company_number
         from 
         cod_waiting_list 
-        where user_store_number = '${user_member}' 
+        where user_store_number = '${store_number}' 
         and cod_waiting_list_track_number='${number}'
         and user_profile_number ='${user_member}'
         and transport_company_number ='${transport_company}'
@@ -49,7 +50,7 @@ exports.insert = (req, res) => {
                     cod_waiting_list_customer_phone = '${phone}' ,
                     d_update = now()
                     WHERE
-                    user_store_number = '${user_member}' 
+                    user_store_number = '${store_number}' 
                     and cod_waiting_list_track_number='${number}'
                     and user_profile_number ='${user_member}'`
                     pool.query(sql_update)
@@ -77,7 +78,7 @@ exports.insert = (req, res) => {
                             d_update )
                             VALUES( 
                                 '${user_member}',
-                                '${user_member}',
+                                '${store_number}',
                                 '${transport_company}', 
                                 '${number}', 
                                 '${price}', 
@@ -107,6 +108,7 @@ exports.Payback = (req, res) => {
     var dataInput = req.body.excel
     var userInput = req.body
     var user_member = userInput.user,
+        user_store = userInput.store,
         transport_company = userInput.transport_comp
     dataInput.forEach(p => {
         let address = p.address,
@@ -125,7 +127,7 @@ exports.Payback = (req, res) => {
         from cod_pay_back
         where
         cod_pay_back.cod_pay_back_track_number ='${number}'
-        and cod_pay_back.user_store_number='${user_member}'
+        and cod_pay_back.user_store_number='${user_store}'
         and cod_pay_back.user_profile_number='${user_member}'
         and cod_pay_back.transport_company_number='${transport_company}'
         `
@@ -144,7 +146,7 @@ exports.Payback = (req, res) => {
                     WHERE
                     cod_pay_back_track_number='${number}'
                     and user_profile_number ='${user_member}'
-                    and user_store_number = '${user_member}' `
+                    and user_store_number = '${user_store}' `
                     pool.query(sql_pay_update)
                         .then(res => {
                             res
@@ -173,7 +175,7 @@ exports.Payback = (req, res) => {
                     VALUES
                         (
                             '${user_member}',
-                            '${user_member}',
+                            '${user_store}',
                             '${transport_company}',
                             '${number}',
                             '${price}',

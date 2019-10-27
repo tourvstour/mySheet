@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const { insert, Payback } = require('../nodeApi/apis/insertDB')
 const { transport } = require('../nodeApi/apis/dataList')
 const { ExcessAmount, AbsentAmount, AllOrder, WaitingMonney, PayBackMonney } = require('../nodeApi/apis/dataBoard')
-const {Regiter} =require('../nodeApi/apis/Login')
+const { Regiter, Login } = require('../nodeApi/apis/Login')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -41,7 +41,7 @@ app.post('/waitingOrder', async (req, res) => {
     var waitingOrder = await WaitingMonney(req)
     res.json(waitingOrder)
 })
-app.post('/payBackOrder',async(req,res)=>{
+app.post('/payBackOrder', async (req, res) => {
     var payBackOrder = await PayBackMonney(req)
     res.json(payBackOrder)
 })
@@ -55,10 +55,15 @@ app.post('/absent', async (req, res) => {
     res.json(absent)
 })
 
-app.post('/regiter',async(req,res)=>{
+app.post('/regiter', async (req, res) => {
     var regiter = await Regiter(req)
     res.json(regiter)
 })
+app.post('/login', async (req, res) => {
+    var login = await Login(req)
+    res.json(login)
+})
+
 app.listen(2000, () => {
     console.log("start server api")
 })
