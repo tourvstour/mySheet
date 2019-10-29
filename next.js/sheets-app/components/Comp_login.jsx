@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Card, Input, Button } from 'antd'
-import { withCookies, Cookies, useCookies } from 'react-cookie';
-import 'antd/dist/antd.css';
+import { Card, Input, Button, Col, Icon } from 'antd'
+import { withCookies } from 'react-cookie'
+import 'antd/dist/antd.css'
+
 class C_login extends Component {
 
     Login = () => {
@@ -12,25 +13,43 @@ class C_login extends Component {
             password = document.getElementById('password').value
         cookies.set('user', user, { expires: dateExpires });
         cookies.set('password', password, { expires: dateExpires })
-        window.location.href="/databoardfront"
+        window.location.href = "/databoardfront"
     }
 
-    Regiter=()=>{
-        window.location.href="regiter"
+    Regiter = () => {
+        window.location.href = "regiter"
     }
     render() {
         return (
-            <div>
-                <Card style={{ borderRadius: "5px" }} title={"LOGIN"}>
-                    <Input id={"user"} />
-                    <br />
-                    <br />
-                    <Input id={"password"} type={"password"} />
-                    <br />
-                    <br />
-                    <Button onClick={this.Login}>LOGIN</Button>
-                    <Button onClick={this.Regiter}>Regiter</Button>
-                </Card>
+            <div style={{
+                padding: "2.7% 0 0 0"
+            }}>
+                <div style={{
+                    backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+                    width: "100%",
+                    height: "90%",
+                    padding: "5% 0 10% 0",
+                    position: "absolute"
+                }}>
+                    <Col lg={{ span: 8, offset: 8 }}>
+                        <div style={{ textAlign: "center" }}>
+                            <h2>เข้าสูระบบ</h2>
+                        </div>
+                        <Card >
+                            <Input id={"user"} placeholder={"Email"} prefix={<Icon type={"user"} />} />
+                            <br />
+                            <br />
+                            <Input id={"password"} type={"password"} placeholder={"Password"} prefix={<Icon type={"lock"} />} />
+                            <br />
+                            <br />
+                            <Button block onClick={this.Login} type={"primary"}>LOGIN</Button>
+                            <br />
+                            <br />
+                            <a onClick={this.Regiter}>สมัคสมาชิก</a>
+                        </Card>
+                    </Col>
+
+                </div>
             </div>
         )
     }

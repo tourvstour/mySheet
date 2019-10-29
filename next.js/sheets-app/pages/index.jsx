@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Button, DatePicker, Select } from 'antd'
-import NavBars from '../components/nav'
+import { Col, DatePicker, Select } from 'antd'
+import Nav from '../components/nav'
+import Err from '../error/400'
 
-const indexs=()=>(
+const indexs = () => (
   <div>
-    <NavBars/>
+    <Nav />
+    <Err />
   </div>
 )
 export default indexs

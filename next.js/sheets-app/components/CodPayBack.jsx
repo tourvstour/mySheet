@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Payback, TranSport } from '../apis/datas'
-import { Button, DatePicker, Select, Card, Table } from 'antd'
+import { Button, DatePicker, Select, Col, Table } from 'antd'
 import 'antd/dist/antd.css'
 import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
@@ -97,7 +97,7 @@ class CodPayBack extends Component {
       transport_comp = this.state.transportSelect.toString()
     if (excel.length > 0) {
       new Promise((resolve, rejects) => {
-        var a = Payback(user, transport_comp, excel,store)
+        var a = Payback(user, transport_comp, excel, store)
         resolve(a)
       }).then(res => {
         console.log(res)
@@ -115,25 +115,34 @@ class CodPayBack extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: "2.7% 0 0 0" }}>
         <CheckLogin />
-        <Card>
-          <input type="file" id="file" onChange={this.importExcel} />
-          <br />
-          <Select
-            style={{ width: 200 }}
-            onChange={this.TranSportSelect}
-          >
-            {this.state.tranSportList.map((data, index) => (
-              <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
-            ))}
-          </Select>
-          <br />
-          <br />
-          <Table columns={columns} dataSource={this.state.file} />
-          <br />
-          <Button block onClick={this.Upload}>upload</Button>
-        </Card>
+        <div style={{
+          backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+          width: "100%",
+          height: "90%",
+          padding: "2% 0 10% 0",
+          position: "absolute"
+        }}>
+          <Col lg={{ span: 20, offset: 2 }} >
+            <div>อัพโหลด shoping payback</div>
+            <input type="file" id="file" onChange={this.importExcel} />
+            <br />
+            <Select
+              style={{ width: 200 }}
+              onChange={this.TranSportSelect}
+            >
+              {this.state.tranSportList.map((data, index) => (
+                <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
+              ))}
+            </Select>
+            <br />
+            <br />
+            <Table columns={columns} dataSource={this.state.file} />
+            <br />
+            <Button block onClick={this.Upload}>upload</Button>
+          </Col>
+        </div>
       </div>
     )
   }

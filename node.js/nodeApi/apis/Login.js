@@ -2,7 +2,8 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
     user: "postgres",
-    host: "localhost",
+    //host: "localhost",
+    host: "192.168.59.222",
     database: "sheet",
     password: '123456',
     port: "5432"
@@ -104,11 +105,11 @@ exports.Login = (req) => {
     return pool.query(sql_check_login)
         .then(res => {
             let row = res.rowCount
-            if (row > 0){
+            if (row > 0) {
                 return res.rows
             }
-            else{
+            else {
                 return false
             }
-    })
+        })
 }

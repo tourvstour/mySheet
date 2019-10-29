@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -301,7 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
@@ -369,8 +369,8 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/card */ "antd/lib/card");
-/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_card__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
 /* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/table */ "antd/lib/table");
@@ -397,7 +397,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CodPayBack.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CodPayBack.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
@@ -523,6 +523,9 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
 
   render() {
     return __jsx("div", {
+      style: {
+        padding: "2.7% 0 0 0"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 118
@@ -534,25 +537,48 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         lineNumber: 119
       },
       __self: this
-    }), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    }), __jsx("div", {
+      style: {
+        backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+        width: "100%",
+        height: "90%",
+        padding: "2% 0 10% 0",
+        position: "absolute"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 120
       },
       __self: this
-    }, __jsx("input", {
+    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      lg: {
+        span: 20,
+        offset: 2
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 127
+      },
+      __self: this
+    }, __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 128
+      },
+      __self: this
+    }, "\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14 shoping payback"), __jsx("input", {
       type: "file",
       id: "file",
       onChange: this.importExcel,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 129
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122
+        lineNumber: 130
       },
       __self: this
     }), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -562,7 +588,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       onChange: this.TranSportSelect,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123
+        lineNumber: 131
       },
       __self: this
     }, this.state.tranSportList.map((data, index) => __jsx(Option, {
@@ -570,19 +596,19 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       value: data.transport_company_number,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 136
       },
       __self: this
     }, data.transport_company_name))), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 139
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132
+        lineNumber: 140
       },
       __self: this
     }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -590,13 +616,13 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       dataSource: this.state.file,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133
+        lineNumber: 141
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134
+        lineNumber: 142
       },
       __self: this
     }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -604,10 +630,10 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       onClick: this.Upload,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135
+        lineNumber: 143
       },
       __self: this
-    }, "upload")));
+    }, "upload"))));
   }
 
 }
@@ -625,31 +651,180 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/icon */ "antd/lib/icon");
+/* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/layout */ "antd/lib/layout");
+/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__);
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
-class Navbars extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
+
+
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
+
+const {
+  Header,
+  Content,
+  Footer
+} = antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default.a;
+const {
+  SubMenu
+} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a;
+const styleLeft = {
+  float: "left"
+};
+const styleRight = {
+  float: "right"
+};
+
+class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
   constructor(...args) {
     super(...args);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "selects", e => {
-      window.location.href = e.target.value;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "handClick", e => {
+      console.log(e);
+      window.location.href = e.key;
     });
   }
 
   render() {
-    return __jsx("div", {
+    return __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      lg: {
+        span: 20,
+        offset: 2
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 16
       },
       __self: this
-    }, "antd");
+    }, __jsx("div", {
+      style: {
+        paddingTop: 10
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, __jsx("div", {
+      style: {
+        position: "absolute",
+        textAlign: "center",
+        width: "100%"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, __jsx("img", {
+      src: "https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png",
+      width: "5%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      mode: "horizontal",
+      onClick: this.handClick,
+      style: {
+        borderColor: "#FFFFFF",
+        fontSize: "17px"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/index",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/package",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/contact",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleRight,
+      key: '/login',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, "LOGIN ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      type: "login",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleRight,
+      key: '/databoardfront',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, "DataBoard"), __jsx(SubMenu, {
+      title: "เพิ่มรายการ",
+      style: styleRight,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.ItemGroup, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      key: "/cod_waiting",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
+      },
+      __self: this
+    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      key: "/cod_payback",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, "cod_paybak"))))));
   }
 
 }
@@ -745,7 +920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_CodPayBack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CodPayBack */ "./components/CodPayBack.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\cod_payback.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\cod_payback.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -757,28 +932,22 @@ const payBack = () => __jsx("div", {
     lineNumber: 5
   },
   __self: undefined
-}, __jsx("h1", {
+}, __jsx(_components_nav__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 6
   },
   __self: undefined
-}, "UPLOAD/Pay Back"), __jsx("br", {
+}), __jsx("br", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 7
   },
   __self: undefined
-}), __jsx(_components_nav__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 8
-  },
-  __self: undefined
 }), __jsx(_components_CodPayBack__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9
+    lineNumber: 8
   },
   __self: undefined
 }));
@@ -787,14 +956,14 @@ const payBack = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/cod_payback.jsx ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\cod_payback.jsx */"./pages/cod_payback.jsx");
+module.exports = __webpack_require__(/*! I:\jobs\next.js\sheets-app\pages\cod_payback.jsx */"./pages/cod_payback.jsx");
 
 
 /***/ }),
@@ -810,14 +979,47 @@ module.exports = require("antd/lib/button");
 
 /***/ }),
 
-/***/ "antd/lib/card":
+/***/ "antd/lib/col":
+/*!*******************************!*\
+  !*** external "antd/lib/col" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/col");
+
+/***/ }),
+
+/***/ "antd/lib/icon":
 /*!********************************!*\
-  !*** external "antd/lib/card" ***!
+  !*** external "antd/lib/icon" ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("antd/lib/card");
+module.exports = require("antd/lib/icon");
+
+/***/ }),
+
+/***/ "antd/lib/layout":
+/*!**********************************!*\
+  !*** external "antd/lib/layout" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/layout");
+
+/***/ }),
+
+/***/ "antd/lib/menu":
+/*!********************************!*\
+  !*** external "antd/lib/menu" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/menu");
 
 /***/ }),
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Button, Card, Form, InputNumber } from 'antd'
+import { Input, Button, Col, Form, Card } from 'antd'
 import 'antd/dist/antd.css'
 import { Regit } from '../apis/datas'
 class Comp_regit extends Component {
@@ -75,30 +75,44 @@ class Comp_regit extends Component {
     }
     render() {
         return (
-            <div>
-                <Card>
-                    <Form layout="vertical" onChange={this.Check}>
-                        <Form.Item label={"E-mail"} validateStatus={this.state.emailStatus} help={this.state.emailHelp}>
-                            <Input type={"email"} id={'email'} />
-                        </Form.Item>
-                        <Form.Item label={"Password"} validateStatus={this.state.passStatus} help={this.state.passHelp}>
-                            <Input.Password id={"password"} />
-                        </Form.Item>
-                        <Form.Item label={"Confirm Password"} validateStatus={this.state.confStatus} help={this.state.confHelp}>
-                            <Input.Password id={"confirm"} />
-                        </Form.Item>
-                        <Form.Item label={"ชื่อร้านค้า"} validateStatus={this.state.storeStatus} help={this.state.storeHelp}>
-                            <Input id={"store"} />
-                        </Form.Item>
-                        <Form.Item label={"เบอร์โทร"} validateStatus={this.state.phoneStatus} help={this.state.phoneHelp}>
-                            <Input id={"phone"} />
-                        </Form.Item>
-                        <Form.Item>
-                            <Button onClick={this.Regit} disabled={this.state.buttonDis}>Regiter</Button>
-                        </Form.Item>
-                    </Form>
-
-                </Card>
+            <div style={{
+                padding: "2.7% 0 0 0"
+            }}>
+                <div style={{
+                    backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+                    width: "100%",
+                    height: "90%",
+                    padding: "2% 0 10% 0",
+                    position: "absolute"
+                }}>
+                    <Col lg={{ span: 8, offset: 8 }}>
+                        <Card style={{ padding: "0 0 10px 0 " }}>
+                            <div style={{ textAlign: "center" }}>
+                                <h1>สมัคสมาชิก</h1>
+                            </div>
+                            <Form layout="vertical" onChange={this.Check}>
+                                <Form.Item label={"E-mail"} validateStatus={this.state.emailStatus} help={this.state.emailHelp}>
+                                    <Input type={"email"} id={'email'} />
+                                </Form.Item>
+                                <Form.Item label={"Password"} validateStatus={this.state.passStatus} help={this.state.passHelp}>
+                                    <Input.Password id={"password"} />
+                                </Form.Item>
+                                <Form.Item label={"Confirm Password"} validateStatus={this.state.confStatus} help={this.state.confHelp}>
+                                    <Input.Password id={"confirm"} />
+                                </Form.Item>
+                                <Form.Item label={"ชื่อร้านค้า"} validateStatus={this.state.storeStatus} help={this.state.storeHelp}>
+                                    <Input id={"store"} />
+                                </Form.Item>
+                                <Form.Item label={"เบอร์โทร"} validateStatus={this.state.phoneStatus} help={this.state.phoneHelp}>
+                                    <Input id={"phone"} />
+                                </Form.Item>
+                                <Form.Item>
+                                    <Button onClick={this.Regit} disabled={this.state.buttonDis}>ลงทะเบียน</Button>
+                                </Form.Item>
+                            </Form>
+                        </Card>
+                    </Col>
+                </div>
             </div>
         )
     }

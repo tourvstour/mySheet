@@ -117,9 +117,16 @@ class CodWaiting extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: "2.7% 0 0 0" }}>
         <CheckLogin />
-        <Card>
+        <div style={{
+          backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+          width: "100%",
+          height: "90%",
+          padding: "2% 0 10% 0",
+          position: "absolute"
+        }}>
+          <div>อัพโหลด COD</div>
           <input type="file" id="file" onChange={this.importExcel} />
           <br />
           <Select
@@ -135,7 +142,8 @@ class CodWaiting extends Component {
           <Table columns={columns} dataSource={this.state.file} />
           <br />
           <Button block onClick={this.Upload}>upload</Button>
-        </Card>
+        </div>
+
       </div>
     )
   }

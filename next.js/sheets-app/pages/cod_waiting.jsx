@@ -5,8 +5,8 @@ import NavBars from '../components/nav'
 
 const cod_waiting = () => (
   <div>
-    <h1>Upload/CodWaiting </h1>
     <NavBars />
+    <br />
     <CodWaiting />
   </div>
 )

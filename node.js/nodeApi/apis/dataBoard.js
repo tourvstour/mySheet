@@ -2,7 +2,8 @@ const Pool = require('pg').Pool
 
 var pool = new Pool({
 	user: "postgres",
-	host: "localhost",
+	//host: "localhost",
+	host: "192.168.59.222",
 	database: "sheet",
 	password: '123456',
 	port: "5432"
@@ -159,7 +160,7 @@ exports.ExcessAmount = (req, res) => {
 exports.AbsentAmount = (req, res) => {
 
 	let userNumber = req.body.user.toString(),
-		storeNumber=req.body.store.toString(),
+		storeNumber = req.body.store.toString(),
 		AbsentAmount = `
 	SELECT
 	cod_waiting_list.user_profile_number,

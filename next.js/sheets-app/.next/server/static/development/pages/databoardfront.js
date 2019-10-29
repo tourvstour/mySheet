@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -301,7 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
@@ -397,7 +397,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\databoard.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\databoard.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
@@ -861,6 +861,197 @@ const columns = [{
 
 /***/ }),
 
+/***/ "./components/nav.jsx":
+/*!****************************!*\
+  !*** ./components/nav.jsx ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/icon */ "antd/lib/icon");
+/* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/layout */ "antd/lib/layout");
+/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
+
+const {
+  Header,
+  Content,
+  Footer
+} = antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default.a;
+const {
+  SubMenu
+} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a;
+const styleLeft = {
+  float: "left"
+};
+const styleRight = {
+  float: "right"
+};
+
+class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "handClick", e => {
+      console.log(e);
+      window.location.href = e.key;
+    });
+  }
+
+  render() {
+    return __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      lg: {
+        span: 20,
+        offset: 2
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, __jsx("div", {
+      style: {
+        paddingTop: 10
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }, __jsx("div", {
+      style: {
+        position: "absolute",
+        textAlign: "center",
+        width: "100%"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, __jsx("img", {
+      src: "https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png",
+      width: "5%",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      mode: "horizontal",
+      onClick: this.handClick,
+      style: {
+        borderColor: "#FFFFFF",
+        fontSize: "17px"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/index",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/package",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleLeft,
+      key: "/contact",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleRight,
+      key: '/login',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, "LOGIN ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      type: "login",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: this
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      style: styleRight,
+      key: '/databoardfront',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, "DataBoard"), __jsx(SubMenu, {
+      title: "เพิ่มรายการ",
+      style: styleRight,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.ItemGroup, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: this
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      key: "/cod_waiting",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
+      },
+      __self: this
+    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+      key: "/cod_payback",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, "cod_paybak"))))));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Navbars);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
@@ -947,21 +1138,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_databoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/databoard */ "./components/databoard.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
+/* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
 const Front = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 4
+    lineNumber: 5
   },
   __self: undefined
-}, __jsx(_components_databoard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+}, __jsx(_components_nav__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 6
+  },
+  __self: undefined
+}), __jsx("br", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7
+  },
+  __self: undefined
+}), __jsx(_components_databoard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8
   },
   __self: undefined
 }));
@@ -970,14 +1175,14 @@ const Front = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 5:
+/***/ 8:
 /*!****************************************!*\
   !*** multi ./pages/databoardfront.jsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\databoardfront.jsx */"./pages/databoardfront.jsx");
+module.exports = __webpack_require__(/*! I:\jobs\next.js\sheets-app\pages\databoardfront.jsx */"./pages/databoardfront.jsx");
 
 
 /***/ }),
@@ -1001,6 +1206,39 @@ module.exports = require("antd/lib/card");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/col");
+
+/***/ }),
+
+/***/ "antd/lib/icon":
+/*!********************************!*\
+  !*** external "antd/lib/icon" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/icon");
+
+/***/ }),
+
+/***/ "antd/lib/layout":
+/*!**********************************!*\
+  !*** external "antd/lib/layout" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/layout");
+
+/***/ }),
+
+/***/ "antd/lib/menu":
+/*!********************************!*\
+  !*** external "antd/lib/menu" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/menu");
 
 /***/ }),
 
