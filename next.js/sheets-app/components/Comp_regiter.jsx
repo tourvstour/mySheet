@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Button, Col, Form, Card } from 'antd'
+import { Input, Button, Col, Form, Card, message } from 'antd'
 import 'antd/dist/antd.css'
 import { Regit } from '../apis/datas'
 class Comp_regit extends Component {
@@ -7,46 +7,131 @@ class Comp_regit extends Component {
         super()
         this.state = {
             buttonDis: true,
-            dateRegiter: [],
+            dataRegiter: [],
 
             emailHelp: '',
-            emailStatus: '',
+            emailStatus: 'warning',
 
             passHelp: '',
-            passStatus: '',
+            passStatus: 'warning',
 
             confHelp: '',
-            confStatus: ''
+            confStatus: 'warning',
+
+            storeHelp: '',
+            storeStatus: 'warning',
+
+            phoneHelp: '',
+            phoneStatus: 'warning',
         }
     }
-    Check = (e) => {
+    Check = () => {
+
         let email = document.getElementById('email'),
             password = document.getElementById('password'),
             confirm_password = document.getElementById('confirm'),
             store = document.getElementById('store'),
             phone = document.getElementById('phone')
+
+
         if (email.value.includes('@') === false) {
             this.setState({
-                emailHelp: "รูปแบบemailไม่ถูกต้อง",
-                emailStatus: 'error',
                 buttonDis: true,
+                emailHelp: "*รูปแบบemailไม่ถูกต้อง",
+                emailStatus: 'error'
             })
         }
-        else if (password.value === "") {
+        else if (email.value.toString() === '') {
             this.setState({
-                passHelp: 'ระบุpassw',
-                passStatus: 'error',
-                buttonDis: true
+                buttonDis: true,
+                emailHelp: "ระบุemail",
+                emailStatus: 'error'
             })
+        } else {
+            this.setState({
+                emailHelp: "",
+                emailStatus: 'success'
+            })
+        }
 
-        }
-        else if (password.value !== confirm_password.value) {
+        //password
+        if (password.value.toString() === '') {
             this.setState({
-                buttonDis: true
+                buttonDis: true,
+                passHelp: '*กำหนดรหัสผ่าน',
+                passStatus: 'error'
             })
         }
         else {
-            let dateRegiter = {
+            this.setState({
+                passHelp: '',
+                passStatus: 'success',
+            })
+        }
+
+        //confirmpassword
+        if (confirm_password.value.toString() === '') {
+            this.setState({
+                buttonDis: true,
+                confHelp: '*ยืนยันรหัสผ่าน',
+                confStatus: 'error'
+            })
+        }
+        else if (confirm_password.value !== password.value) {
+            this.setState({
+                buttonDis: true,
+                confHelp: '*รหัสผ่านยืนยันไม่ตรง',
+                confStatus: 'error',
+            })
+        }
+        else {
+            this.setState({
+                confHelp: '',
+                confStatus: 'success',
+            })
+        }
+
+        //store
+        if (store.value.toString() === '') {
+            this.setState({
+                buttonDis: true,
+                storeHelp: '*ระบุชื่อร้าน',
+                storeStatus: 'error',
+            })
+        }
+        else {
+            this.setState({
+                storeHelp: '',
+                storeStatus: 'success',
+            })
+        }
+
+        //phone
+        if (phone.value.toString() === '') {
+            this.setState({
+                buttonDis: true,
+                phoneHelp: '*ระบุเบอร์ติดต่อ',
+                phoneStatus: 'error',
+            })
+        } else {
+            this.setState({
+                phoneHelp: '',
+                phoneStatus: 'success',
+            })
+        }
+        //
+        let s_email = this.state.emailStatus,
+            s_password = this.state.passStatus,
+            s_confpassword = this.state.confStatus,
+            s_store = this.state.storeStatus,
+            s_phone = this.state.phoneStatus
+        if (email.value === '' || password.value === '' || confirm_password.value === '' || store.value === '' || phone.value === '') {
+            this.setState({
+                buttonDis: true,
+            })
+        }
+        else {
+            let dataRegiter = {
                 "email": email.value,
                 "passWord": password.value,
                 "confirmPassword": confirm_password.value,
@@ -55,22 +140,32 @@ class Comp_regit extends Component {
             }
             this.setState({
                 buttonDis: false,
-                emailHelp: '',
-                emailStatus: '',
-                passHelp: '',
-                passStatus: '',
-                dateRegiter: dateRegiter
+                dataRegiter: dataRegiter,
             })
         }
     }
+
     Regit = () => {
-        console.log(this.state.dateRegiter)
-        let dataRegit = this.state.dateRegiter
+        let dataRegit = this.state.dataRegiter
         new Promise((resolve, reject) => {
             let objectReturn = Regit(dataRegit)
             resolve(objectReturn)
         }).then(res => {
-            console.log(res)
+            message.loading('registing...', 2)
+                .then(() => {
+                    let statue = res.statue.toString(),
+                        mes = res.mess.toString()
+                    if (statue === '1') {
+                        message.success(mes, 2)
+                            .then(() => {
+                                window.location.href = "/login"
+                            })
+                    }
+                    else if (statue === '0') {
+                        message.warning(mes, 2)
+                    }
+
+                })
         })
     }
     render() {

@@ -5,6 +5,7 @@ import Err from '../error/500'
 const Contact = () => (
     <div>
         <Nav />
+        <br />
         <Err />
     </div>
 )

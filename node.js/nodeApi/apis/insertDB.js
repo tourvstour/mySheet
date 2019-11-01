@@ -57,6 +57,7 @@ exports.insert = (req, res) => {
                     pool.query(sql_update)
                         .then(res => {
                             console.log(res.command + number)
+
                         })
                         .catch(err => {
                             throw err
@@ -93,8 +94,8 @@ exports.insert = (req, res) => {
                                     `
                     return pool.query(sqlInsert)
                         .then((row) => {
-                            var info = [{ stat: "succ", code: "200" }]
                             console.log(row.command + user_member + number)
+
                         })
                         .catch(err => {
                             throw err
@@ -111,15 +112,16 @@ exports.Payback = (req, res) => {
     var user_member = userInput.user,
         user_store = userInput.store,
         transport_company = userInput.transport_comp
-    dataInput.forEach(p => {
-        let address = p.address,
-            customer = p.customer,
-            number = p.number,
-            phone = p.phone,
-            post = p.post,
-            price = p.price,
-            dates = p.dates
-        let sql_check = `
+    var insertTodatabase = () => {
+        dataInput.forEach((p) => {
+            let address = p.address,
+                customer = p.customer,
+                number = p.number,
+                phone = p.phone,
+                post = p.post,
+                price = p.price,
+                dates = p.dates
+            let sql_check = `
         SELECT
         cod_pay_back.cod_pay_back_track_number,
         cod_pay_back.user_store_number,
@@ -132,12 +134,11 @@ exports.Payback = (req, res) => {
         and cod_pay_back.user_profile_number='${user_member}'
         and cod_pay_back.transport_company_number='${transport_company}'
         `
-        pool.query(sql_check)
-            .then(res => {
-                let row = res.rowCount
-                if (row > 0) {
-                    console.log("update")
-                    let sql_pay_update = `UPDATE cod_pay_back 
+            pool.query(sql_check)
+                .then(res => {
+                    let row = res.rowCount
+                    if (row > 0) {
+                        let sql_pay_update = `UPDATE cod_pay_back 
                     SET cod_pay_back_sent_amount = '${price}',
                     cod_pay_back_customer_name= '${customer}',
                     cod_pay_back_customer_address = '${address}',
@@ -148,17 +149,16 @@ exports.Payback = (req, res) => {
                     cod_pay_back_track_number='${number}'
                     and user_profile_number ='${user_member}'
                     and user_store_number = '${user_store}' `
-                    pool.query(sql_pay_update)
-                        .then(res => {
-                            res
-                        })
-                        .catch(err => {
-                            throw err
-                        })
-                }
-                else if (row < 1) {
-                    console.log("insert")
-                    let sqlPaybackIn = `
+                        pool.query(sql_pay_update)
+                            .then(res => {
+                                console.log("update")
+                            })
+                            .catch(err => {
+                                throw err
+                            })
+                    }
+                    else if (row < 1) {
+                        let sqlPaybackIn = `
                     INSERT INTO cod_pay_back (
                         user_profile_number,
                         user_store_number,
@@ -189,14 +189,27 @@ exports.Payback = (req, res) => {
                             now()
                         )
                     `
-                    pool.query(sqlPaybackIn)
-                        .then(res => {
-                            console.log(res)
-                        })
-                        .catch(err => {
-                            throw err
-                        })
-                }
-            })
-    })
+                        pool.query(sqlPaybackIn)
+                            .then(res => {
+                                console.log("insert")
+                            })
+                            .catch(err => {
+                                throw err
+                            })
+                    }
+                })
+        })
+        return { message: "success", code: '1' }
+    }
+
+    refun = async () => {
+        try {
+            let promiseA = await insertTodatabase()
+            return promiseA
+        }
+        catch (error) {
+            return error
+        }
+    }
+    return refun()
 }

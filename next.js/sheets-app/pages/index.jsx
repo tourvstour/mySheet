@@ -6,6 +6,7 @@ import Err from '../error/400'
 const indexs = () => (
   <div>
     <Nav />
+    <br />
     <Err />
   </div>
 )

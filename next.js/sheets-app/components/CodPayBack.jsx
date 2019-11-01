@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Payback, TranSport } from '../apis/datas'
-import { Button, DatePicker, Select, Col, Table } from 'antd'
+import { Button, Card, Select, Col, Table, Icon } from 'antd'
 import 'antd/dist/antd.css'
 import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
@@ -11,30 +11,37 @@ const columns = [{
   title: 'วันที่',
   dataIndex: 'dates',
   key: 'dates',
+  width: 100
 }, {
   title: 'เลขพัสดุ',
   dataIndex: 'number',
   key: 'number',
+  width: 150
 }, {
   title: 'ราคาสินค้า	',
   dataIndex: 'price',
   key: 'price',
+  width: 100
 }, {
   title: 'ชื่อลูกค้า',
   dataIndex: 'customer',
   key: 'customer',
+  width: 150
 }, {
   title: 'ที่อยู่จัดส่งพัสดุ',
   dataIndex: 'address',
   key: 'address',
+  width: 250
 }, {
   title: 'รหัสไปรษณี',
   dataIndex: 'post',
   key: 'post',
+  width: 100
 }, {
   title: 'เบอร์ติดต่อ',
   dataIndex: 'phone',
   key: 'phone',
+  width: 150
 }]
 class CodPayBack extends Component {
   constructor() {
@@ -118,32 +125,41 @@ class CodPayBack extends Component {
       <div style={{ padding: "2.7% 0 0 0" }}>
         <CheckLogin />
         <div style={{
-          backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+          backgroundColor: "#f7f7f7",
           width: "100%",
-          height: "90%",
-          padding: "2% 0 10% 0",
+          height: "100%",
           position: "absolute"
         }}>
-          <Col lg={{ span: 20, offset: 2 }} >
-            <div>อัพโหลด shoping payback</div>
-            <input type="file" id="file" onChange={this.importExcel} />
-            <br />
-            <Select
-              style={{ width: 200 }}
-              onChange={this.TranSportSelect}
-            >
-              {this.state.tranSportList.map((data, index) => (
-                <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
-              ))}
-            </Select>
-            <br />
-            <br />
-            <Table columns={columns} dataSource={this.state.file} />
-            <br />
-            <Button block onClick={this.Upload}>upload</Button>
+          <br />
+          <Col lg={{ span: 6, offset: 2 }} >
+            <Card style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
+              <div style={{ textAlign: "center" }}>อัพโหลด shoping payback</div>
+              <br />
+              <input type="file" id="file" onChange={this.importExcel} style={{ width: 180, }} />
+              <br />
+              <br />
+              <label>
+                <span>บริษัทขนส่ง : </span>
+                <Select
+                  id={"transport"}
+                  style={{ width: 200 }}
+                  onChange={this.TranSportSelect}
+                >
+                  {this.state.tranSportList.map((data, index) => (
+                    <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
+                  ))}
+                </Select>
+              </label>
+              <br />
+              <br />
+              <Button block onClick={this.Upload}>upload</Button>
+            </Card>
+          </Col>
+          <Col lg={{ span: 13, offset: 1 }}>
+            <Table style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} size="small" columns={columns} dataSource={this.state.file} scroll={{ x: 500, y: 500 }} />
           </Col>
         </div>
-      </div>
+      </div >
     )
   }
 }

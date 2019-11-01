@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -301,8 +301,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
@@ -317,11 +315,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         pass = cookies.get("password");
 
     if (user === undefined || pass === undefined) {
-      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-      setTimeout(() => {
-        window.location.href = "/login";
-      }, 1000);
+      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
     } else {
       new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a((resolve, reject) => {
         resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_4__["Login"])(user, pass));
@@ -329,11 +323,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         console.log(res);
 
         if (res === false) {
-          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-          setTimeout(() => {
-            window.location.href = "/login";
-          }, 1000);
+          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
         } else {
           cookies.set('storeName', res.map(a => a.user_store_name));
           cookies.set('storeNumber', res.map(a => a.user_store_number));
@@ -345,13 +335,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   }
 
   render() {
-    return __jsx("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    });
+    return null;
   }
 
 }
@@ -566,7 +550,13 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
   }
 
   render() {
-    return __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 176
+      },
+      __self: this
+    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
       lg: {
         span: "20",
         offset: "2"
@@ -818,12 +808,15 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
     }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
       columns: columns,
       dataSource: this.state.dataTable,
+      style: {
+        borderRadius: "10"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 249
       },
       __self: this
-    }));
+    })));
   }
 
 }
@@ -874,15 +867,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/icon */ "antd/lib/icon");
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/layout */ "antd/lib/layout");
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-cookie */ "react-cookie");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -892,14 +889,11 @@ var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
-const {
-  Header,
-  Content,
-  Footer
-} = antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default.a;
+
+
 const {
   SubMenu
-} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a;
+} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a;
 const styleLeft = {
   float: "left"
 };
@@ -908,13 +902,83 @@ const styleRight = {
 };
 
 class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
-  constructor(...args) {
-    super(...args);
+  constructor() {
+    super();
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "handClick", e => {
-      console.log(e);
-      window.location.href = e.key;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "handClick", e => {
+      let page = e.key;
+      console.log(page);
+
+      if (page === '/logout') {
+        const {
+          cookies
+        } = this.props;
+        cookies.remove('email');
+        cookies.remove('password');
+        cookies.remove('storeName');
+        cookies.remove('storeNumber');
+        cookies.remove('user');
+        cookies.remove('userNumber');
+        window.location.href = "/";
+      } else {
+        window.location.href = page;
+      }
     });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "Mouse", e => {
+      this.setState({
+        Icons: e
+      });
+    });
+
+    this.state = {
+      storeName: "",
+      Icons: "down",
+
+      /*LoginStat:
+        <Menu.Item style={styleRight} key={'/login'} >
+          เข้าสู่ระบบ < Icon type={"logout"} />
+        </Menu.Item>*/
+      LoginStat: {
+        text: "Login",
+        key: "/login",
+        icon: "login"
+      }
+    };
+  }
+
+  componentDidMount() {
+    const {
+      cookies
+    } = this.props;
+    let user = cookies.get("user"),
+        pass = cookies.get("password");
+
+    if (user !== undefined && pass !== undefined) {
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a((resolve, reject) => {
+        resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["Login"])(user, pass));
+      }).then(res => {
+        console.log(res);
+
+        if (res === false) {
+          cookies.remove("user");
+          cookies.remove("password");
+        } else {
+          cookies.set('storeName', res.map(a => a.user_store_name));
+          cookies.set('storeNumber', res.map(a => a.user_store_number));
+          cookies.set('email', res.map(a => a.user_profiles_email));
+          cookies.set('userNumber', res.map(a => a.user_profile_number));
+          this.setState({
+            storeName: cookies.get('storeName'),
+            LoginStat: {
+              text: "ร้าน " + cookies.get('storeName'),
+              key: "/logout",
+              icon: "logout"
+            }
+          });
+        }
+      });
+    }
   }
 
   render() {
@@ -925,7 +989,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 75
       },
       __self: this
     }, __jsx("div", {
@@ -934,7 +998,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 76
       },
       __self: this
     }, __jsx("div", {
@@ -945,7 +1009,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 79
       },
       __self: this
     }, __jsx("img", {
@@ -953,10 +1017,10 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       width: "5%",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 84
       },
       __self: this
-    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a, {
       mode: "horizontal",
       onClick: this.handClick,
       style: {
@@ -965,82 +1029,97 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 87
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/index",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 88
       },
       __self: this
-    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/package",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 91
       },
       __self: this
-    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/contact",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 94
       },
       __self: this
-    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleRight,
-      key: '/login',
+      key: this.state.LoginStat.key,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 97
       },
       __self: this
-    }, "LOGIN ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      type: "login",
+    }, this.state.LoginStat.text, " ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      type: this.state.LoginStat.icon,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 98
       },
       __self: this
-    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleRight,
       key: '/databoardfront',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 100
       },
       __self: this
     }, "DataBoard"), __jsx(SubMenu, {
-      title: "เพิ่มรายการ",
+      title: __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: this
+      }, "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        type: this.state.Icons,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: this
+      })),
       style: styleRight,
+      onTitleMouseEnter: () => this.Mouse("menu"),
+      onTitleMouseLeave: () => this.Mouse("down"),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 103
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.ItemGroup, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.ItemGroup, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 109
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       key: "/cod_waiting",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 110
       },
       __self: this
-    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       key: "/cod_payback",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 111
       },
       __self: this
     }, "cod_paybak"))))));
@@ -1048,7 +1127,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Navbars);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_6__["withCookies"])(Navbars));
 
 /***/ }),
 
@@ -1175,7 +1254,7 @@ const Front = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 8:
+/***/ 6:
 /*!****************************************!*\
   !*** multi ./pages/databoardfront.jsx ***!
   \****************************************/
@@ -1217,17 +1296,6 @@ module.exports = require("antd/lib/col");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/icon");
-
-/***/ }),
-
-/***/ "antd/lib/layout":
-/*!**********************************!*\
-  !*** external "antd/lib/layout" ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/layout");
 
 /***/ }),
 

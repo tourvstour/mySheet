@@ -4,7 +4,7 @@ import NavBars from '../components/nav'
 const Front = () => (
     <div>
         <NavBars />
-        <br></br>
+        <br />
         <Databoard />
     </div>
 )

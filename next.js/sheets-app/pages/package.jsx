@@ -4,6 +4,7 @@ import Err from '../error/500'
 const Package = () => (
     <div>
         <Nav />
+        <br />
         <Err />
     </div>
 

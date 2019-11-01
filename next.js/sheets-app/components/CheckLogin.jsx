@@ -11,10 +11,8 @@ class CheckLogin extends Component {
             pass = cookies.get("password")
 
         if (user === undefined || pass === undefined) {
-            message.error("login")
-            setTimeout(() => {
-                window.location.href = "/login"
-            }, 1000)
+            message.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2)
+                .then(() => window.location.href = "/login")
         } else {
             new Promise((resolve, reject) => {
                 resolve(Login(user, pass))
@@ -22,10 +20,8 @@ class CheckLogin extends Component {
                 .then(res => {
                     console.log(res)
                     if (res === false) {
-                        message.error("login")
-                        setTimeout(() => {
-                            window.location.href = "/login"
-                        }, 1000)
+                        message.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2)
+                            .then(() => window.location.href = "/login")
                     } else {
                         cookies.set('storeName', res.map(a => a.user_store_name))
                         cookies.set('storeNumber', res.map(a => a.user_store_number))
@@ -36,9 +32,7 @@ class CheckLogin extends Component {
         }
     }
     render() {
-        return (<div>
-
-        </div>)
+        return null
     }
 }
 export default withCookies(CheckLogin)

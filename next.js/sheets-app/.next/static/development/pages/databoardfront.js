@@ -237,8 +237,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
 
@@ -263,11 +261,9 @@ function (_Component) {
           pass = cookies.get("password");
 
       if (user === undefined || pass === undefined) {
-        antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-        setTimeout(function () {
-          window.location.href = "/login";
-        }, 1000);
+        antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(function () {
+          return window.location.href = "/login";
+        });
       } else {
         new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a(function (resolve, reject) {
           resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_9__["Login"])(user, pass));
@@ -275,11 +271,9 @@ function (_Component) {
           console.log(res);
 
           if (res === false) {
-            antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-            setTimeout(function () {
-              window.location.href = "/login";
-            }, 1000);
+            antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(function () {
+              return window.location.href = "/login";
+            });
           } else {
             cookies.set('storeName', res.map(function (a) {
               return a.user_store_name;
@@ -300,13 +294,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return __jsx("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
-      });
+      return null;
     }
   }]);
 
@@ -562,7 +550,13 @@ function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      return __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      return __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 176
+        },
+        __self: this
+      }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
         lg: {
           span: "20",
           offset: "2"
@@ -824,12 +818,15 @@ function (_Component) {
       }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
         columns: columns,
         dataSource: this.state.dataTable,
+        style: {
+          borderRadius: "10"
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 249
         },
         __self: this
-      }));
+      })));
     }
   }]);
 
@@ -882,21 +879,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/icon */ "./node_modules/antd/lib/icon/index.js");
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd/lib/menu */ "./node_modules/antd/lib/menu/index.js");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/lib/layout */ "./node_modules/antd/lib/layout/index.js");
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(antd_lib_layout__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime-corejs2/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/lib/menu */ "./node_modules/antd/lib/menu/index.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/index.js");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_14__);
 
 
 
@@ -912,10 +912,9 @@ var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement;
 
 
-var Header = antd_lib_layout__WEBPACK_IMPORTED_MODULE_10___default.a.Header,
-    Content = antd_lib_layout__WEBPACK_IMPORTED_MODULE_10___default.a.Content,
-    Footer = antd_lib_layout__WEBPACK_IMPORTED_MODULE_10___default.a.Footer;
-var SubMenu = antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.SubMenu;
+
+
+var SubMenu = antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.SubMenu;
 var styleLeft = {
   "float": "left"
 };
@@ -926,32 +925,105 @@ var styleRight = {
 var Navbars =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(Navbars, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_8__["default"])(Navbars, _Component);
 
   function Navbars() {
-    var _getPrototypeOf2;
-
     var _this;
 
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Navbars);
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Navbars);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Navbars).call(this));
 
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Navbars)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "handClick", function (e) {
+      var page = e.key;
+      console.log(page);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "handClick", function (e) {
-      console.log(e);
-      window.location.href = e.key;
+      if (page === '/logout') {
+        var cookies = _this.props.cookies;
+        cookies.remove('email');
+        cookies.remove('password');
+        cookies.remove('storeName');
+        cookies.remove('storeNumber');
+        cookies.remove('user');
+        cookies.remove('userNumber');
+        window.location.href = "/";
+      } else {
+        window.location.href = page;
+      }
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__["default"])(_this), "Mouse", function (e) {
+      _this.setState({
+        Icons: e
+      });
+    });
+
+    _this.state = {
+      storeName: "",
+      Icons: "down",
+
+      /*LoginStat:
+        <Menu.Item style={styleRight} key={'/login'} >
+          เข้าสู่ระบบ < Icon type={"logout"} />
+        </Menu.Item>*/
+      LoginStat: {
+        text: "Login",
+        key: "/login",
+        icon: "login"
+      }
+    };
     return _this;
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(Navbars, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(Navbars, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var cookies = this.props.cookies;
+      var user = cookies.get("user"),
+          pass = cookies.get("password");
+
+      if (user !== undefined && pass !== undefined) {
+        new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a(function (resolve, reject) {
+          resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_13__["Login"])(user, pass));
+        }).then(function (res) {
+          console.log(res);
+
+          if (res === false) {
+            cookies.remove("user");
+            cookies.remove("password");
+          } else {
+            cookies.set('storeName', res.map(function (a) {
+              return a.user_store_name;
+            }));
+            cookies.set('storeNumber', res.map(function (a) {
+              return a.user_store_number;
+            }));
+            cookies.set('email', res.map(function (a) {
+              return a.user_profiles_email;
+            }));
+            cookies.set('userNumber', res.map(function (a) {
+              return a.user_profile_number;
+            }));
+
+            _this2.setState({
+              storeName: cookies.get('storeName'),
+              LoginStat: {
+                text: "ร้าน " + cookies.get('storeName'),
+                key: "/logout",
+                icon: "logout"
+              }
+            });
+          }
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default.a, {
         lg: {
           span: 20,
@@ -959,7 +1031,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 75
         },
         __self: this
       }, __jsx("div", {
@@ -968,7 +1040,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 76
         },
         __self: this
       }, __jsx("div", {
@@ -979,7 +1051,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 79
         },
         __self: this
       }, __jsx("img", {
@@ -987,10 +1059,10 @@ function (_Component) {
         width: "5%",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 84
         },
         __self: this
-      })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a, {
+      })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a, {
         mode: "horizontal",
         onClick: this.handClick,
         style: {
@@ -999,82 +1071,101 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 87
         },
         __self: this
-      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         style: styleLeft,
         key: "/index",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 88
         },
         __self: this
-      }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         style: styleLeft,
         key: "/package",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 91
         },
         __self: this
-      }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         style: styleLeft,
         key: "/contact",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 94
         },
         __self: this
-      }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         style: styleRight,
-        key: '/login',
+        key: this.state.LoginStat.key,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 97
         },
         __self: this
-      }, "LOGIN ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
-        type: "login",
+      }, this.state.LoginStat.text, " ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        type: this.state.LoginStat.icon,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 98
         },
         __self: this
-      })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         style: styleRight,
         key: '/databoardfront',
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 100
         },
         __self: this
       }, "DataBoard"), __jsx(SubMenu, {
-        title: "เพิ่มรายการ",
+        title: __jsx("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 104
+          },
+          __self: this
+        }, "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          type: this.state.Icons,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 104
+          },
+          __self: this
+        })),
         style: styleRight,
+        onTitleMouseEnter: function onTitleMouseEnter() {
+          return _this3.Mouse("menu");
+        },
+        onTitleMouseLeave: function onTitleMouseLeave() {
+          return _this3.Mouse("down");
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 103
         },
         __self: this
-      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.ItemGroup, {
+      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.ItemGroup, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 109
         },
         __self: this
-      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         key: "/cod_waiting",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 110
         },
         __self: this
-      }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_9___default.a.Item, {
+      }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_10___default.a.Item, {
         key: "/cod_payback",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 111
         },
         __self: this
       }, "cod_paybak"))))));
@@ -1084,7 +1175,7 @@ function (_Component) {
   return Navbars;
 }(react__WEBPACK_IMPORTED_MODULE_11__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Navbars);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_12__["withCookies"])(Navbars));
 
 /***/ }),
 
@@ -9363,35 +9454,6 @@ function (_React$Component2) {
 
 exports["default"] = Sider;
 //# sourceMappingURL=Sider.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/antd/lib/layout/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/antd/lib/layout/index.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _layout = _interopRequireDefault(__webpack_require__(/*! ./layout */ "./node_modules/antd/lib/layout/layout.js"));
-
-var _Sider = _interopRequireDefault(__webpack_require__(/*! ./Sider */ "./node_modules/antd/lib/layout/Sider.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-_layout["default"].Sider = _Sider["default"];
-var _default = _layout["default"];
-exports["default"] = _default;
-//# sourceMappingURL=index.js.map
 
 
 /***/ }),
@@ -84151,7 +84213,7 @@ var Front = function Front() {
 
 /***/ }),
 
-/***/ 8:
+/***/ 4:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
   \**********************************************************************************************************************************************/
@@ -84174,5 +84236,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[8,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=databoardfront.js.map

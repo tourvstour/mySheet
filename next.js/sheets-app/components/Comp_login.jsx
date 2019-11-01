@@ -1,23 +1,47 @@
 import React, { Component } from 'react'
-import { Card, Input, Button, Col, Icon } from 'antd'
+import { Card, Input, Button, Col, Icon, message } from 'antd'
 import { withCookies } from 'react-cookie'
+import { Login } from '../apis/datas'
 import 'antd/dist/antd.css'
 
 class C_login extends Component {
 
     Login = () => {
         const { cookies } = this.props
-        let dateExpires = new Date()
-        dateExpires.setTime(dateExpires.getTime() + (24 * 60 * 60 * 1000))
         let user = document.getElementById('user').value,
-            password = document.getElementById('password').value
-        cookies.set('user', user, { expires: dateExpires });
-        cookies.set('password', password, { expires: dateExpires })
-        window.location.href = "/databoardfront"
+            password = document.getElementById('password').value,
+            dateExpires = new Date()
+        dateExpires.setTime(dateExpires.getTime() + (24 * 60 * 60 * 1000))
+
+        new Promise((resolve, reject) => {
+            resolve(Login(user, password))
+        })
+            .then(res => {
+                console.log(res)
+                if (res === false) {
+                    message.loading("ลงชื่อเข้าใช้งาน....", 2)
+                        .then(() => message.error("ไม่พบEmail & Password"))
+                } else {
+                    message.loading("ลงชื่อเข้าใช้งาน....", 2)
+                        .then(() => {
+                            message.success("ลงชื่อเข้าใช้งาน", 3).then(() => window.location.href = "/databoardfront")
+                            cookies.set('user', user, { expires: dateExpires });
+                            cookies.set('password', password, { expires: dateExpires })
+                            cookies.set('storeName', res.map(a => a.user_store_name))
+                            cookies.set('storeNumber', res.map(a => a.user_store_number))
+                            cookies.set('email', res.map(a => a.user_profiles_email))
+                            cookies.set('userNumber', res.map(a => a.user_profile_number))
+                        })
+
+                }
+            })
+
+
+
     }
 
     Regiter = () => {
-        window.location.href = "regiter"
+        window.location.href = "/regiter"
     }
     render() {
         return (

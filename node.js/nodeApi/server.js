@@ -6,18 +6,14 @@ const { transport } = require('../nodeApi/apis/dataList')
 const { ExcessAmount, AbsentAmount, AllOrder, WaitingMonney, PayBackMonney } = require('../nodeApi/apis/dataBoard')
 const { Regiter, Login } = require('../nodeApi/apis/Login')
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
+app.use(bodyParser.json({ limit: '50mb' }))
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 })
-app.post('/show', async (req, res) => {
-    //console.log(req.body)
-    var data = await exsql()
-    res.json(data)
-})
+
 //waiting upload
 app.post('/upload', async (req, res) => {
     var ObjectReturn = await insert(req)
@@ -25,7 +21,8 @@ app.post('/upload', async (req, res) => {
 })
 //payback upload
 app.post('/payback', async (req, res) => {
-    var Object = await Payback(req)
+    var Objects = await Payback(req)
+    res.json(Objects)
 })
 //บริษัทขนส่ง
 app.post('/transport', async (req, res) => {

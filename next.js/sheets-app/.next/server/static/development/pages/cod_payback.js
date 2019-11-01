@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -301,8 +301,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_5__);
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CheckLogin.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
@@ -317,11 +315,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         pass = cookies.get("password");
 
     if (user === undefined || pass === undefined) {
-      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-      setTimeout(() => {
-        window.location.href = "/login";
-      }, 1000);
+      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
     } else {
       new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a((resolve, reject) => {
         resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_4__["Login"])(user, pass));
@@ -329,11 +323,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         console.log(res);
 
         if (res === false) {
-          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.error("login");
-
-          setTimeout(() => {
-            window.location.href = "/login";
-          }, 1000);
+          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
         } else {
           cookies.set('storeName', res.map(a => a.user_store_name));
           cookies.set('storeNumber', res.map(a => a.user_store_number));
@@ -345,13 +335,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   }
 
   render() {
-    return __jsx("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    });
+    return null;
   }
 
 }
@@ -369,28 +353,31 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
-/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
-/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/table */ "antd/lib/table");
-/* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_table__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var antd_lib_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/lib/select */ "antd/lib/select");
-/* harmony import */ var antd_lib_select__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_lib_select__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var read_excel_file__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! read-excel-file */ "read-excel-file");
-/* harmony import */ var read_excel_file__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(read_excel_file__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
-/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/CheckLogin */ "./components/CheckLogin.jsx");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-cookie */ "react-cookie");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/table */ "antd/lib/table");
+/* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_table__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/card */ "antd/lib/card");
+/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/button */ "antd/lib/button");
+/* harmony import */ var antd_lib_button__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_button__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/lib/select */ "antd/lib/select");
+/* harmony import */ var antd_lib_select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_lib_select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var read_excel_file__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! read-excel-file */ "read-excel-file");
+/* harmony import */ var read_excel_file__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(read_excel_file__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/CheckLogin */ "./components/CheckLogin.jsx");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-cookie */ "react-cookie");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_12__);
+
 
 
 
@@ -398,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\CodPayBack.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
 
@@ -407,45 +394,52 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 const {
   Option
-} = antd_lib_select__WEBPACK_IMPORTED_MODULE_5___default.a;
+} = antd_lib_select__WEBPACK_IMPORTED_MODULE_6___default.a;
 const columns = [{
   title: 'วันที่',
   dataIndex: 'dates',
-  key: 'dates'
+  key: 'dates',
+  width: 100
 }, {
   title: 'เลขพัสดุ',
   dataIndex: 'number',
-  key: 'number'
+  key: 'number',
+  width: 150
 }, {
   title: 'ราคาสินค้า	',
   dataIndex: 'price',
-  key: 'price'
+  key: 'price',
+  width: 100
 }, {
   title: 'ชื่อลูกค้า',
   dataIndex: 'customer',
-  key: 'customer'
+  key: 'customer',
+  width: 150
 }, {
   title: 'ที่อยู่จัดส่งพัสดุ',
   dataIndex: 'address',
-  key: 'address'
+  key: 'address',
+  width: 250
 }, {
   title: 'รหัสไปรษณี',
   dataIndex: 'post',
-  key: 'post'
+  key: 'post',
+  width: 100
 }, {
   title: 'เบอร์ติดต่อ',
   dataIndex: 'phone',
-  key: 'phone'
+  key: 'phone',
+  width: 150
 }];
 
-class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
+class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_7__["Component"] {
   constructor() {
     super();
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__["default"])(this, "importExcel", () => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(this, "importExcel", () => {
       const input = document.getElementById('file');
       let result = [];
-      read_excel_file__WEBPACK_IMPORTED_MODULE_7___default()(input.files[0], {}).then(res => {
+      read_excel_file__WEBPACK_IMPORTED_MODULE_8___default()(input.files[0], {}).then(res => {
         res.forEach(arr => {
           let arr0 = new Date(arr[0]).toLocaleDateString(),
               arr1 = arr[1],
@@ -476,7 +470,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__["default"])(this, "Upload", () => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(this, "Upload", () => {
       const {
         cookies
       } = this.props;
@@ -486,8 +480,8 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
           transport_comp = this.state.transportSelect.toString();
 
       if (excel.length > 0) {
-        new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, rejects) => {
-          var a = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_8__["Payback"])(user, transport_comp, excel, store);
+        new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, rejects) => {
+          var a = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_9__["Payback"])(user, transport_comp, excel, store);
           resolve(a);
         }).then(res => {
           console.log(res);
@@ -497,7 +491,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       }
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__["default"])(this, "TranSportSelect", value => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(this, "TranSportSelect", value => {
       console.log(value);
       this.setState({
         transportSelect: value
@@ -512,8 +506,8 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
   }
 
   componentDidMount() {
-    new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, rejects) => {
-      resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_8__["TranSport"])());
+    new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, rejects) => {
+      resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_9__["TranSport"])());
     }).then(res => {
       this.setState({
         tranSportList: res
@@ -528,78 +522,80 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 125
       },
       __self: this
-    }, __jsx(_components_CheckLogin__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }, __jsx(_components_CheckLogin__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119
+        lineNumber: 126
       },
       __self: this
     }), __jsx("div", {
       style: {
-        backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+        backgroundColor: "#f7f7f7",
         width: "100%",
-        height: "90%",
-        padding: "2% 0 10% 0",
+        height: "100%",
         position: "absolute"
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 120
-      },
-      __self: this
-    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default.a, {
-      lg: {
-        span: 20,
-        offset: 2
       },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 127
       },
       __self: this
-    }, __jsx("div", {
+    }, __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 133
       },
       __self: this
-    }, "\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14 shoping payback"), __jsx("input", {
-      type: "file",
-      id: "file",
-      onChange: this.importExcel,
+    }), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      lg: {
+        span: 6,
+        offset: 2
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 134
       },
       __self: this
-    }), __jsx("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 130
-      },
-      __self: this
-    }), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_5___default.a, {
+    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a, {
       style: {
-        width: 200
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
       },
-      onChange: this.TranSportSelect,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 135
       },
       __self: this
-    }, this.state.tranSportList.map((data, index) => __jsx(Option, {
-      key: index,
-      value: data.transport_company_number,
+    }, __jsx("div", {
+      style: {
+        textAlign: "center"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 136
       },
       __self: this
-    }, data.transport_company_name))), __jsx("br", {
+    }, "\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14 shoping payback"), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 137
+      },
+      __self: this
+    }), __jsx("input", {
+      type: "file",
+      id: "file",
+      onChange: this.importExcel,
+      style: {
+        width: 180
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 138
+      },
+      __self: this
+    }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 139
@@ -611,34 +607,89 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         lineNumber: 140
       },
       __self: this
-    }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      columns: columns,
-      dataSource: this.state.file,
+    }), __jsx("label", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 141
       },
       __self: this
-    }), __jsx("br", {
+    }, __jsx("span", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 142
       },
       __self: this
-    }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      block: true,
-      onClick: this.Upload,
+    }, "\u0E1A\u0E23\u0E34\u0E29\u0E31\u0E17\u0E02\u0E19\u0E2A\u0E48\u0E07 : "), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_6___default.a, {
+      id: "transport",
+      style: {
+        width: 200
+      },
+      onChange: this.TranSportSelect,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 143
       },
       __self: this
-    }, "upload"))));
+    }, this.state.tranSportList.map((data, index) => __jsx(Option, {
+      key: index,
+      value: data.transport_company_number,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 149
+      },
+      __self: this
+    }, data.transport_company_name)))), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 153
+      },
+      __self: this
+    }), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 154
+      },
+      __self: this
+    }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      block: true,
+      onClick: this.Upload,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 155
+      },
+      __self: this
+    }, "upload"))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      lg: {
+        span: 13,
+        offset: 1
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 158
+      },
+      __self: this
+    }, __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      style: {
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
+      },
+      size: "small",
+      columns: columns,
+      dataSource: this.state.file,
+      scroll: {
+        x: 500,
+        y: 500
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 159
+      },
+      __self: this
+    }))));
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_11__["withCookies"])(CodPayBack));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_12__["withCookies"])(CodPayBack));
 
 /***/ }),
 
@@ -655,15 +706,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/icon */ "antd/lib/icon");
 /* harmony import */ var antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
-/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/layout */ "antd/lib/layout");
-/* harmony import */ var antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_layout__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd/lib/menu */ "antd/lib/menu");
+/* harmony import */ var antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-cookie */ "react-cookie");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -673,14 +728,11 @@ var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
-const {
-  Header,
-  Content,
-  Footer
-} = antd_lib_layout__WEBPACK_IMPORTED_MODULE_4___default.a;
+
+
 const {
   SubMenu
-} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a;
+} = antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a;
 const styleLeft = {
   float: "left"
 };
@@ -689,13 +741,83 @@ const styleRight = {
 };
 
 class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
-  constructor(...args) {
-    super(...args);
+  constructor() {
+    super();
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(this, "handClick", e => {
-      console.log(e);
-      window.location.href = e.key;
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "handClick", e => {
+      let page = e.key;
+      console.log(page);
+
+      if (page === '/logout') {
+        const {
+          cookies
+        } = this.props;
+        cookies.remove('email');
+        cookies.remove('password');
+        cookies.remove('storeName');
+        cookies.remove('storeNumber');
+        cookies.remove('user');
+        cookies.remove('userNumber');
+        window.location.href = "/";
+      } else {
+        window.location.href = page;
+      }
     });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(this, "Mouse", e => {
+      this.setState({
+        Icons: e
+      });
+    });
+
+    this.state = {
+      storeName: "",
+      Icons: "down",
+
+      /*LoginStat:
+        <Menu.Item style={styleRight} key={'/login'} >
+          เข้าสู่ระบบ < Icon type={"logout"} />
+        </Menu.Item>*/
+      LoginStat: {
+        text: "Login",
+        key: "/login",
+        icon: "login"
+      }
+    };
+  }
+
+  componentDidMount() {
+    const {
+      cookies
+    } = this.props;
+    let user = cookies.get("user"),
+        pass = cookies.get("password");
+
+    if (user !== undefined && pass !== undefined) {
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a((resolve, reject) => {
+        resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["Login"])(user, pass));
+      }).then(res => {
+        console.log(res);
+
+        if (res === false) {
+          cookies.remove("user");
+          cookies.remove("password");
+        } else {
+          cookies.set('storeName', res.map(a => a.user_store_name));
+          cookies.set('storeNumber', res.map(a => a.user_store_number));
+          cookies.set('email', res.map(a => a.user_profiles_email));
+          cookies.set('userNumber', res.map(a => a.user_profile_number));
+          this.setState({
+            storeName: cookies.get('storeName'),
+            LoginStat: {
+              text: "ร้าน " + cookies.get('storeName'),
+              key: "/logout",
+              icon: "logout"
+            }
+          });
+        }
+      });
+    }
   }
 
   render() {
@@ -706,7 +828,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 75
       },
       __self: this
     }, __jsx("div", {
@@ -715,7 +837,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 76
       },
       __self: this
     }, __jsx("div", {
@@ -726,7 +848,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 79
       },
       __self: this
     }, __jsx("img", {
@@ -734,10 +856,10 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       width: "5%",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 84
       },
       __self: this
-    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a, {
       mode: "horizontal",
       onClick: this.handClick,
       style: {
@@ -746,82 +868,97 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 87
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/index",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 88
       },
       __self: this
-    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E2B\u0E19\u0E49\u0E32\u0E41\u0E23\u0E01"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/package",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 91
       },
       __self: this
-    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E41\u0E1E\u0E01\u0E40\u0E01\u0E08"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleLeft,
       key: "/contact",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 94
       },
       __self: this
-    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E40\u0E23\u0E32"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleRight,
-      key: '/login',
+      key: this.state.LoginStat.key,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 97
       },
       __self: this
-    }, "LOGIN ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      type: "login",
+    }, this.state.LoginStat.text, " ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      type: this.state.LoginStat.icon,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 98
       },
       __self: this
-    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    })), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       style: styleRight,
       key: '/databoardfront',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 100
       },
       __self: this
     }, "DataBoard"), __jsx(SubMenu, {
-      title: "เพิ่มรายการ",
+      title: __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: this
+      }, "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 ", __jsx(antd_lib_icon__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        type: this.state.Icons,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: this
+      })),
       style: styleRight,
+      onTitleMouseEnter: () => this.Mouse("menu"),
+      onTitleMouseLeave: () => this.Mouse("down"),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 103
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.ItemGroup, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.ItemGroup, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 109
       },
       __self: this
-    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       key: "/cod_waiting",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 110
       },
       __self: this
-    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_3___default.a.Item, {
+    }, "cod_waiting"), __jsx(antd_lib_menu__WEBPACK_IMPORTED_MODULE_4___default.a.Item, {
       key: "/cod_payback",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 111
       },
       __self: this
     }, "cod_paybak"))))));
@@ -829,7 +966,7 @@ class Navbars extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Navbars);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_6__["withCookies"])(Navbars));
 
 /***/ }),
 
@@ -956,7 +1093,7 @@ const payBack = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*************************************!*\
   !*** multi ./pages/cod_payback.jsx ***!
   \*************************************/
@@ -979,6 +1116,17 @@ module.exports = require("antd/lib/button");
 
 /***/ }),
 
+/***/ "antd/lib/card":
+/*!********************************!*\
+  !*** external "antd/lib/card" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/card");
+
+/***/ }),
+
 /***/ "antd/lib/col":
 /*!*******************************!*\
   !*** external "antd/lib/col" ***!
@@ -998,17 +1146,6 @@ module.exports = require("antd/lib/col");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/icon");
-
-/***/ }),
-
-/***/ "antd/lib/layout":
-/*!**********************************!*\
-  !*** external "antd/lib/layout" ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/layout");
 
 /***/ }),
 
