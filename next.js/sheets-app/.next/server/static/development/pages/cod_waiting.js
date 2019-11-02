@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -102,7 +102,7 @@ module.exports =
 
 var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 
-var url = 'http://192.168.0.28:2000';
+var url = 'http://183.88.219.85:7079';
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -1108,7 +1108,7 @@ const cod_waiting = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 3:
+/***/ 8:
 /*!*************************************!*\
   !*** multi ./pages/cod_waiting.jsx ***!
   \*************************************/

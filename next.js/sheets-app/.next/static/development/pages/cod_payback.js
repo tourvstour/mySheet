@@ -9,7 +9,7 @@
 
 var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 
-var url = 'http://192.168.0.28:2000';
+var url = 'http://183.88.219.85:7079';
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -80850,7 +80850,7 @@ util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inh
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(/*! util */ 2);
+var debugUtil = __webpack_require__(/*! util */ 5);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -82739,7 +82739,7 @@ Writable.prototype._destroy = function (err, cb) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
-var util = __webpack_require__(/*! util */ 9);
+var util = __webpack_require__(/*! util */ 6);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -93146,7 +93146,7 @@ var payBack = function payBack() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 5:
 /*!**********************!*\
   !*** util (ignored) ***!
   \**********************/
@@ -93157,7 +93157,18 @@ var payBack = function payBack() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 6:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 7:
 /*!************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fcod_payback&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_payback.jsx ***!
   \************************************************************************************************************************************************/
@@ -93166,17 +93177,6 @@ var payBack = function payBack() {
 
 module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcod_payback&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_payback.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcod_payback&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Ccod_payback.jsx!./");
 
-
-/***/ }),
-
-/***/ 9:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ }),
 
@@ -93191,5 +93191,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[7,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=cod_payback.js.map

@@ -1,4 +1,4 @@
-var url = 'http://192.168.0.28:2000'
+var url = 'http://183.88.219.85:7079'
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",

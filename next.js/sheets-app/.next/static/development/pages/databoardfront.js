@@ -9,7 +9,7 @@
 
 var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 
-var url = 'http://192.168.0.28:2000';
+var url = 'http://183.88.219.85:7079';
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -84223,7 +84223,7 @@ var Front = function Front() {
 
 /***/ }),
 
-/***/ 7:
+/***/ 2:
 /*!******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
   \******************************************************************************************************************************************************/
@@ -84246,5 +84246,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js","styles"]]]);
+},[[2,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=databoardfront.js.map

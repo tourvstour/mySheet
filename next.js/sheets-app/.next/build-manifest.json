@@ -30,12 +30,6 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/contact": [
-      "static/runtime/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
-      "static/runtime/main.js"
-    ],
     "/databoardfront": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
@@ -54,10 +48,8 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/package": [
+    "/next/dist/pages/_error": [
       "static/runtime/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
       "static/runtime/main.js"
     ]
   }
