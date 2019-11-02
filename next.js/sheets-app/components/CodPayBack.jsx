@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Payback, TranSport } from '../apis/datas'
-import { Button, Card, Select, Col, Table, Icon } from 'antd'
+import { Button, Card, Select, Col, Table, message } from 'antd'
 import 'antd/dist/antd.css'
 import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
@@ -49,7 +49,8 @@ class CodPayBack extends Component {
     this.state = {
       file: [],
       tranSportList: [],
-      transportSelect: []
+      transportSelect: [],
+      buttonUpload:true
     }
   }
 
@@ -102,22 +103,48 @@ class CodPayBack extends Component {
       store = cookies.get('storeNumber'),
       excel = this.state.file,
       transport_comp = this.state.transportSelect.toString()
-    if (excel.length > 0) {
-      new Promise((resolve, rejects) => {
-        var a = Payback(user, transport_comp, excel, store)
-        resolve(a)
-      }).then(res => {
-        console.log(res)
+    message.loading('upload...', 2)
+      .then(() => {
+        if (excel.length > 0) {
+          new Promise((resolve, rejects) => {
+            var a = Payback(user, transport_comp, excel, store)
+            resolve(a)
+          }).then(res => {
+            let code = res.code,
+              mess = res.message
+            console.log(code)
+            if (code === '1') {
+              message.success(mess, 2)
+                .then(() => {
+                  document.getElementById('file').value = null
+                  this.setState({
+                    file: []
+                  })
+                })
+            } else {
+              message.error('error', 2)
+            }
+          })
+            .catch(err => { console.log(err) })
+        } else {
+          message.warning('ไม่พบข้อมูล',2)
+        }
       })
-        .catch(err => { console.log(err) })
-    }
   }
 
+
   TranSportSelect = (value) => {
-    console.log(value)
-    this.setState({
-      transportSelect: value
-    })
+    //console.log(value)
+    if (value > 0) {
+      this.setState({
+        transportSelect: value,
+        buttonUpload: false
+      })
+    }else{
+      this.setState({
+        buttonUpload: true
+      })
+    }
   }
 
   render() {
@@ -152,7 +179,7 @@ class CodPayBack extends Component {
               </label>
               <br />
               <br />
-              <Button block onClick={this.Upload}>upload</Button>
+              <Button block onClick={this.Upload} disabled={this.state.buttonUpload}>upload</Button>
             </Card>
           </Col>
           <Col lg={{ span: 13, offset: 1 }}>

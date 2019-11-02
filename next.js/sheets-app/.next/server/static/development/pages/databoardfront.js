@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -102,7 +102,7 @@ module.exports =
 
 var _JSON$stringify = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
 
-var url = 'http://127.0.0.1:2000';
+var url = 'http://192.168.0.28:2000';
 var upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
@@ -315,7 +315,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         pass = cookies.get("password");
 
     if (user === undefined || pass === undefined) {
-      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
+      antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.warning("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 1).then(() => window.location.href = "/login");
     } else {
       new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a((resolve, reject) => {
         resolve(Object(_apis_datas__WEBPACK_IMPORTED_MODULE_4__["Login"])(user, pass));
@@ -323,7 +323,7 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
         console.log(res);
 
         if (res === false) {
-          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 2).then(() => window.location.href = "/login");
+          antd_lib_message__WEBPACK_IMPORTED_MODULE_1___default.a.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 1).then(() => window.location.href = "/login");
         } else {
           cookies.set('storeName', res.map(a => a.user_store_name));
           cookies.set('storeNumber', res.map(a => a.user_store_number));
@@ -355,34 +355,31 @@ class CheckLogin extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! antd/lib/table */ "antd/lib/table");
 /* harmony import */ var antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(antd_lib_table__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var antd_lib_row__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/row */ "antd/lib/row");
-/* harmony import */ var antd_lib_row__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_row__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
-/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd/lib/card */ "antd/lib/card");
-/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd_lib_card__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
-/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
-/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-chartjs-2 */ "react-chartjs-2");
-/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_chartjs_2__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/CheckLogin */ "./components/CheckLogin.jsx");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-cookie */ "react-cookie");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd/lib/col */ "antd/lib/col");
+/* harmony import */ var antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(antd_lib_col__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/lib/card */ "antd/lib/card");
+/* harmony import */ var antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_lib_card__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../apis/datas */ "./apis/datas.jsx");
+/* harmony import */ var _apis_datas__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_apis_datas__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-chartjs-2 */ "react-chartjs-2");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_chartjs_2__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/CheckLogin */ "./components/CheckLogin.jsx");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-cookie */ "react-cookie");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
 
 
-
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\databoard.jsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\databoard.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
 
@@ -390,11 +387,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
 
-class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
+class databoard extends react__WEBPACK_IMPORTED_MODULE_5__["Component"] {
   constructor() {
     super();
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(this, "Cards", e => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_4__["default"])(this, "Cards", e => {
       //console.log(e.toString())
       var valueCard = e.toString();
 
@@ -467,12 +464,12 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       } = this.props;
       let user = cookies.get('userNumber').toString(),
           store = cookies.get('storeNumber').toString();
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, reject) => {
-        let orders = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["AllOrders"])(user, store);
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, reject) => {
+        let orders = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_6__["AllOrders"])(user, store);
         resolve(orders);
       }).then(res => {
         let AllOdersRow = res.length;
-        let totalMonney = null;
+        let totalMonney = 0;
         res.forEach(v => {
           totalMonney = +totalMonney + +v.price;
           return totalMonney;
@@ -483,12 +480,12 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
           AllOdersMonney: totalMonney
         });
       });
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, reject) => {
-        let waitingOrder = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["WaitingOrders"])(user, store);
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, reject) => {
+        let waitingOrder = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_6__["WaitingOrders"])(user, store);
         resolve(waitingOrder);
       }).then(res => {
         let WaitingRow = res.length;
-        let totalMonney = null;
+        let totalMonney = 0;
         res.forEach(v => {
           totalMonney = +totalMonney + +v.price;
         });
@@ -498,12 +495,12 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
           WaitingMonney: totalMonney
         });
       });
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, reject) => {
-        let paybackorder = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["PayBackOrders"])(user, store);
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, reject) => {
+        let paybackorder = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_6__["PayBackOrders"])(user, store);
         resolve(paybackorder);
       }).then(res => {
         let PayBackRow = res.length;
-        let totalMonney = null;
+        let totalMonney = 0;
         res.forEach(v => {
           totalMonney = +totalMonney + +v.price;
         });
@@ -513,12 +510,12 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
           PayBackMonney: totalMonney
         });
       });
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, reject) => {
-        let excess = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["Excess"])(user, store);
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, reject) => {
+        let excess = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_6__["Excess"])(user, store);
         resolve(excess);
       }).then(res => {
         let ExcessRow = res.length;
-        let totalMonney = null;
+        let totalMonney = 0;
         res.forEach(v => {
           totalMonney = +totalMonney + +v.received_total;
           return totalMonney;
@@ -530,12 +527,12 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         });
       }); //
 
-      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_4___default.a((resolve, rejects) => {
-        let absent = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_7__["Absent"])(user, store);
+      new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a((resolve, rejects) => {
+        let absent = Object(_apis_datas__WEBPACK_IMPORTED_MODULE_6__["Absent"])(user, store);
         resolve(absent);
       }).then(res => {
         let AbsentRow = res.length;
-        let totalMonney = null;
+        let totalMonney = 0;
         res.forEach(v => {
           totalMonney = +totalMonney + +v.received_total;
           return totalMonney;
@@ -556,111 +553,123 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         lineNumber: 176
       },
       __self: this
-    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      lg: {
-        span: "20",
-        offset: "2"
-      },
+    }, __jsx(_components_CheckLogin__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 177
       },
       __self: this
-    }, __jsx(_components_CheckLogin__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      lg: {
+        span: 6,
+        offset: 1
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 178
       },
       __self: this
-    }), __jsx(antd_lib_row__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      gutter: 16,
+    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      hoverable: true,
+      style: {
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 179
       },
       __self: this
-    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      lg: {
-        span: 8
-      },
+    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      onClick: () => this.Cards("alloder"),
+      hoverable: true,
+      style: cardStyle,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 180
       },
       __self: this
-    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      onClick: () => this.Cards("alloder"),
-      hoverable: true,
+    }, __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 181
       },
       __self: this
-    }, __jsx("h3", {
+    }, this.state.AllOdersMonney.toLocaleString('en-US', {
+      minimumFractionDigits: 2
+    }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 182
       },
       __self: this
-    }, this.state.AllOdersMonney, " \u0E1A\u0E32\u0E17"), __jsx("h4", {
+    }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 183
       },
       __self: this
-    }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14"), __jsx("h4", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 184
-      },
-      __self: this
-    }, this.state.AllOdersRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C"))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      lg: {
-        span: 8
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 187
-      },
-      __self: this
-    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    }, this.state.AllOdersRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
       onClick: () => this.Cards("waiting"),
       hoverable: true,
+      style: cardStyle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 188
+        lineNumber: 185
       },
       __self: this
     }, __jsx("h3", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 189
+        lineNumber: 186
       },
       __self: this
-    }, this.state.WaitingMonney, " \u0E1A\u0E32\u0E17"), __jsx("h4", {
+    }, this.state.WaitingMonney.toLocaleString('en-US', {
+      minimumFractionDigits: 2
+    }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 190
+        lineNumber: 187
       },
       __self: this
     }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E23\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 188
+      },
+      __self: this
+    }, this.state.WaitingRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      onClick: () => this.Cards("payback"),
+      hoverable: true,
+      style: cardStyle,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 190
+      },
+      __self: this
+    }, __jsx("h3", {
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 191
       },
       __self: this
-    }, this.state.WaitingRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C"))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      lg: {
-        span: 8
-      },
+    }, this.state.PayBackMonney.toLocaleString('en-US', {
+      minimumFractionDigits: 2
+    }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 194
+        lineNumber: 192
       },
       __self: this
-    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      onClick: () => this.Cards("payback"),
+    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19"), __jsx("h4", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 193
+      },
+      __self: this
+    }, this.state.PayBackRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      onClick: () => this.Cards("excess"),
       hoverable: true,
+      style: cardStyle,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 195
@@ -672,43 +681,51 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         lineNumber: 196
       },
       __self: this
-    }, this.state.PayBackMonney, " \u0E1A\u0E32\u0E17"), __jsx("h4", {
+    }, this.state.ExcessMonney.toLocaleString('en-US', {
+      minimumFractionDigits: 2
+    }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 197
       },
       __self: this
-    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19\u0E41\u0E25\u0E49\u0E27"), __jsx("h4", {
+    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E40\u0E01\u0E34\u0E19"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 198
       },
       __self: this
-    }, this.state.PayBackRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")))), __jsx("br", {
+    }, this.state.ExcessRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      onClick: () => this.Cards("absent"),
+      hoverable: true,
+      style: cardStyle,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 200
+      },
+      __self: this
+    }, __jsx("h3", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 201
+      },
+      __self: this
+    }, this.state.AbsentMonney.toLocaleString('en-US', {
+      minimumFractionDigits: 2
+    }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 202
       },
       __self: this
-    }), __jsx(antd_lib_row__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      gutter: 16,
+    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E37\u0E19\u0E44\u0E21\u0E48\u0E04\u0E23\u0E1A"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 203
       },
       __self: this
-    }, __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      lg: {
-        span: 12
-      },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 204
-      },
-      __self: this
-    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      onClick: () => this.Cards("excess"),
-      hoverable: true,
+    }, this.state.AbsentRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      style: cardStyle,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 205
@@ -720,60 +737,38 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
         lineNumber: 206
       },
       __self: this
-    }, this.state.ExcessMonney, " \u0E1A\u0E32\u0E17"), __jsx("h4", {
+    }, "200000000.00 .-"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 207
       },
       __self: this
-    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E40\u0E01\u0E34\u0E19"), __jsx("h4", {
+    }, "\u0E1B\u0E34\u0E14\u0E01\u0E32\u0E23\u0E02\u0E32\u0E22"), __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 208
       },
       __self: this
-    }, this.state.ExcessRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C"))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    }, "-")))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
       lg: {
-        span: 12
+        span: "14",
+        offset: "1"
       },
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 211
-      },
-      __self: this
-    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      onClick: () => this.Cards("absent"),
-      hoverable: true,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 212
       },
       __self: this
-    }, __jsx("h3", {
+    }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      style: {
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
+      },
       __source: {
         fileName: _jsxFileName,
         lineNumber: 213
       },
       __self: this
-    }, this.state.AbsentMonney, " \u0E1A\u0E32\u0E17"), __jsx("h4", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 214
-      },
-      __self: this
-    }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E37\u0E19\u0E44\u0E21\u0E48\u0E04\u0E23\u0E1A"), __jsx("h4", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 215
-      },
-      __self: this
-    }, this.state.AbsentRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")))), __jsx("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 219
-      },
-      __self: this
-    }), __jsx(react_chartjs_2__WEBPACK_IMPORTED_MODULE_9__["Bar"], {
+    }, __jsx(react_chartjs_2__WEBPACK_IMPORTED_MODULE_8__["Bar"], {
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
@@ -802,18 +797,23 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 220
+        lineNumber: 214
       },
       __self: this
-    }), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    })), __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      size: "small",
       columns: columns,
       dataSource: this.state.dataTable,
       style: {
-        borderRadius: "10"
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
+      },
+      scroll: {
+        x: 500,
+        y: 500
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 249
+        lineNumber: 244
       },
       __self: this
     })));
@@ -821,36 +821,46 @@ class databoard extends react__WEBPACK_IMPORTED_MODULE_6__["Component"] {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_11__["withCookies"])(databoard));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_10__["withCookies"])(databoard));
 const columns = [{
   title: 'วันที่',
   dataIndex: 'dates',
-  key: 'dates'
+  key: 'dates',
+  width: 100
 }, {
   title: 'เลขพัสดุ',
   dataIndex: 'number',
-  key: 'number'
+  key: 'number',
+  width: 150
 }, {
-  title: 'ราคาสินค้า',
+  title: 'ราคาสินค้า	',
   dataIndex: 'price',
-  key: 'price'
+  key: 'price',
+  width: 100
 }, {
   title: 'ชื่อลูกค้า',
   dataIndex: 'customer',
-  key: 'customer'
+  key: 'customer',
+  width: 150
 }, {
   title: 'ที่อยู่จัดส่งพัสดุ',
   dataIndex: 'address',
-  key: 'address'
+  key: 'address',
+  width: 250
 }, {
   title: 'รหัสไปรษณี',
   dataIndex: 'post',
-  key: 'post'
+  key: 'post',
+  width: 100
 }, {
   title: 'เบอร์ติดต่อ',
   dataIndex: 'phone',
-  key: 'phone'
+  key: 'phone',
+  width: 150
 }];
+const cardStyle = {
+  width: '50%'
+};
 
 /***/ }),
 
@@ -885,7 +895,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -1218,7 +1228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_databoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/databoard */ "./components/databoard.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1254,14 +1264,14 @@ const Front = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 6:
+/***/ 9:
 /*!****************************************!*\
   !*** multi ./pages/databoardfront.jsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! I:\jobs\next.js\sheets-app\pages\databoardfront.jsx */"./pages/databoardfront.jsx");
+module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\databoardfront.jsx */"./pages/databoardfront.jsx");
 
 
 /***/ }),
@@ -1318,17 +1328,6 @@ module.exports = require("antd/lib/menu");
 /***/ (function(module, exports) {
 
 module.exports = require("antd/lib/message");
-
-/***/ }),
-
-/***/ "antd/lib/row":
-/*!*******************************!*\
-  !*** external "antd/lib/row" ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("antd/lib/row");
 
 /***/ }),
 

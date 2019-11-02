@@ -47,7 +47,7 @@ class databoard extends Component {
             })
                 .then(res => {
                     let AllOdersRow = res.length
-                    let totalMonney = null
+                    let totalMonney = 0
                     res.forEach(v => {
                         totalMonney = +totalMonney + +v.price
                         return totalMonney
@@ -65,7 +65,7 @@ class databoard extends Component {
             })
                 .then(res => {
                     let WaitingRow = res.length
-                    let totalMonney = null
+                    let totalMonney = 0
                     res.forEach(v => {
                         totalMonney = +totalMonney + +v.price
                     })
@@ -82,7 +82,7 @@ class databoard extends Component {
             })
                 .then(res => {
                     let PayBackRow = res.length
-                    let totalMonney = null
+                    let totalMonney = 0
                     res.forEach(v => {
                         totalMonney = +totalMonney + +v.price
                     })
@@ -99,7 +99,7 @@ class databoard extends Component {
             })
                 .then(res => {
                     let ExcessRow = res.length
-                    let totalMonney = null
+                    let totalMonney = 0
                     res.forEach(v => {
                         totalMonney = +totalMonney + +v.received_total
                         return totalMonney
@@ -117,7 +117,7 @@ class databoard extends Component {
             })
                 .then(res => {
                     let AbsentRow = res.length
-                    let totalMonney = null
+                    let totalMonney = 0
                     res.forEach(v => {
                         totalMonney = +totalMonney + +v.received_total
                         return totalMonney
@@ -174,81 +174,75 @@ class databoard extends Component {
     render() {
         return (
             <div>
-                <Col lg={{ span: "20", offset: "2" }}>
-                    <CheckLogin />
-                    <Row gutter={16}>
-                        <Col lg={{ span: 8 }}>
-                            <Card onClick={() => this.Cards("alloder")} hoverable >
-                                <h3>{this.state.AllOdersMonney} บาท</h3>
-                                <h4>รายการทั้งหมด</h4>
-                                <h4>{this.state.AllOdersRow} ออเดอร์</h4>
-                            </Card>
-                        </Col>
-                        <Col lg={{ span: 8 }}>
-                            <Card onClick={() => this.Cards("waiting")} hoverable>
-                                <h3>{this.state.WaitingMonney} บาท</h3>
-                                <h4>รายการรอตรวจสอบ</h4>
-                                <h4>{this.state.WaitingRow} ออเดอร์</h4>
-                            </Card>
-                        </Col>
-                        <Col lg={{ span: 8 }}>
-                            <Card onClick={() => this.Cards("payback")} hoverable>
-                                <h3>{this.state.PayBackMonney} บาท</h3>
-                                <h4>ได้รับเงินครบถ้วนแล้ว</h4>
-                                <h4>{this.state.PayBackRow} ออเดอร์</h4>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <br />
-                    <Row gutter={16}>
-                        <Col lg={{ span: 12 }}>
-                            <Card onClick={() => this.Cards("excess")} hoverable>
-                                <h3>{this.state.ExcessMonney} บาท</h3>
-                                <h4>ได้รับเงินเกิน</h4>
-                                <h4>{this.state.ExcessRow} ออเดอร์</h4>
-                            </Card>
-                        </Col>
-                        <Col lg={{ span: 12 }}>
-                            <Card onClick={() => this.Cards("absent")} hoverable>
-                                <h3>{this.state.AbsentMonney} บาท</h3>
-                                <h4>ได้รับเงินคืนไม่ครบ</h4>
-                                <h4>{this.state.AbsentRow} ออเดอร์</h4>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <br />
-                    <Bar data={
-                        {
-                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                            datasets: [{
-                                label: 'Waiting',
-                                data: [12, 19, 3, 5, 2, 3],
-                            }, {
-                                label: 'PayBack',
-                                data: [11, 12, 8, 7, 8, 4],
-                            },
+                <CheckLogin />
+                <Col lg={{ span: 6, offset: 1 }}>
+                    <Card hoverable style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
+                        <Card.Grid onClick={() => this.Cards("alloder")} hoverable style={cardStyle}>
+                            <h3>{this.state.AllOdersMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>รายการทั้งหมด</h4>
+                            <h4>{this.state.AllOdersRow} ออเดอร์</h4>
+                        </Card.Grid>
+                        <Card.Grid onClick={() => this.Cards("waiting")} hoverable style={cardStyle}>
+                            <h3>{this.state.WaitingMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>รายการรอตรวจสอบ</h4>
+                            <h4>{this.state.WaitingRow} ออเดอร์</h4>
+                        </Card.Grid>
+                        <Card.Grid onClick={() => this.Cards("payback")} hoverable style={cardStyle}>
+                            <h3>{this.state.PayBackMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>ได้รับเงินครบถ้วน</h4>
+                            <h4>{this.state.PayBackRow} ออเดอร์</h4>
+                        </Card.Grid>
+                        <Card.Grid onClick={() => this.Cards("excess")} hoverable style={cardStyle}>
+                            <h3>{this.state.ExcessMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>ได้รับเงินเกิน</h4>
+                            <h4>{this.state.ExcessRow} ออเดอร์</h4>
+                        </Card.Grid>
+                        <Card.Grid onClick={() => this.Cards("absent")} hoverable style={cardStyle}>
+                            <h3>{this.state.AbsentMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>ได้รับเงินคืนไม่ครบ</h4>
+                            <h4>{this.state.AbsentRow} ออเดอร์</h4>
+                        </Card.Grid>
+                        <Card.Grid style={cardStyle}>
+                            <h3>200000000.00 .-</h3>
+                            <h4>ปิดการขาย</h4>
+                            <h4>-</h4>
+                        </Card.Grid>
+                    </Card>
+                </Col>
+                <Col lg={{ span: "14", offset: "1" }}>
+                    <Card style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
+                        <Bar data={
                             {
-                                label: 'PayBack',
-                                data: [11, 12, 8, 7, 8, 4],
-                            }],
-                            options: {
-                                scales: {
-                                    yAxisID: [{
-                                        id: 'a',
-                                        type: 'linear',
-                                        position: 'left'
-                                    }, {
-                                        id: 'b',
-                                        type: 'linear',
-                                        position: 'right'
-                                    }]
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: 'Waiting',
+                                    data: [12, 19, 3, 5, 2, 3],
+                                }, {
+                                    label: 'PayBack',
+                                    data: [11, 12, 8, 7, 8, 4],
+                                },
+                                {
+                                    label: 'PayBack',
+                                    data: [11, 12, 8, 7, 8, 4],
+                                }],
+                                options: {
+                                    scales: {
+                                        yAxisID: [{
+                                            id: 'a',
+                                            type: 'linear',
+                                            position: 'left'
+                                        }, {
+                                            id: 'b',
+                                            type: 'linear',
+                                            position: 'right'
+                                        }]
+                                    }
                                 }
                             }
-                        }
-                    } />
-                    <Table columns={columns} dataSource={this.state.dataTable} style={{ borderRadius: "10" }} />
+                        } />
+                    </Card>
+                    <Table size="small" columns={columns} dataSource={this.state.dataTable} style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}scroll={{ x: 500, y: 500 }} />
                 </Col >
-
             </div>
         )
     }
@@ -259,28 +253,39 @@ const columns = [{
     title: 'วันที่',
     dataIndex: 'dates',
     key: 'dates',
-}, {
+    width: 100
+  }, {
     title: 'เลขพัสดุ',
     dataIndex: 'number',
     key: 'number',
-}, {
-    title: 'ราคาสินค้า',
+    width: 150
+  }, {
+    title: 'ราคาสินค้า	',
     dataIndex: 'price',
     key: 'price',
-}, {
+    width: 100
+  }, {
     title: 'ชื่อลูกค้า',
     dataIndex: 'customer',
     key: 'customer',
-}, {
+    width: 150
+  }, {
     title: 'ที่อยู่จัดส่งพัสดุ',
     dataIndex: 'address',
     key: 'address',
-}, {
+    width: 250
+  }, {
     title: 'รหัสไปรษณี',
     dataIndex: 'post',
     key: 'post',
-}, {
+    width: 100
+  }, {
     title: 'เบอร์ติดต่อ',
     dataIndex: 'phone',
     key: 'phone',
-}]
+    width: 150
+  }]
+
+const cardStyle = {
+    width: '50%',
+}

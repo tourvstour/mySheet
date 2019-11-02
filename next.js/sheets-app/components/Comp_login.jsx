@@ -17,12 +17,12 @@ class C_login extends Component {
             resolve(Login(user, password))
         })
             .then(res => {
-                console.log(res)
+                //console.log(res)
                 if (res === false) {
                     message.loading("ลงชื่อเข้าใช้งาน....", 2)
                         .then(() => message.error("ไม่พบEmail & Password"))
                 } else {
-                    message.loading("ลงชื่อเข้าใช้งาน....", 2)
+                    message.loading("ลงชื่อเข้าใช้งาน....", 1)
                         .then(() => {
                             message.success("ลงชื่อเข้าใช้งาน", 3).then(() => window.location.href = "/databoardfront")
                             cookies.set('user', user, { expires: dateExpires });
@@ -32,12 +32,8 @@ class C_login extends Component {
                             cookies.set('email', res.map(a => a.user_profiles_email))
                             cookies.set('userNumber', res.map(a => a.user_profile_number))
                         })
-
                 }
             })
-
-
-
     }
 
     Regiter = () => {

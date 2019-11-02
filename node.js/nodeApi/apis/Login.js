@@ -53,7 +53,6 @@ exports.Regiter = (req, res) => {
                             .then(pro => {
                                 let rowNumber = pro.rowCount,
                                     userNumber = pro.rows.map(a => a.user_profile_number)
-
                                 if (rowNumber > 0) {
                                     let sql_insert_store = `
                                         INSERT INTO user_store (

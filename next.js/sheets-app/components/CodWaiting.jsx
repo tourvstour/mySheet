@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Upfile, TranSport } from '../apis/datas'
-import { Button, DatePicker, Select, Card, Table } from 'antd'
+import { Button, Col, Select, Card, Table, message } from 'antd'
 import 'antd/dist/antd.css';
 import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
@@ -11,39 +11,46 @@ const columns = [{
   title: 'วันที่',
   dataIndex: 'dates',
   key: 'dates',
+  width: 100
 }, {
   title: 'เลขพัสดุ',
   dataIndex: 'number',
   key: 'number',
+  width: 150
 }, {
   title: 'ราคาสินค้า	',
   dataIndex: 'price',
   key: 'price',
+  width: 100
 }, {
   title: 'ชื่อลูกค้า',
   dataIndex: 'customer',
   key: 'customer',
+  width: 150
 }, {
   title: 'ที่อยู่จัดส่งพัสดุ',
   dataIndex: 'address',
   key: 'address',
+  width: 250
 }, {
   title: 'รหัสไปรษณี',
   dataIndex: 'post',
   key: 'post',
+  width: 100
 }, {
   title: 'เบอร์ติดต่อ',
   dataIndex: 'phone',
   key: 'phone',
-},
-]
+  width: 150
+}]
 class CodWaiting extends Component {
   constructor() {
     super()
     this.state = {
       file: [],
       tranSportList: [],
-      transportSelect: []
+      transportSelect: [],
+      buttonUpload: true
     }
   }
 
@@ -97,22 +104,47 @@ class CodWaiting extends Component {
       store = cookies.get('storeNumber'),
       excel = this.state.file,
       transport_comp = this.state.transportSelect.toString()
-    if (excel.length > 0) {
-      new Promise((resolve, rejects) => {
-        var a = Upfile(user, transport_comp, excel, store)
-        resolve(a)
-      }).then(res => {
-        console.log(res)
+    message.loading('upload...', 2)
+      .then(() => {
+        if (excel.length > 0) {
+          new Promise((resolve, rejects) => {
+            var a = Upfile(user, transport_comp, excel, store)
+            resolve(a)
+          }).then(res => {
+            let code = res.code,
+              mess = res.message
+            console.log(code)
+            if (code === '1') {
+              message.success(mess, 2)
+                .then(() => {
+                  document.getElementById('file').value = null
+                  this.setState({
+                    file: []
+                  })
+                })
+            } else {
+              message.error('error', 2)
+            }
+          })
+            .catch(err => { console.log(err) })
+        } else {
+          message.warning('ไม่พบข้อมูล', 2)
+        }
       })
-        .catch(err => { console.log(err) })
-    }
   }
 
   TranSportSelect = (value) => {
-    console.log(value)
-    this.setState({
-      transportSelect: value
-    })
+    //console.log(value)
+    if (value > 0) {
+      this.setState({
+        transportSelect: value,
+        buttonUpload: false
+      })
+    }else{
+      this.setState({
+        buttonUpload: true
+      })
+    }
   }
 
   render() {
@@ -126,24 +158,33 @@ class CodWaiting extends Component {
           padding: "2% 0 10% 0",
           position: "absolute"
         }}>
-          <div>อัพโหลด COD</div>
-          <input type="file" id="file" onChange={this.importExcel} />
           <br />
-          <Select
-            style={{ width: 200 }}
-            onChange={this.TranSportSelect}
-          >
-            {this.state.tranSportList.map((data, index) => (
-              <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
-            ))}
-          </Select>
-          <br />
-          <br />
-          <Table columns={columns} dataSource={this.state.file} />
-          <br />
-          <Button block onClick={this.Upload}>upload</Button>
+          <Col lg={{ span: 6, offset: 2 }} >
+            <Card style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
+              <div style={{ textAlign: "center" }}>อัพโหลด COD</div>
+              <input type="file" id="file" onChange={this.importExcel} />
+              <br />
+              <label>
+                <span>บริษัทขนส่ง : </span>
+                <Select
+                  id={"transport"}
+                  style={{ width: 200 }}
+                  onChange={this.TranSportSelect}
+                >
+                  {this.state.tranSportList.map((data, index) => (
+                    <Option key={index} value={data.transport_company_number}>{data.transport_company_name}</Option>
+                  ))}
+                </Select>
+              </label>
+              <br />
+              <br />
+              <Button block onClick={this.Upload} disabled={this.state.buttonUpload}>upload</Button>
+            </Card>
+          </Col>
+          <Col lg={{ span: 13, offset: 1 }}>
+            <Table style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} size="small" columns={columns} dataSource={this.state.file} scroll={{ x: 500, y: 500 }} />
+          </Col>
         </div>
-
       </div>
     )
   }
