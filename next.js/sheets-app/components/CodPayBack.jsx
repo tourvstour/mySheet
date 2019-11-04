@@ -5,6 +5,7 @@ import { Button, Card, Select, Col, Table, message } from 'antd'
 import 'antd/dist/antd.css'
 import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
+import ExportExcel from './ExporotExcel'
 
 const { Option } = Select
 const columns = [{
@@ -179,7 +180,14 @@ class CodPayBack extends Component {
               </label>
               <br />
               <br />
-              <Button block onClick={this.Upload} disabled={this.state.buttonUpload}>upload</Button>
+              <Button block onClick={this.Upload} disabled={this.state.buttonUpload}>อัพโหลดข้อมูล</Button>
+            </Card>
+            <br/>
+            <Card style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
+            <label>
+                <span>ขั้นตอนการ Upload File Excel</span>
+                <ExportExcel />
+              </label>
             </Card>
           </Col>
           <Col lg={{ span: 13, offset: 1 }}>

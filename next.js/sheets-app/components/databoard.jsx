@@ -203,7 +203,7 @@ class databoard extends Component {
                             <h4>{this.state.AbsentRow} ออเดอร์</h4>
                         </Card.Grid>
                         <Card.Grid style={cardStyle}>
-                            <h3>200000000.00 .-</h3>
+                            <h3>00 .-</h3>
                             <h4>ปิดการขาย</h4>
                             <h4>-</h4>
                         </Card.Grid>

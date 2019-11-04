@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport CodPayBack from '../components/CodPayBack';\nimport NavBars from '../components/nav';\n\nconst payBack = () => __jsx(\"div\", null, __jsx(NavBars, null), __jsx(\"br\", null), __jsx(CodPayBack, null));\n\nexport default payBack;","map":null,"metadata":{},"sourceType":"module"}

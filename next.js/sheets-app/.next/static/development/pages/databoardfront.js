@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\databoardfront.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\dataBoardFront.js"],{
 
 /***/ "./apis/datas.jsx":
 /*!************************!*\
@@ -61549,21 +61549,21 @@ a:!(!b.characterData&&!b.characterDataOldValue)},d=this.i,f=0;f<d.length;f++)d[f
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx!./":
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx!./":
 /*!**************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx ***!
   \**************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/databoardfront", function() {
-      var mod = __webpack_require__(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/dataBoardFront", function() {
+      var mod = __webpack_require__(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx", function() {
-          if(!next.router.components["/databoardfront"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx")
-          next.router.update("/databoardfront", updatedPage)
+        module.hot.accept(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx", function() {
+          if(!next.router.components["/dataBoardFront"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx")
+          next.router.update("/dataBoardFront", updatedPage)
         })
       }
       return mod
@@ -84172,9 +84172,9 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/databoardfront.jsx":
+/***/ "./pages/dataBoardFront.jsx":
 /*!**********************************!*\
-  !*** ./pages/databoardfront.jsx ***!
+  !*** ./pages/dataBoardFront.jsx ***!
   \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -84185,7 +84185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_databoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/databoard */ "./components/databoard.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\dataBoardFront.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -84223,14 +84223,14 @@ var Front = function Front() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 0:
 /*!******************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
+  !*** multi next-client-pages-loader?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx ***!
   \******************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx!./");
 
 
 /***/ }),
@@ -84246,5 +84246,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=databoardfront.js.map
+},[[0,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=dataBoardFront.js.map

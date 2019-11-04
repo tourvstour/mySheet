@@ -1,0 +1,80 @@
+{
+  "mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-1!node_modules/antd/dist/antd.css": [
+    {
+      "modules": {
+        "byIdentifier": {},
+        "usedIds": {}
+      },
+      "chunks": {
+        "byName": {
+          "mini-css-extract-plugin": 0
+        },
+        "bySource": {},
+        "usedIds": [
+          0
+        ]
+      }
+    }
+  ],
+  "modules": {
+    "byIdentifier": {
+      "ignored node_modules/react-excel-workbook/node_modules/xlsx fs": 0,
+      "ignored node_modules/react-excel-workbook/node_modules/xlsx crypto": 1,
+      "ignored node_modules/react-excel-workbook/node_modules/xlsx stream": 2,
+      "ignored node_modules/readable-stream/lib util": 3,
+      "ignored node_modules/readable-stream/lib/internal/streams util": 4,
+      "css node_modules/css-loader/index.js??ref--5-1!node_modules/antd/dist/antd.css 0": 5
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5
+    }
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/runtime/main.js": 2,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\_app.js": 3,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\_error.js": 4,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\cod_payback.js": 5,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\cod_waiting.js": 6,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\contact.js": 7,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\dataBoardFront.js": 8,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\index.js": 9,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\login.js": 10,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\package.js": 11,
+      "static\\gLsCrwwo4FmUjqeJsQ_kV\\pages\\regiter.js": 12,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\_app.js": 13,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\_error.js": 14,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\cod_payback.js": 15,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\cod_waiting.js": 16,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\contact.js": 17,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\databoardfront.js": 18,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\index.js": 19,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\login.js": 20,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\package.js": 21,
+      "static\\QqjCF9hTfy7tAeeP_mUfU\\pages\\regiter.js": 22
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      2,
+      20,
+      21,
+      22
+    ]
+  }
+}

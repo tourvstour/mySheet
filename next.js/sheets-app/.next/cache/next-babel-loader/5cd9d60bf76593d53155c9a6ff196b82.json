@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport Regiter from '../components/Comp_regiter';\nimport Nav from '../components/nav';\n\nvar regiter = function regiter() {\n  return __jsx(\"div\", null, __jsx(Nav, null), __jsx(\"br\", null), __jsx(Regiter, null));\n};\n\nexport default regiter;","map":null,"metadata":{},"sourceType":"module"}

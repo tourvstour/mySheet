@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -379,6 +379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CheckLogin__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/CheckLogin */ "./components/CheckLogin.jsx");
 /* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-cookie */ "react-cookie");
 /* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_cookie__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _ExporotExcel__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ExporotExcel */ "./components/ExporotExcel.jsx");
 
 
 
@@ -389,6 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\CodPayBack.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
+
 
 
 
@@ -550,13 +552,13 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 152
+        lineNumber: 153
       },
       __self: this
     }, __jsx(_components_CheckLogin__WEBPACK_IMPORTED_MODULE_12__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153
+        lineNumber: 154
       },
       __self: this
     }), __jsx("div", {
@@ -568,13 +570,13 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 154
+        lineNumber: 155
       },
       __self: this
     }, __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 160
+        lineNumber: 161
       },
       __self: this
     }), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -584,7 +586,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 161
+        lineNumber: 162
       },
       __self: this
     }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -593,7 +595,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162
+        lineNumber: 163
       },
       __self: this
     }, __jsx("div", {
@@ -602,13 +604,13 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 163
+        lineNumber: 164
       },
       __self: this
     }, "\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14 shoping payback"), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 164
+        lineNumber: 165
       },
       __self: this
     }), __jsx("input", {
@@ -620,12 +622,6 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165
-      },
-      __self: this
-    }), __jsx("br", {
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 166
       },
       __self: this
@@ -635,16 +631,22 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
         lineNumber: 167
       },
       __self: this
-    }), __jsx("label", {
+    }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 168
       },
       __self: this
-    }, __jsx("span", {
+    }), __jsx("label", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 169
+      },
+      __self: this
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 170
       },
       __self: this
     }, "\u0E1A\u0E23\u0E34\u0E29\u0E31\u0E17\u0E02\u0E19\u0E2A\u0E48\u0E07 : "), __jsx(antd_lib_select__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -655,7 +657,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       onChange: this.TranSportSelect,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 170
+        lineNumber: 171
       },
       __self: this
     }, this.state.tranSportList.map((data, index) => __jsx(Option, {
@@ -663,19 +665,19 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       value: data.transport_company_number,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176
+        lineNumber: 177
       },
       __self: this
     }, data.transport_company_name)))), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 180
+        lineNumber: 181
       },
       __self: this
     }), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 181
+        lineNumber: 182
       },
       __self: this
     }), __jsx(antd_lib_button__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -684,17 +686,50 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       disabled: this.state.buttonUpload,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 182
+        lineNumber: 183
       },
       __self: this
-    }, "upload"))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    }, "\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25")), __jsx("br", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 185
+      },
+      __self: this
+    }), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      style: {
+        boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)"
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 186
+      },
+      __self: this
+    }, __jsx("label", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 187
+      },
+      __self: this
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 188
+      },
+      __self: this
+    }, "\u0E02\u0E31\u0E49\u0E19\u0E15\u0E2D\u0E19\u0E01\u0E32\u0E23 Upload File Excel"), __jsx(_ExporotExcel__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 189
+      },
+      __self: this
+    })))), __jsx(antd_lib_col__WEBPACK_IMPORTED_MODULE_1___default.a, {
       lg: {
         span: 13,
         offset: 1
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 185
+        lineNumber: 193
       },
       __self: this
     }, __jsx(antd_lib_table__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -710,7 +745,7 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 186
+        lineNumber: 194
       },
       __self: this
     }))));
@@ -719,6 +754,172 @@ class CodPayBack extends react__WEBPACK_IMPORTED_MODULE_8__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_cookie__WEBPACK_IMPORTED_MODULE_13__["withCookies"])(CodPayBack));
+
+/***/ }),
+
+/***/ "./components/ExporotExcel.jsx":
+/*!*************************************!*\
+  !*** ./components/ExporotExcel.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_excel_workbook__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-excel-workbook */ "react-excel-workbook");
+/* harmony import */ var react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd/dist/antd.css */ "./node_modules/antd/dist/antd.css");
+/* harmony import */ var antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_css__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\ExporotExcel.jsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const columns = [{
+  date: " 2019-01-23",
+  number: "820079564894",
+  price: "970",
+  nameCustomer: "ชื่อลูกค้า",
+  address: "ที่อยู่จัดส่งพัสดุ",
+  post: "99999",
+  phone: "080000007",
+  ex: "<==ลบข้อความตัวอย่างในบรรทัดนี้"
+}];
+
+class exportExcel extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      },
+      __self: this
+    }, __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }, __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      filename: "COD.xlsx",
+      element: __jsx("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, "1.\u0E14\u0E32\u0E27\u0E42\u0E2B\u0E25\u0E14\u0E41\u0E1A\u0E1A\u0E1F\u0E2D\u0E23\u0E4C\u0E21 Excel", " ", __jsx("img", {
+        src: "/static/excel.png",
+        width: "10%",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      })),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Sheet, {
+      data: columns,
+      name: "Sheet A",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "date",
+      value: "date",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E40\u0E25\u0E02\u0E1E\u0E31\u0E2A\u0E14\u0E38",
+      value: "number",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E23\u0E32\u0E04\u0E32\u0E2A\u0E34\u0E19\u0E04\u0E49\u0E32",
+      value: "nameCustomer",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E0A\u0E37\u0E48\u0E2D\u0E25\u0E39\u0E01\u0E04\u0E49\u0E32",
+      value: "address",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E17\u0E35\u0E48\u0E2D\u0E22\u0E39\u0E48\u0E08\u0E31\u0E14\u0E2A\u0E48\u0E07\u0E1E\u0E31\u0E2A\u0E14\u0E38",
+      value: "date",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E23\u0E2B\u0E31\u0E2A\u0E44\u0E1B\u0E23\u0E29\u0E13\u0E35",
+      value: "post",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "\u0E40\u0E1A\u0E2D\u0E23\u0E4C\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D",
+      value: "phone",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }), __jsx(react_excel_workbook__WEBPACK_IMPORTED_MODULE_1___default.a.Column, {
+      label: "",
+      value: "ex",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    })))), __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, "2.\u0E08\u0E31\u0E14\u0E17\u0E33 File Excel \u0E15\u0E32\u0E21\u0E41\u0E1A\u0E1A\u0E1F\u0E2D\u0E23\u0E4C\u0E21\u0E17\u0E35\u0E48\u0E01\u0E33\u0E2B\u0E19\u0E14"), __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36
+      },
+      __self: this
+    }, "3.\u0E04\u0E25\u0E34\u0E01\u0E1B\u0E38\u0E48\u0E21 \"\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E44\u0E1F\u0E25\u0E4C\" \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E17\u0E33\u0E01\u0E32\u0E23\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E44\u0E1F\u0E25\u0E4C "), __jsx("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37
+      },
+      __self: this
+    }, "4.\u0E19\u0E33\u0E40\u0E02\u0E49\u0E32 File Excel \u0E17\u0E35\u0E48\u0E21\u0E35\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 C.O.D \u0E41\u0E25\u0E49\u0E27 Upload \u0E42\u0E14\u0E22\u0E01\u0E14\u0E1B\u0E38\u0E48\u0E21 \"\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\""));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (exportExcel);
 
 /***/ }),
 
@@ -1122,7 +1323,7 @@ const payBack = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 7:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/cod_payback.jsx ***!
   \*************************************/
@@ -1274,6 +1475,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-cookie");
+
+/***/ }),
+
+/***/ "react-excel-workbook":
+/*!***************************************!*\
+  !*** external "react-excel-workbook" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-excel-workbook");
 
 /***/ }),
 
