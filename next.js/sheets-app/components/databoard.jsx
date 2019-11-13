@@ -177,20 +177,20 @@ class databoard extends Component {
                 <CheckLogin />
                 <Col lg={{ span: 6, offset: 1 }}>
                     <Card hoverable style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}>
-                        <Card.Grid onClick={() => this.Cards("alloder")} hoverable style={cardStyle}>
+                        {/* <Card.Grid onClick={() => this.Cards("alloder")} hoverable style={cardStyle}>
                             <h3>{this.state.AllOdersMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
                             <h4>รายการทั้งหมด</h4>
                             <h4>{this.state.AllOdersRow} ออเดอร์</h4>
+                        </Card.Grid> */}
+                        <Card.Grid onClick={() => this.Cards("payback")} hoverable style={cardStyle}>
+                            <h3>{this.state.PayBackMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
+                            <h4>ได้รับเงินครบถ้วน</h4>
+                            <h4>{this.state.PayBackRow} ออเดอร์</h4>
                         </Card.Grid>
                         <Card.Grid onClick={() => this.Cards("waiting")} hoverable style={cardStyle}>
                             <h3>{this.state.WaitingMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
                             <h4>รายการรอตรวจสอบ</h4>
                             <h4>{this.state.WaitingRow} ออเดอร์</h4>
-                        </Card.Grid>
-                        <Card.Grid onClick={() => this.Cards("payback")} hoverable style={cardStyle}>
-                            <h3>{this.state.PayBackMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
-                            <h4>ได้รับเงินครบถ้วน</h4>
-                            <h4>{this.state.PayBackRow} ออเดอร์</h4>
                         </Card.Grid>
                         <Card.Grid onClick={() => this.Cards("excess")} hoverable style={cardStyle}>
                             <h3>{this.state.ExcessMonney.toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท</h3>
@@ -241,7 +241,7 @@ class databoard extends Component {
                             }
                         } />
                     </Card>
-                    <Table size="small" columns={columns} dataSource={this.state.dataTable} style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }}scroll={{ x: 500, y: 500 }} />
+                    <Table size="small" columns={columns} dataSource={this.state.dataTable} style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} scroll={{ x: 500, y: 500 }} />
                 </Col >
             </div>
         )
@@ -254,37 +254,37 @@ const columns = [{
     dataIndex: 'dates',
     key: 'dates',
     width: 100
-  }, {
+}, {
     title: 'เลขพัสดุ',
     dataIndex: 'number',
     key: 'number',
     width: 150
-  }, {
+}, {
     title: 'ราคาสินค้า	',
     dataIndex: 'price',
     key: 'price',
     width: 100
-  }, {
+}, {
     title: 'ชื่อลูกค้า',
     dataIndex: 'customer',
     key: 'customer',
     width: 150
-  }, {
+}, {
     title: 'ที่อยู่จัดส่งพัสดุ',
     dataIndex: 'address',
     key: 'address',
     width: 250
-  }, {
+}, {
     title: 'รหัสไปรษณี',
     dataIndex: 'post',
     key: 'post',
     width: 100
-  }, {
+}, {
     title: 'เบอร์ติดต่อ',
     dataIndex: 'phone',
     key: 'phone',
     width: 150
-  }]
+}]
 
 const cardStyle = {
     width: '50%',

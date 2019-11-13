@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React, { Component } from 'react';\nimport Nav from '../components/nav';\nimport Err from '../error/500';\n\nvar Package = function Package() {\n  return __jsx(\"div\", null, __jsx(Nav, null), __jsx(\"br\", null), __jsx(Err, null));\n};\n\nexport default Package;","map":null,"metadata":{},"sourceType":"module"}

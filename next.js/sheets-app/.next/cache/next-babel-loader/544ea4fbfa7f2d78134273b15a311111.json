@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React, { Component } from 'react';\nimport Nav from '../components/nav';\nimport Err from '../error/400';\n\nvar indexs = function indexs() {\n  return __jsx(\"div\", null, __jsx(Nav, null), __jsx(\"br\", null), __jsx(Err, null));\n};\n\nexport default indexs;","map":null,"metadata":{},"sourceType":"module"}

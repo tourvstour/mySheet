@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\dataBoardFront.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\databoardfront.js"],{
 
 /***/ "./apis/datas.jsx":
 /*!************************!*\
@@ -349,7 +349,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\databoard.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\databoard.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement;
 
 
@@ -581,38 +581,7 @@ function (_Component) {
         __self: this
       }, __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
         onClick: function onClick() {
-          return _this3.Cards("alloder");
-        },
-        hoverable: true,
-        style: cardStyle,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 180
-        },
-        __self: this
-      }, __jsx("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 181
-        },
-        __self: this
-      }, this.state.AllOdersMonney.toLocaleString('en-US', {
-        minimumFractionDigits: 2
-      }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 182
-        },
-        __self: this
-      }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14"), __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 183
-        },
-        __self: this
-      }, this.state.AllOdersRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
-        onClick: function onClick() {
-          return _this3.Cards("waiting");
+          return _this3.Cards("payback");
         },
         hoverable: true,
         style: cardStyle,
@@ -627,7 +596,7 @@ function (_Component) {
           lineNumber: 186
         },
         __self: this
-      }, this.state.WaitingMonney.toLocaleString('en-US', {
+      }, this.state.PayBackMonney.toLocaleString('en-US', {
         minimumFractionDigits: 2
       }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
         __source: {
@@ -635,15 +604,15 @@ function (_Component) {
           lineNumber: 187
         },
         __self: this
-      }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E23\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A"), __jsx("h4", {
+      }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19"), __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 188
         },
         __self: this
-      }, this.state.WaitingRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      }, this.state.PayBackRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
         onClick: function onClick() {
-          return _this3.Cards("payback");
+          return _this3.Cards("waiting");
         },
         hoverable: true,
         style: cardStyle,
@@ -658,7 +627,7 @@ function (_Component) {
           lineNumber: 191
         },
         __self: this
-      }, this.state.PayBackMonney.toLocaleString('en-US', {
+      }, this.state.WaitingMonney.toLocaleString('en-US', {
         minimumFractionDigits: 2
       }), " \u0E1A\u0E32\u0E17"), __jsx("h4", {
         __source: {
@@ -666,13 +635,13 @@ function (_Component) {
           lineNumber: 192
         },
         __self: this
-      }, "\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E40\u0E07\u0E34\u0E19\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19"), __jsx("h4", {
+      }, "\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E23\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A"), __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 193
         },
         __self: this
-      }, this.state.PayBackRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
+      }, this.state.WaitingRow, " \u0E2D\u0E2D\u0E40\u0E14\u0E2D\u0E23\u0E4C")), __jsx(antd_lib_card__WEBPACK_IMPORTED_MODULE_2___default.a.Grid, {
         onClick: function onClick() {
           return _this3.Cards("excess");
         },
@@ -747,7 +716,7 @@ function (_Component) {
           lineNumber: 206
         },
         __self: this
-      }, "200000000.00 .-"), __jsx("h4", {
+      }, "00 .-"), __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 207
@@ -918,7 +887,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement;
 
 
@@ -61549,21 +61518,21 @@ a:!(!b.characterData&&!b.characterDataOldValue)},d=this.i,f=0;f<d.length;f++)d[f
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx!./":
-/*!**************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx ***!
-  \**************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx!./":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
+  \******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/dataBoardFront", function() {
-      var mod = __webpack_require__(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/databoardfront", function() {
+      var mod = __webpack_require__(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx", function() {
-          if(!next.router.components["/dataBoardFront"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/dataBoardFront.jsx */ "./pages/dataBoardFront.jsx")
-          next.router.update("/dataBoardFront", updatedPage)
+        module.hot.accept(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx", function() {
+          if(!next.router.components["/databoardfront"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/databoardfront.jsx */ "./pages/databoardfront.jsx")
+          next.router.update("/databoardfront", updatedPage)
         })
       }
       return mod
@@ -84172,9 +84141,9 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/dataBoardFront.jsx":
+/***/ "./pages/databoardfront.jsx":
 /*!**********************************!*\
-  !*** ./pages/dataBoardFront.jsx ***!
+  !*** ./pages/databoardfront.jsx ***!
   \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -84185,7 +84154,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_databoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/databoard */ "./components/databoard.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\dataBoardFront.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\databoardfront.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -84223,14 +84192,14 @@ var Front = function Front() {
 
 /***/ }),
 
-/***/ 0:
-/*!******************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx ***!
-  \******************************************************************************************************************************************************/
+/***/ 3:
+/*!**********************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx ***!
+  \**********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2FdataBoardFront&absolutePagePath=D%3A%5Creact%5Cwebs%5Cnext.js%5Csheets-app%5Cpages%5CdataBoardFront.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fdataboardfront&absolutePagePath=I%3A%5Cjobs%5Cnext.js%5Csheets-app%5Cpages%5Cdataboardfront.jsx!./");
 
 
 /***/ }),
@@ -84246,5 +84215,5 @@ module.exports = dll_b35e09dc2ca94ac6d9c1;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=dataBoardFront.js.map
+},[[3,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=databoardfront.js.map

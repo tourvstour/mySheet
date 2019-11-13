@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React, { Component } from 'react';\nimport Login from '../components/Comp_login';\nimport Nav from '../components/nav';\n\nconst logins = () => __jsx(\"div\", null, __jsx(Nav, null), __jsx(\"br\", null), __jsx(Login, null));\n\nexport default logins;","map":null,"metadata":{},"sourceType":"module"}

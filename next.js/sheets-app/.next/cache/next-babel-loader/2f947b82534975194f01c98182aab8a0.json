@@ -1,1 +1,0 @@
-{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport Databoard from '../components/databoard';\nimport NavBars from '../components/nav';\n\nconst Front = () => __jsx(\"div\", null, __jsx(NavBars, null), __jsx(\"br\", null), __jsx(Databoard, null));\n\nexport default Front;","map":null,"metadata":{},"sourceType":"module"}

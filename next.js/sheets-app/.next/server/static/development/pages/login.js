@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -318,7 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\Comp_login.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\Comp_login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
 
@@ -546,7 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\components\\nav.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\components\\nav.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
@@ -879,7 +879,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Comp_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Comp_login */ "./components/Comp_login.jsx");
 /* harmony import */ var _components_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/nav */ "./components/nav.jsx");
-var _jsxFileName = "D:\\react\\webs\\next.js\\sheets-app\\pages\\login.jsx";
+var _jsxFileName = "I:\\jobs\\next.js\\sheets-app\\pages\\login.jsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -915,14 +915,14 @@ const logins = () => __jsx("div", {
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!*******************************!*\
   !*** multi ./pages/login.jsx ***!
   \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\react\webs\next.js\sheets-app\pages\login.jsx */"./pages/login.jsx");
+module.exports = __webpack_require__(/*! I:\jobs\next.js\sheets-app\pages\login.jsx */"./pages/login.jsx");
 
 
 /***/ }),
