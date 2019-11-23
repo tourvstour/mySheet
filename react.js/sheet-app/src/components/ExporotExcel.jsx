@@ -3,7 +3,7 @@ import Workbook from 'react-excel-workbook'
 import excel from '../static/excel.png'
 const columns = [
     {
-        date: " 2019-01-23",
+        date: "2562-01-23",
         number: "820079564894",
         price: "970",
         nameCustomer: "ชื่อลูกค้า",

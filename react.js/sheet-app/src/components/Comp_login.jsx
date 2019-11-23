@@ -23,7 +23,7 @@ class C_login extends Component {
                 } else {
                     message.loading("ลงชื่อเข้าใช้งาน....", 1)
                         .then(() => {
-                            message.success("ลงชื่อเข้าใช้งาน", 3).then(() => window.location.href = "/databoardfront")
+                            message.success("ยินดีต้อนรับ " + res.map(a => a.user_store_name), 2).then(() => window.location.href = "/databoardfront")
                             cookies.set('user', user, { expires: dateExpires });
                             cookies.set('password', password, { expires: dateExpires })
                             cookies.set('storeName', res.map(a => a.user_store_name))

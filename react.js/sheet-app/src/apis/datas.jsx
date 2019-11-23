@@ -62,7 +62,7 @@ exports.TranSport = () => {
 
 
 //Reports 
-exports.AllOrders = (user, store) => {
+exports.AllOrders = (user, store, date) => {
     return fetch(url + allOrder, {
         method: "POST",
         headers: {
@@ -71,7 +71,8 @@ exports.AllOrders = (user, store) => {
         },
         body: JSON.stringify({
             user: user,
-            store: store
+            store: store,
+            date: date
         })
     })
         .then(res => res.json())
@@ -79,7 +80,7 @@ exports.AllOrders = (user, store) => {
             return res
         })
 }
-exports.WaitingOrders = (user, store) => {
+exports.WaitingOrders = (user, store, date) => {
     return fetch(url + waitingOrder, {
         method: "POST",
         headers: {
@@ -88,7 +89,8 @@ exports.WaitingOrders = (user, store) => {
         },
         body: JSON.stringify({
             user: user,
-            store: store
+            store: store,
+            date: date
         })
     })
         .then(res => res.json())
@@ -96,7 +98,7 @@ exports.WaitingOrders = (user, store) => {
             return res
         })
 }
-exports.PayBackOrders = (user, store) => {
+exports.PayBackOrders = (user, store, date) => {
     return fetch(url + payBackOrder, {
         method: "POST",
         headers: {
@@ -105,7 +107,8 @@ exports.PayBackOrders = (user, store) => {
         },
         body: JSON.stringify({
             user: user,
-            store: store
+            store: store,
+            date: date
         })
     })
         .then(res => res.json())
@@ -113,7 +116,7 @@ exports.PayBackOrders = (user, store) => {
             return res
         })
 }
-exports.Excess = (user, store) => {
+exports.Excess = (user, store, date) => {
     return fetch(url + excess, {
         method: "POST",
         headers: {
@@ -122,7 +125,8 @@ exports.Excess = (user, store) => {
         },
         body: JSON.stringify({
             user: user,
-            store: store
+            store: store,
+            date: date
         })
     })
         .then(res => res.json())
@@ -130,7 +134,7 @@ exports.Excess = (user, store) => {
             return res
         })
 }
-exports.Absent = (user, store) => {
+exports.Absent = (user, store, date) => {
     return fetch(url + absent, {
         method: "POST",
         headers: {
@@ -139,7 +143,8 @@ exports.Absent = (user, store) => {
         },
         body: JSON.stringify({
             user: user,
-            store: store
+            store: store,
+            date: date
         })
     })
         .then(res => res.json())

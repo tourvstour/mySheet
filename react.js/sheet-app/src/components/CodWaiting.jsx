@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import readXlsxFile from 'read-excel-file'
 import { Upfile, TranSport } from '../apis/datas'
 import { Button, Col, Select, Card, Table, message } from 'antd'
-import CheckLogin from '../components/CheckLogin'
 import { withCookies } from 'react-cookie'
 import ExportExcel from './ExporotExcel'
 const { Option } = Select
@@ -69,16 +68,21 @@ class CodWaiting extends Component {
     readXlsxFile(input.files[0], {})
       .then(res => {
         res.forEach(arr => {
-          let arr0 = new Date(
-            arr[0]).toLocaleDateString(),
-            arr1 = arr[1],
+          let arr0 = new Date(arr[0])
+          arr0.setFullYear(arr0.getFullYear() - 543)
+          let a = arr0.toLocaleDateString('th-TH', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          })
+          let arr1 = arr[1],
             arr2 = arr[2].toLocaleString('en-US', { minimumFractionDigits: 2 }),
             arr3 = arr[3],
             arr4 = arr[4],
             arr5 = arr[5],
             arr6 = arr[6]
           result.push({
-            dates: arr0.toString(),
+            dates: a.toString(),
             number: arr1,
             price: arr2,
             customer: arr3,
@@ -149,7 +153,6 @@ class CodWaiting extends Component {
   render() {
     return (
       <div style={{ padding: "2.7% 0 0 0" }}>
-        <CheckLogin />
         <div style={{
           backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
           width: "100%",

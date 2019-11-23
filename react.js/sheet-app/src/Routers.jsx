@@ -8,7 +8,7 @@ import cod_payback from './pages/cod_payback'
 import dataBoardFront from './pages/dataBoardFront'
 import login from './pages/login'
 import regiter from './pages/regiter'
-
+import orders from './pages/orders'
 const Routers = () => (
     <Switch>
         <Route exact path="/" component={Index} />
@@ -20,6 +20,7 @@ const Routers = () => (
         <Route path="/dataBoardFront" component={dataBoardFront} />
         <Route path="/login" component={login} />
         <Route path="/regiter" component={regiter} />
+        <Route path="/orders" component={orders} />
     </Switch>
 )
 

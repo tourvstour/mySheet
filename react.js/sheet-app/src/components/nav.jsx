@@ -18,34 +18,19 @@ class Navbars extends Component {
 
   componentDidMount() {
     const { cookies } = this.props
-    let user = cookies.get("user"),
-      pass = cookies.get("password")
-    if (user !== undefined && pass !== undefined) {
-      new Promise((resolve, reject) => {
-        resolve(Login(user, pass))
+    let storeName = cookies.get('storeName'),
+      email = cookies.get('email')
+    if (storeName !== undefined && email !== undefined) {
+      this.setState({
+        storeName: cookies.get('storeName'),
+        LoginStat: { text: "ร้าน " + cookies.get('storeName'), key: "/logout", icon: "logout" }
       })
-        .then(res => {
-          console.log(res)
-          if (res === false) {
-            cookies.remove("user")
-            cookies.remove("password")
-          } else {
-            cookies.set('storeName', res.map(a => a.user_store_name))
-            cookies.set('storeNumber', res.map(a => a.user_store_number))
-            cookies.set('email', res.map(a => a.user_profiles_email))
-            cookies.set('userNumber', res.map(a => a.user_profile_number))
-            this.setState({
-              storeName: cookies.get('storeName'),
-              LoginStat: { text: "ร้าน " + cookies.get('storeName'), key: "/logout", icon: "logout" }
-            })
-          }
-        })
     }
   }
 
   handClick = (e) => {
     let page = e.key
-    console.log(page)
+    //console.log(page)
     if (page === '/logout') {
       const { cookies } = this.props
       cookies.remove('email')
@@ -58,7 +43,6 @@ class Navbars extends Component {
     } else {
       window.location.href = page
     }
-
   }
   Mouse = (e) => {
     this.setState({
@@ -104,6 +88,7 @@ class Navbars extends Component {
               <Menu.ItemGroup>
                 <Menu.Item key="/cod_waiting">cod_waiting</Menu.Item>
                 <Menu.Item key="/cod_payback">cod_paybak</Menu.Item>
+                <Menu.Item key="/orders">จัดการออเดอร์</Menu.Item>
               </Menu.ItemGroup>
             </SubMenu>
           </Menu>

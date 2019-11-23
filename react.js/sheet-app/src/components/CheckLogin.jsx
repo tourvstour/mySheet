@@ -17,7 +17,7 @@ class CheckLogin extends Component {
                 resolve(Login(user, pass))
             })
                 .then(res => {
-                    console.log(res)
+                    // console.log(res)
                     if (res === false) {
                         message.loading("กรุณาทำการล็อคอินก่อนเข้าใช้งาน...", 1)
                             .then(() => window.location.href = "/login")
