@@ -357,10 +357,8 @@ class databoard extends Component {
             dataEdits: selectEdit,
             dateEdit: d
         })
-        console.log({ waiting_id, payback_id })
-        console.log(selectEdit)
-        console.log(d)
 
+        console.log(selectEdit)
     }
 
     ModalVisible = () => {
@@ -377,7 +375,6 @@ class databoard extends Component {
     }
     //
     FormEdit = () => {
-
         this.props.form.validateFields((e, v) => {
             if (!e) {
                 console.log(v)
@@ -387,7 +384,6 @@ class databoard extends Component {
     }
     //
     render() {
-        const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form
         const rowSelect = {
             onChange: this.rowSelection
         }
@@ -444,8 +440,6 @@ class databoard extends Component {
                 )
             }
         ]
-
-
         return (
             <div>
                 <Col lg={{ span: 22, offset: 1 }}>
@@ -517,70 +511,18 @@ class databoard extends Component {
                         visible={this.state.ModalVisible}
                         onCancel={this.ModalVisible}
                     >
-                        <Form layout="inline" onChange={this.FormEdit} >
-                            <Form.Item label={"วันที่"}>
-                                {getFieldDecorator('date', {
-                                    initialValue: this.state.dateEdit,
-                                    rules: [{
-                                        required: true
-                                    }]
-                                })(
-                                    <DatePicker locale={{ "dateFormat": "D-M-YYYY" }} onChange={this.EditDate}
-                                        defaultValue={this.state.dateEdit}
-                                    />
+                        <Input addonBefore="aa" id="" defaultValue={this.state.dataEdits.map(a => a.address)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.customer)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.dates)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.ids)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.number)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.phone)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.post)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.price)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.price_pay_back)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.transport_company_number)} />
+                        <Input id="" defaultValue={this.state.dataEdits.map(a => a.user_profile_number)} />
 
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"เลขพัสดุ"}>
-                                {getFieldDecorator('number', {
-                                    initialValue: this.state.dataEdits.map(a => a.number).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"ยอดส่ง"}>
-                                {getFieldDecorator('price', {
-                                    initialValue: this.state.dataEdits.map(a => a.price).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"ยอดรับ"}>
-                                {getFieldDecorator('price_pay_back', {
-                                    initialValue: this.state.dataEdits.map(a => a.price_pay_back).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"ชื่อลูกค้า"}>
-                                {getFieldDecorator('customer', {
-                                    initialValue: this.state.dataEdits.map(a => a.customer).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"ที่อยู่จัดส่งพัสดุ"}>
-                                {getFieldDecorator('address', {
-                                    initialValue: this.state.dataEdits.map(a => a.address).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"รหัสไปรษณี"}>
-                                {getFieldDecorator('post', {
-                                    initialValue: this.state.dataEdits.map(a => a.post).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                            <Form.Item label={"เบอร์ติดต่อ"}>
-                                {getFieldDecorator('phone', {
-                                    initialValue: this.state.dataEdits.map(a => a.phone).toString()
-                                })(
-                                    <Input />
-                                )}
-                            </Form.Item>
-                        </Form>
                     </Modal>
                 </div>
             </div>
@@ -588,8 +530,7 @@ class databoard extends Component {
     }
 }
 
-const froms = Form.create({ name: 'editfrom' })(databoard)
-export default withCookies(froms)
+export default withCookies(databoard)
 
 
 const cardStyle = {
