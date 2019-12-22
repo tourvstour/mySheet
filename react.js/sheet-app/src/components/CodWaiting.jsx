@@ -48,7 +48,9 @@ class CodWaiting extends Component {
       file: [],
       tranSportList: [],
       transportSelect: [],
-      buttonUpload: true
+      buttonUpload: true,
+      boxError: []
+
     }
   }
 
@@ -64,37 +66,57 @@ class CodWaiting extends Component {
 
   importExcel = () => {
     const input = document.getElementById('file')
-    let result = []
+    let result = [],
+      error = []
     readXlsxFile(input.files[0], {})
       .then(res => {
         res.forEach(arr => {
-          let arr0 = new Date(arr[0])
-          arr0.setFullYear(arr0.getFullYear() - 543)
-          let a = arr0.toLocaleDateString('th-TH', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-          })
-          let arr1 = arr[1],
-            arr2 = arr[2].toLocaleString('en-US', { minimumFractionDigits: 2 }),
-            arr3 = arr[3],
-            arr4 = arr[4],
-            arr5 = arr[5],
-            arr6 = arr[6]
-          result.push({
-            dates: a.toString(),
-            number: arr1,
-            price: arr2,
-            customer: arr3,
-            address: arr4,
-            post: arr5,
-            phone: arr6
-          })
+          if (arr[0] === null || arr[1] === null || arr[2] === null || arr[3] === null) {
+            //console.log("พบข้อผิดพลาดในไฟล์อัพโหลด")      
+            error.push({
+              "dates": arr[0],
+              "number": arr[1],
+              "price": arr[2],
+              "customer": arr[3],
+              "address": arr[4],
+              "post": arr[5],
+              "phone": arr[6]
+            })
+            this.setState({
+              boxError: error
+            })
+
+          } else {
+            let arr0 = new Date(arr[0])
+            arr0.setFullYear(arr0.getFullYear() - 543)
+            let a = arr0.toLocaleDateString('th-TH', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit'
+            })
+            let arr1 = arr[1],
+              arr2 = arr[2].toLocaleString('en-US', { minimumFractionDigits: 2 }),
+              arr3 = arr[3],
+              arr4 = arr[4],
+              arr5 = arr[5],
+              arr6 = arr[6]
+            result.push({
+              dates: a.toString(),
+              number: arr1,
+              price: arr2,
+              customer: arr3,
+              address: arr4,
+              post: arr5,
+              phone: arr6
+            })
+          }
         })
+
         var fill = result.filter((result) => {
           return result.number !== "เลขพัสดุ"
         })
         console.log(fill)
+        console.log(this.state.boxError)
         this.setState({
           file: fill
         })
@@ -154,11 +176,11 @@ class CodWaiting extends Component {
     return (
       <div style={{ padding: "2.7% 0 0 0" }}>
         <div style={{
-          backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
-          width: "100%",
-          height: "90%",
-          padding: "2% 0 10% 0",
-          position: "absolute"
+          // backgroundImage: "url('https://c.wallhere.com/photos/52/24/illustration_rocket_lift_off-875671.jpg!d')",
+          // width: "100%",
+          // height: "90%",
+          // padding: "2% 0 10% 0",
+          // position: "absolute"
         }}>
           <br />
           <Col lg={{ span: 6, offset: 2 }} >
@@ -192,7 +214,9 @@ class CodWaiting extends Component {
           </Col>
 
           <Col lg={{ span: 13, offset: 1 }}>
-            <Table style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} size="small" columns={columns} dataSource={this.state.file} scroll={{ x: 500, y: 500 }} />
+            <Table style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} size="small" columns={columns} title={()=>("ข้อมูลนำเข้า")} dataSource={this.state.file} scroll={{ x: 500, y: 500 }} />
+            <br />
+            <Table style={{ boxShadow: "0 3px 6px 0 rgba(0, 0, 0, 0.2)" }} size="small" columns={columns} title={()=>("ข้อมูลผิดพลาด")} dataSource={this.state.boxError} scroll={{ x: 500, y: 500 }} />
           </Col>
         </div>
       </div>

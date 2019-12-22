@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Icon, Col } from 'antd'
 import { withCookies } from 'react-cookie'
-import { Login } from '../apis/datas'
 
 const { SubMenu } = Menu
 const styleLeft = { float: "left" }

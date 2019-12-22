@@ -1,5 +1,5 @@
-var url = 'http://183.88.219.85:7079'
-var upload = '/upload',
+var url = 'http://183.88.219.85:7079',
+    upload = '/upload',
     payback = "/payback",
     regiter = "/regiter",
     transport = '/transport',
@@ -8,7 +8,11 @@ var upload = '/upload',
     payBackOrder = '/payBackOrder',
     absent = '/absent',
     excess = '/excess',
-    login = '/login'
+    seller='/seller',
+    cancels='/cancels',
+    login = '/login',
+    update = '/update',
+    updateOrder = '/updateOrder'
 
 //อัพโหลดไฟลexcel waiting
 exports.Upfile = (user, transport_comp, excel, store) => {
@@ -152,6 +156,42 @@ exports.Absent = (user, store, date) => {
             return res
         })
 }
+exports.Seller = (user, store, date) => {
+    return fetch(url + seller, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user,
+            store: store,
+            date: date
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+exports.Cancels = (user, store, date) => {
+    return fetch(url + cancels, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user,
+            store: store,
+            date: date
+        })
+    })
+        .then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
 //Regit
 exports.Regit = (dataRegit) => {
     return fetch(url + regiter, {
@@ -187,4 +227,39 @@ exports.Login = (user, pass) => {
         .then(res => {
             return res
         })
+}
+
+//update
+exports.Update = (dataEdits) => {
+    return fetch(url + update, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            'Content-Type': "application/json",
+        },
+        body: JSON.stringify({
+            dataEdits: dataEdits
+        })
+    }).then(res => res.json())
+        .then(res => {
+            return res
+        })
+}
+
+//updateUserData
+exports.updateOrder = (dataUpdate) => {
+    return fetch(url + updateOrder, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            'Content-Type': "application/json",
+        },
+        body: JSON.stringify({
+           dataUpdate
+        })
+    }).then(res => res.json())
+        .then(res => {
+            return res
+        })
+
 }
