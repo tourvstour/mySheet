@@ -20,7 +20,7 @@
     "react-dom": "16.10.2",
     "react-excel-workbook": "^0.0.4",
     "react-export-excel": "^0.5.3",
-    "read-excel-file": "^4.0.2",
+    "read-excel-file": "^5.5.0",
     "xlsx": "^0.15.1",
     "xlsx-parse-json": "^3.0.5"
   }
